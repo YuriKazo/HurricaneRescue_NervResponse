@@ -1,0 +1,12 @@
+[
+  {
+    "hurricaneID": "h1u2r3c4-0001-4fff-9c11-000000000002",
+    "hurricaneName": "Hurricane Ember",
+    "hurricaneCategory": 1,
+    "activeLevel": "INCOMING",
+    "currentZip": [
+      29412,
+      29414
+    ]
+  }
+]
