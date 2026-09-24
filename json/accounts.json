@@ -1,0 +1,40 @@
+[
+  {
+    "userID": "a1b2c3d4-0001-4aaa-9c11-000000000004",
+    "type": "VICTIM",
+    "firstName": "Tom",
+    "lastName": "Bradley",
+    "email": "tbradley@gmail.com",
+    "password": "stormcat7",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-9911"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": 29403
+    },
+    "pets": false,
+    "disabilities": "PARALYSIS",
+    "assignedRescuer": null
+  },
+  {
+    "userID": "a1b2c3d4-0002-4bbb-9c11-000000000002",
+    "type": "VOLUNTEER",
+    "firstName": "Jake",
+    "lastName": "Logano",
+    "email": "jlogano@email.com",
+    "password": "password",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-3344"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": 29403
+    },
+    "abilities": ["BOAT", "MEDICAL_ASSISTANCE", "HIGH_STRENGTH"],
+    "victimList": ["r1c2e3l4-0001-4ccc-9c11-000000000001"],
+    "currentTarget": "r1c2e3l4-0001-4ccc-9c11-000000000001"
+  }
+]
