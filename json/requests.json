@@ -1,0 +1,24 @@
+[
+    {
+        "requestID": "37b08b54-f977-45f3-a382-081942691d62",
+        "requestDescription": "broken leg",
+        "location": {
+            "longitude": -22.9401,
+            "latitude": 12.7765,
+            "zipLocation": 29103
+        },
+        "status": "Status.NOT_ACCEPTED",
+        "victimCount": 2
+    },
+    {
+        "requestID": "62029f22-a9ef-445e-aef6-2354194db37d",
+        "requestDescription": "broken down car",
+        "location": {
+            "longitude": -99.9401,
+            "latitude": 12.7335,
+            "zipLocation": 29411
+        },
+        "status": "Status.ACCEPTED",
+        "victimCount": 1
+    }
+]
