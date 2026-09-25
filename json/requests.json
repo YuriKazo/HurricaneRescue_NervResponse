@@ -7,7 +7,7 @@
             "latitude": 12.7765,
             "zipLocation": 29103
         },
-        "status": "Status.NOT_ACCEPTED",
+        "status": "NOT_ACCEPTED",
         "victimCount": 2
     },
     {
@@ -18,7 +18,7 @@
             "latitude": 12.7335,
             "zipLocation": 29411
         },
-        "status": "Status.ACCEPTED",
+        "status": "ACCEPTED",
         "victimCount": 1
     }
 ]
