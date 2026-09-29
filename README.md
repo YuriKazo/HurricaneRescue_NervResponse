@@ -4,3 +4,9 @@ Hurricane prone areas often face recurring and life-threatening challenges durin
 ## Requirements
 [Requirements Spreadsheet](docs/requirements.pdf)
 
+## Code Class Diagram
+[UML Class Diagram](docs/uml-class-diagram.pdf)
+
+[UML Sequence Diagram 1](docs/uml-sequence-diagram1.pdf)
+
+[UML Sequence Diagram 2](docs/uml-sequence-diagram2.pdf)
