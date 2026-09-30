@@ -3,22 +3,26 @@ Hurricane prone areas often face recurring and life-threatening challenges durin
 
 ## Requirements
 <a href="docs/requirements.pdf">
-  <img src="docs/images/requirements-spreadsheet.png" alt="requirements spreadsheet" width="50">
+  <img src="docs/images/requirements-spreadsheet.png" alt="requirements spreadsheet" width="10">
 </a>
-<span>[Requiremenst Spreadsheet](docs/requirements.pdf)</span>
+<br>
+<a href="docs/requirements.pdf">Requirements Spreadsheet</a>
 
 ## Code Class Diagram
 <a href="docs/uml-class-diagram.pdf">
-  <img src="docs/images/uml-class-diagram.png" alt="uml class diagram" width="50">
+  <img src="docs/images/uml-class-diagram.png" alt="uml class diagram" width="10">
 </a>
-<span>[UML Class Diagram](docs/uml-class-diagram.pdf)<span>
+<br>
+<a href="docs/uml-class-diagram.pdf">UML Class Diagram</a>
 
 <a href="docs/uml-sequence-diagram1.pdf">
-  <img src="docs/images/uml-sequence-diagram.png" alt="uml sequence diagram 1" width="50">
+  <img src="docs/images/uml-sequence-diagram.png" alt="uml sequence diagram 1" width="10">
 </a>
-<span>[UML Sequence Diagram 1](docs/uml-sequence-diagram1.pdf)<span>
+<br>
+<a href="docs/uml-sequence-diagram1.pdf">UML Sequence Diagram 1</a>
 
 <a href="docs/uml-sequence-diagram2.pdf">
-  <img src="docs/images/uml-sequence-diagram.png" alt="uml sequence diagram 2" width="50">
+  <img src="docs/images/uml-sequence-diagram.png" alt="uml sequence diagram 2" width="10">
 </a>
-<span>[UML Sequence Diagram 2](docs/uml-sequence2.pdf)<span>
+<br>
+<a href="docs/uml-sequence-diagram2.pdf">UML Sequence Diagram 2</a>
