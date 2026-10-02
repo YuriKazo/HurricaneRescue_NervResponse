@@ -11,10 +11,10 @@ public class ReliefRequest {
     private UUID requestId;
 
     public ReliefRequest(String description, PriorityLevel level, Location location, int victimCount){
-
+        
     }
 
-    public ReliefRequest(UUID id, String description, PriorityLevel level, Location location, int victimCount){
+    public ReliefRequest(UUID id, Status status, String description, PriorityLevel level, Location location, int victimCount){
 
     }
 
@@ -29,7 +29,7 @@ public class ReliefRequest {
     public void changePriority(PrioritiyLevel priorityLevel){
 
     }
-    
+
     public UUID getID(){
         return null;
     }
