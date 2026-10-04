@@ -1,0 +1,13 @@
+package com.model;
+
+public enum Abilities {
+    POWER_TOOLS,
+    CAR,
+    BOAT,
+    MEDICAL_ASSISTANCE,
+    SWIMMING,
+    HIGH_STRENGTH,
+    MULTILINGUAL,
+    RECOVERY_SPECIALIZED,
+    ELECTRICAL_SPECIALIZED
+}
