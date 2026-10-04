@@ -34,4 +34,8 @@ public class AccountList {
 	public boolean saveAccount() {
 		return true;
 	}
+
+	public ArrayList<Account> getUsers(){
+		return users;
+	}
 }
