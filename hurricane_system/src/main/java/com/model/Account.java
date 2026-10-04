@@ -41,7 +41,39 @@ public class Account {
 
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
 	public UUID getID() {
 		return userID;
+	}
+
+	public ArrayList<Location> getSavedLocations() {
+		return savedLocations;
+	}
+
+	public ArrayList<Account> getSavedAccounts() {
+		return savedAccounts;
+	}
+
+	public ArrayList<String> getEmergencyContact() {
+		return emergencyContact;
+	}
+
+	public Location getCurrentLocation() {
+		return currentLocation;
 	}
 }
