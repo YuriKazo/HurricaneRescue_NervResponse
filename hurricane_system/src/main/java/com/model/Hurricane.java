@@ -11,9 +11,29 @@ public class Hurricane {
     private ArrayList<String> currentZip;
 
     public Hurricane(String name, int category, ActiveLevel level, ArrayList<String> zip){
-
+        hurricaneName = name;
+        hurricaneCategory = category;
+        activeLevel = level;
+        currentZip = zip;
     }
+    
+	public String getHurricaneName() {
+		return hurricaneName;
+	}
+
+	public int getHurricaneCategory() {
+		return hurricaneCategory;
+	}
+
+	public UUID getHurricaneID() {
+		return hurricaneID;
+	}
+
+	public ActiveLevel getActiveLevel() {
+		return activeLevel;
+	}
+
     public ArrayList<String> getHurricaneZip(){
-        return new ArrayList<String>();
+        return currentZip;
     }
 }
