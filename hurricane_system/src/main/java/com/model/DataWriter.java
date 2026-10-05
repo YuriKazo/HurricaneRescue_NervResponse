@@ -3,6 +3,9 @@ package com.model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -12,7 +15,7 @@ public static boolean saveAccounts(){
     AccountList accountList = AccountList.getInstance();
     //ArrayList<Account> accounts = accountList.getUsers();
 
-    // hard code
+    // hard coded
     ArrayList<Account> accounts = new ArrayList<Account>();
     accounts.add(new Victim("David", "dsmith@gmail.com", "Smith", "password123"));
     accounts.add(new Volunteer("Mark", "mbryant@gmail.com", "Byrant", "password321"));
@@ -69,35 +72,52 @@ public static JSONObject getAccountJSON(Account account) {
 
 
 public static boolean saveShelters(){
-    /* 
-    ShelterList shelterList = ShelterList.getInstance();
-    ArrayList<Shelter> shelters = shelterList.getShelters();
+    
+    //ShelterList shelterList = ShelterList.getInstance();
+    //ArrayList<Shelter> shelters = shelterList.getShelters();
 
-    // hard code later
+    // hard coded
+    ArrayList<Shelter> shelters = new ArrayList<Shelter>();
+    shelters.add(new Shelter(new Location(72.4, 82.34)));
+    shelters.add(new Shelter(UUID.randomUUID(), 200, 122, new Location(84.12,65.32), "East St", new ArrayList<Capabilities>(List.of(Capabilities.FOOD,Capabilities.WATER)), 20));
+    JSONArray jsonShelters = new JSONArray();
 
-    JSONArray jsonAccounts = new JSONArray();
-
+    //creates the JSON objects
     for(int i = 0; i < shelters.size(); i++){
-        jsonAccounts.add(getShelterJSON(shelters.get(i)));
-
+        jsonShelters.add(getShelterJSON(shelters.get(i)));
     }
-    */
+
+    try (FileWriter file = new FileWriter(SHELTER_TEMP_FILE_NAME)){
+        file.write(jsonShelters.toJSONString());
+        file.flush();
+
+    } catch (IOException e){
+        e.printStackTrace();
+    }
     return true;
 }
 
-/* 
+
 public static JSONObject getShelterJSON(Shelter shelter){
     JSONObject shelterDetails = new JSONObject();
-    shelterDetails.put(SHELTER_ID, shelter.getId().toString());
+    shelterDetails.put(SHELTER_ID, shelter.getID().toString());
     shelterDetails.put(SHELTER_TOTAL_OCCUPANCY, shelter.getTotalOccupancy());
     shelterDetails.put(SHELTER_CURRENT_OCCUPANCY, shelter.getCurrentOccupancy());
-    shelterDetails.put(SHELTER_LOCATION, shelter.getLocation());
-    shelterDetails.put(SHELTER_STREET, shelter.getAge());
-    shelterDetails.put(SHELTER_CAPABILITIES, shelter.getPhoneNumber());
-    shelterDetails.put(SHELTER_WATER_CAPACITY, shelter.getPhoneNumber());
+    shelterDetails.put(SHELTER_LOCATION, getLocationJSON(shelter.getLocation()));
+    shelterDetails.put(SHELTER_STREET, shelter.getStreet());
+    shelterDetails.put(SHELTER_CAPABILITIES, shelter.getCapabilities());
+    shelterDetails.put(SHELTER_WATER_CAPACITY, shelter.getWaterCapacity());
     return shelterDetails;
 }
-*/
+
+
+public static JSONObject getLocationJSON(Location location){
+    JSONObject locationDetails = new JSONObject();
+    locationDetails.put(LOCATION_LONGITUDE,location.getLongitudeCoord());
+    locationDetails.put(LOCATION_LATITUDE,location.getLatitudeCoord());
+    locationDetails.put(LOCATION_ZIP_LOCATION, location.getZip());
+    return locationDetails;
+}
 
 public static boolean saveReliefRequests(){
     return true;
@@ -105,5 +125,6 @@ public static boolean saveReliefRequests(){
 
 public static void main(String[] args) {
     saveAccounts();
+    saveShelters();
 }
 }
