@@ -15,6 +15,7 @@ public class Account {
 	protected Location currentLocation;
 
 	public Account(String firstName, String email, String lastName, String passWord) {
+		this.userID = UUID.randomUUID();
 		this.firstName = firstName;
 		this.email = email;
 		this.lastName = lastName;

@@ -19,6 +19,7 @@ public class Victim extends Account{
         super(id, firstName, email, lastName, passWord);
         this.pets = pets;
         this.disabilities = disabilities;
+        this.assignedRescuer = null;
     }
     
     public void registerDisabilities(){

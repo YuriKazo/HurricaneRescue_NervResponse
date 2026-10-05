@@ -8,7 +8,8 @@ public class AccountList {
 	private ArrayList<Account> users;
 
 	private AccountList() {
-		users = DataLoader.getAccounts();
+		//users = DataLoader.getAccounts();
+		users = new ArrayList<Account>();
 	}
 
 	public static AccountList getInstance() {
