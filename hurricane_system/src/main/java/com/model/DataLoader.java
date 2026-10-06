@@ -28,21 +28,21 @@ public class DataLoader {
                 String[] userSavedLocations = (String[]) accountJson.get("savedLocations");
                 Accounts[] userSavedAccounts = (Account[]) accountJson.get("savedAccounts");
                 String[] userEmergencyContacts = (String[]) accountJson.get("emergencyContacts");
-                Location[] userCurrentLocations = (Location[]) accountJson.get("currentLocations");
+                Location userCurrentLocations = (Location) accountJson.get("currentLocations");
 
                 if (userType.equals("VICTIM")) {
                     boolean pets = (boolean) accountJson.get("pets");
-                    String[] disabilities = (String[]) accountJson.get("disabilities");
+                    //ArrayList<Disabilities> disabilities = (ArrayList<Disabilities>) accountJson.get("disabilities");
                     Account assignedRescuer = (Account) accountJson.get("assignedRescuer");
                     accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
                 }
                 if (userType.equals("VOLUNTEER")) {
-                    ArrayList<Abilities> abilities = (ArrayList<Abilities>) accountJson.get("abilities");
+                    //ArrayList<Abilities> abilities = (ArrayList<Abilities>) accountJson.get("abilities");
                     UUID victimListId = UUID.fromString(accountJson.get("victimList").toString());
                     UUID currentTargetId = UUID.fromString(accountJson.get("currentTarget").toString());
                     accounts.add(new Volunteer(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, abilities, victimListId, currentTargetId));
                 }
-                if (userType.equals("ADMIN"))) {
+                if (userType.equals("ADMIN")) {
                     ArrayList<Shelter> shelters = (ArrayList<Shelter>) accountJson.get("shelters"));
                     ArrayList<ReliefRequest> requestList = (ArrayList<ReliefRequest>) accountJson.get("requestList");
                     accounts.add(new Admin(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, shelters, requestList));
@@ -67,7 +67,12 @@ public class DataLoader {
                 String shelterName = (String) shelterJson.get("name");
                 String shelterLocation = (String) shelterJson.get("location");
                 int shelterCapacity = Integer.parseInt(shelterJson.get("capacity").toString());
-                shelters.add(new Shelter(shelterID, shelterName, shelterLocation, shelterCapacity));
+                Location location = (Location) shelterJson.get("location");
+                String street = (String) shelterJson.get("street");
+                //ArrayList<Capabilities> capabilities = (ArrayList<Capabilities>) shelterJson.get("capabilities");
+                int waterCapacity = Integer.parseInt(shelterJson.get("waterCapacity").toString());
+
+                shelters.add(new Shelter(shelterID, shelterName, shelterLocation, shelterCapacity, location, street, capabilities, waterCapacity));
             }
 
         } catch (Exception e) {
@@ -78,14 +83,19 @@ public class DataLoader {
     public static ArrayList<ReliefRequest> getReliefRequests() {
         ArrayList<ReliefRequest> reliefRequests = new ArrayList<>();
         try {
-            FileReader reader = new FileReader("reliefRequests.json");
+            FileReader reader = new FileReader("reliefs.json");
             JSONParser parser = new JSONParser();
             JSONArray reliefRequestsArray = (JSONArray) parser.parse(reader);
 
             for (int i = 0; i < reliefRequestsArray.size(); i++) {
                 JSONObject reliefRequestJson = (JSONObject) reliefRequestsArray.get(i);
                 UUID requestID = UUID.fromString(reliefRequestJson.get("requestID").toString());
-                
+                String requestDescription = (String) reliefRequestJson.get("requestDescription");
+                Location location = (Location) reliefRequestJson.get("location");
+                Status status = Status.valueOf(reliefRequestJson.get("status").toString());
+                int victimCount = Integer.parseInt(reliefRequestJson.get("victimCount").toString());
+
+                reliefRequests.add(new ReliefRequest(requestID, requestDescription, location, status, victimCount));
             }
 
         } catch (Exception e) {
