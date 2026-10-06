@@ -3,7 +3,7 @@ package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Account {
+public abstract class Account {
 	protected String firstName;
 	protected String lastName;
 	protected String email;
@@ -13,21 +13,24 @@ public class Account {
 	protected ArrayList<Account> savedAccounts;
 	protected ArrayList<String> emergencyContact;
 	protected Location currentLocation;
+	protected AccountType type;
 
-	public Account(String firstName, String email, String lastName, String passWord) {
+	public Account(String firstName, String email, String lastName, String passWord, AccountType accountType) {
 		this.userID = UUID.randomUUID();
 		this.firstName = firstName;
 		this.email = email;
 		this.lastName = lastName;
 		this.password = passWord;
+		this.type = accountType;
 	}
 
-	public Account(UUID id, String firstName, String email, String lastName, String passWord) {
+	public Account(UUID id, String firstName, String email, String lastName, String passWord, AccountType accountType) {
 		this.userID = id;
 		this.firstName = firstName;
 		this.email = email;
 		this.lastName = lastName;
 		this.password = passWord;
+		this.type = accountType;
 	}
 
 	public boolean isMatch(String username, String password) {

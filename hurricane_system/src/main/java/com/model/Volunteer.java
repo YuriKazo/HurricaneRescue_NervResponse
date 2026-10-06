@@ -8,13 +8,13 @@ public class Volunteer extends Account{
     private ReliefRequest currentTarget;
 
     public Volunteer(String firstName, String email, String lastName, String passWord){
-        super(firstName, email, lastName, passWord);
+        super(firstName, email, lastName, passWord, AccountType.VOLUNTEER);
         abilities = new ArrayList<Abilities>();
         currentTarget = null;
     }
 
     public Volunteer(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Abilities> abilities){
-        super(id, firstName, email, lastName, passWord);
+        super(id, firstName, email, lastName, passWord, AccountType.VOLUNTEER);
         this.abilities = abilities;
     }
 
