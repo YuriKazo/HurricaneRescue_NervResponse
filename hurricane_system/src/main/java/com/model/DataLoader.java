@@ -29,9 +29,24 @@ public class DataLoader {
                 Accounts[] userSavedAccounts = (Account[]) accountJson.get("savedAccounts");
                 String[] userEmergencyContacts = (String[]) accountJson.get("emergencyContacts");
                 Location[] userCurrentLocations = (Location[]) accountJson.get("currentLocations");
-                boolean pets = (boolean) accountJson.get("pets");
-                
 
+                if (userType.equals("VICTIM")) {
+                    boolean pets = (boolean) accountJson.get("pets");
+                    String[] disabilities = (String[]) accountJson.get("disabilities");
+                    Account assignedRescuer = (Account) accountJson.get("assignedRescuer");
+                    accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
+                }
+                if (userType.equals("VOLUNTEER")) {
+                    ArrayList<Abilities> abilities = (ArrayList<Abilities>) accountJson.get("abilities");
+                    UUID victimListId = UUID.fromString(accountJson.get("victimList").toString());
+                    UUID currentTargetId = UUID.fromString(accountJson.get("currentTarget").toString());
+                    accounts.add(new Volunteer(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, abilities, victimListId, currentTargetId));
+                }
+                if (userType.equals("ADMIN"))) {
+                    ArrayList<Shelter> shelters = (ArrayList<Shelter>) accountJson.get("shelters"));
+                    ArrayList<ReliefRequest> requestList = (ArrayList<ReliefRequest>) accountJson.get("requestList");
+                    accounts.add(new Admin(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, shelters, requestList));
+                }
 
             }
         } catch (Exception e) {

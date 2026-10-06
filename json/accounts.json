@@ -15,7 +15,7 @@
       "zipLocation": 29403
     },
     "pets": false,
-    "disabilities": "PARALYSIS",
+    "disabilities": ["PARALYSIS"],
     "assignedRescuer": null
   },
   {
