@@ -13,15 +13,15 @@ Hurricane prone areas often face recurring and life-threatening challenges durin
 </a>
 <a href="docs/uml-class-diagram.pdf">UML Class Diagram</a>
 <br>
-<a href="docs/sequence1.pdf">
+<a href="docs/uml-sequence-diagram1.pdf">
   <img src="docs/images/uml-sequence-diagram.png" alt="uml sequence diagram 1" width="20">
 </a>
-<a href="docs/sequence1.pdf">UML Sequence Diagram 1</a>
+<a href="docs/uml-sequence-diagram1.pdf">UML Sequence Diagram 1</a>
 <br>
-<a href="docs/sequence2.pdf">
+<a href="docs/uml-sequence-diagram2.pdf">
   <img src="docs/images/uml-sequence-diagram.png" alt="uml sequence diagram 2" width="20">
 </a>
-<a href="docs/sequence2.pdf">UML Sequence Diagram 2</a>
+<a href="docs/uml-sequence-diagram2.pdf">UML Sequence Diagram 2</a>
 
 ## Project Board
 <a href="https://github.com/users/YuriKazo/projects/1">

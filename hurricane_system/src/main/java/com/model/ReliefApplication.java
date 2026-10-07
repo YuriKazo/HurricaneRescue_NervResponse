@@ -30,178 +30,91 @@ public class ReliefApplication {
 		return reliefApplication;
 	}
 
-	private boolean isLoggedIn() {
-		return currentAccount != null;
-	}
-
 	public void makeRequest(String description, PriorityLevel level, Location location, int victimCount) {
-		if (!isLoggedIn()) return;
 
-		if (reliefRequestList.addReliefRequest(description, level, location, victimCount)) {
-			reliefRequestList.saveReliefRequest();
-		}
 	}
 
 	public boolean login(String email, String passWord) {
-		Account account = accountList.getAccount(email, passWord);
-		if (account == null) return false;
-
-		currentAccount = account;
-		adminFlag = account instanceof Admin;
-		volunteerFlag = account instanceof Volunteer;
 		return true;
 	}
 
 	public void logout() {
-		currentAccount = null;
-		currentShelter = null;
-		currentRequest = null;
-		adminFlag = false;
-		volunteerFlag = false;
+
 	}
 
 	public void registerDisabilities() {
-		if (currentAccount instanceof Victim) {
-			((Victim) currentAccount).registerDisabilities();
-			accountList.saveAccount();
-		}
+
 	}
 
 	public void registerPets() {
-		if (currentAccount instanceof Victim) {
-			((Victim) currentAccount).registerPets();
-			accountList.saveAccount();
-		}
+
 	}
 
 	public Account createAccount(String fN, String lN, String email, String pW) {
-		if (!accountList.addUser(fN, lN, email, pW)) return null;
-
-		return accountList.getAccount(email, pW);
+		return null;
 	}
 
 	public void markComplete() {
-		if (currentAccount instanceof Victim) {
-			((Victim) currentAccount).markComplete();
-		} else if (currentAccount instanceof Volunteer) {
-			((Volunteer) currentAccount).markComplete();
-		}
 
-		if (currentRequest != null) {
-			currentRequest.markComplete();
-			reliefRequestList.saveReliefRequest();
-		}
 	}
 
 	public Hurricane viewHurricane() {
-		return activeHurricane;
+		return null;
 	}
 
 	public Account viewAccount(UUID id) {
-		return accountList.getAccount(id);
+		return null;
 	}
 
 	public void saveAccount(UUID id) {
-		if (accountList.getAccount(id) == null) return;
 
-		accountList.saveAccount();
 	}
 
 	public void removeAccount(UUID id) {
-		if (!isLoggedIn()) return;
 
-		// admins can remove anyone; everyone else can only remove themselves
-		if (!adminFlag && !currentAccount.getID().equals(id)) return;
-
-		if (accountList.removeAccount(id) && currentAccount.getID().equals(id)) {
-			logout();
-		}
 	}
 
 	public void makeContact(int phone) {
-		if (!isLoggedIn()) return;
 
-		currentAccount.makeContact(phone);
-		accountList.saveAccount();
 	}
 
 	public void removeContact(int phone) {
-		if (!isLoggedIn()) return;
 
-		currentAccount.removeContact(phone);
-		accountList.saveAccount();
 	}
 
 	public ReliefRequest getNearestRequest(UUID id) {
-		Account account = accountList.getAccount(id);
-
-		if (account instanceof Volunteer) {
-			return ((Volunteer) account).getNearestRequest();
-		}
 		return null;
 	}
 
 	public String getContact(Account account) {
-		if (currentAccount instanceof Volunteer) {
-			return ((Volunteer) currentAccount).getContact(account);
-		}
 		return "";
 	}
 
 	public ArrayList<ReliefRequest> getAvailableRequests() {
-		ArrayList<ReliefRequest> available = new ArrayList<ReliefRequest>();
-
-		for (ReliefRequest request : reliefRequestList.getReliefRequests()) {
-			if (request.getStatus() == Status.NOT_ACCEPTED) {
-				available.add(request);
-			}
-		}
-		return available;
+		return null;
 	}
 
 	public void updateOccupancy(int occupancy) {
-		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateOccupancy(occupancy);
-		shelterList.saveShelter();
 	}
 
 	public void updateTotalOccupancy(int totalOccupancy) {
-		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateTotalOccupancy(totalOccupancy);
-		shelterList.saveShelter();
 	}
 
 	public void changeRequestStatus(Status status) {
-		if (currentRequest == null) return;
 
-		currentRequest.changeRequestStatus(status);
-		reliefRequestList.saveReliefRequest();
 	}
 
 	public void changePriority(PriorityLevel level) {
-		if (currentRequest == null) return;
 
-		currentRequest.changePriority(level);
-		reliefRequestList.saveReliefRequest();
 	}
 
 	public void acceptRequest(UUID id) {
-		if (!volunteerFlag) return;
 
-		ReliefRequest request = reliefRequestList.getReliefRequest(id);
-		if (request == null) return;
-
-		currentRequest = request;
-		currentRequest.changeRequestStatus(Status.ACCEPTED);
-		reliefRequestList.saveReliefRequest();
 	}
 
 	public void updateWaterLeft(int water) {
-		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateWaterLeft(water);
-		shelterList.saveShelter();
 	}
 }

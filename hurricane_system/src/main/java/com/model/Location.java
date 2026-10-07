@@ -5,10 +5,9 @@ public class Location {
     private double latitude;
     private String zipLocation;
 
-    public Location(double longitude, double latitude, String zipLocation){
+    public Location(double longitude, double latitude){
         this.longitude = longitude;
         this.latitude = latitude;
-        this.zipLocation = zipLocation;
     }
 
     public double getLongitudeCoord(){

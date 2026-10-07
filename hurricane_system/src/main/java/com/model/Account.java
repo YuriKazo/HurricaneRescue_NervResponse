@@ -16,7 +16,12 @@ public abstract class Account {
 	protected AccountType type;
 
 	public Account(String firstName, String email, String lastName, String passWord, AccountType accountType) {
-		this(UUID.randomUUID(), firstName, email, lastName, passWord, accountType);
+		this.userID = UUID.randomUUID();
+		this.firstName = firstName;
+		this.email = email;
+		this.lastName = lastName;
+		this.password = passWord;
+		this.type = accountType;
 	}
 
 	public Account(UUID id, String firstName, String email, String lastName, String passWord, AccountType accountType) {
@@ -26,27 +31,18 @@ public abstract class Account {
 		this.lastName = lastName;
 		this.password = passWord;
 		this.type = accountType;
-		this.savedLocations = new ArrayList<Location>();
-		this.savedAccounts = new ArrayList<Account>();
-		this.emergencyContact = new ArrayList<String>();
 	}
 
 	public boolean isMatch(String username, String password) {
-		if (username == null || password == null) return false;
-
-		return this.email.equalsIgnoreCase(username) && this.password.equals(password);
+		return true;
 	}
 
 	public void makeContact(int phone) {
-		String contact = String.valueOf(phone);
 
-		if (!emergencyContact.contains(contact)) {
-			emergencyContact.add(contact);
-		}
 	}
 
 	public void removeContact(int phone) {
-		emergencyContact.remove(String.valueOf(phone));
+
 	}
 
 	public String getFirstName() {
@@ -67,10 +63,6 @@ public abstract class Account {
 
 	public UUID getID() {
 		return userID;
-	}
-
-	public AccountType getType() {
-		return type;
 	}
 
 	public ArrayList<Location> getSavedLocations() {

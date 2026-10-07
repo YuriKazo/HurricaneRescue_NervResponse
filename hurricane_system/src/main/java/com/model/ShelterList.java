@@ -19,23 +19,18 @@ public class ShelterList {
 	}
 
 	public Shelter getShelter(Location location) {
-		for (Shelter shelter : shelters) {
-			if (shelter.getLocation().equals(location)) {
-				return shelter;
-			}
-		}
 		return null;
 	}
 
 	public boolean addShelter(Location location) {
-		return shelters.add(new Shelter(location));
+		return true;
 	}
 
 	public boolean removeShelter(Location location) {
-		return shelters.remove(new Shelter(location));
+		return true;
 	}
 
 	public boolean saveShelter() {
-		return DataWriter.saveShelters();
+		return true;
 	}
 }
