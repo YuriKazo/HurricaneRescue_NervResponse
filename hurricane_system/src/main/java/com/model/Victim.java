@@ -9,14 +9,16 @@ public class Victim extends Account{
     private Volunteer assignedRescuer;
 
     public Victim(String firstName, String email, String lastName, String passWord){
-        super(firstName, email, lastName, passWord);
+        super(firstName, email, lastName, passWord, AccountType.VICTIM);
+        type = AccountType.VICTIM;
         pets = false;
         disabilities = new ArrayList<Disabilities>();
         assignedRescuer = null;
     }
 
     public Victim(UUID id, String firstName, String email, String lastName, String passWord, boolean pets, ArrayList<Disabilities> disabilities){
-        super(id, firstName, email, lastName, passWord);
+        super(id, firstName, email, lastName, passWord, AccountType.VICTIM);
+        this.type = AccountType.VICTIM;
         this.pets = pets;
         this.disabilities = disabilities;
         this.assignedRescuer = null;
