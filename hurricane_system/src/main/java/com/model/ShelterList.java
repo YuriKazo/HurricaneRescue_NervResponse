@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ShelterList {
 	private static ShelterList shelterList;
@@ -27,12 +28,17 @@ public class ShelterList {
 		return null;
 	}
 
-	public boolean addShelter(Location location) {
-		return shelters.add(new Shelter(location));
+	public boolean addShelter(int totalOccupancy, int currentOccupancy, Location location, String street, ArrayList<Capabilities> capabilities, int waterCapacity) {
+		return shelters.add(new Shelter(totalOccupancy, currentOccupancy, location, street, capabilities, waterCapacity));
 	}
 
-	public boolean removeShelter(Location location) {
-		return shelters.remove(new Shelter(location));
+	public boolean removeShelter(UUID shelterId) {
+		for (Shelter shelter : shelters) {
+			if (shelter.getID().equals(shelterId)) {
+				return shelters.remove(shelter);
+			}
+		}
+		return false;
 	}
 
 	public boolean saveShelter() {

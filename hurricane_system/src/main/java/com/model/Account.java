@@ -16,7 +16,16 @@ public abstract class Account {
 	protected AccountType type;
 
 	public Account(String firstName, String email, String lastName, String passWord, AccountType accountType) {
-		this(UUID.randomUUID(), firstName, email, lastName, passWord, accountType);
+		this.userID = UUID.randomUUID();
+		this.firstName = firstName;
+		this.email = email;
+		this.lastName = lastName;
+		this.password = passWord;
+		this.type = accountType;
+		this.savedLocations = new ArrayList<Location>();
+		this.savedAccounts = new ArrayList<Account>();	
+		this.emergencyContact = new ArrayList<String>();
+		this.currentLocation = new Location(0.0, 0.0, "00000");
 	}
 
 	public Account(UUID id, String firstName, String email, String lastName, String passWord, AccountType accountType) {
@@ -35,6 +44,10 @@ public abstract class Account {
 		if (username == null || password == null) return false;
 
 		return this.email.equalsIgnoreCase(username) && this.password.equals(password);
+	}
+
+	public void makeRequest(String description, PriorityLevel level, Location location, int victimCount) {
+		ReliefRequestList.getInstance().addReliefRequest(description, level, location, victimCount); 
 	}
 
 	public void makeContact(int phone) {
