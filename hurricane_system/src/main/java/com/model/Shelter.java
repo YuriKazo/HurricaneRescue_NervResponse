@@ -13,9 +13,14 @@ public class Shelter {
     private int waterCapacity;
     private UUID shelterID;
 
-    public Shelter(Location location){
+    public Shelter(int totalOccupancy, int currentOccupancy, Location location, String street, ArrayList<Capabilities> capabilities, int waterCapacity){
         shelterID = UUID.randomUUID();
+        this.totalOccupancy = totalOccupancy;
+        this.currentOccupancy = currentOccupancy;
         this.location = location;
+        this.street = street;
+        this.capabilities = capabilities;
+        this.waterCapacity = waterCapacity;
     }
 
     public Shelter(UUID id, int totalOccupancy, int currentOccupancy,Location location, String street, ArrayList<Capabilities> capabilities, int waterCapacity){

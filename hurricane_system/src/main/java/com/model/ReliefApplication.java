@@ -69,7 +69,7 @@ public class ReliefApplication {
 
 	public void registerPets() {
 		if (currentAccount instanceof Victim) {
-			((Victim) currentAccount).registerPets();
+			((Victim) currentAccount).setPets(true);
 			accountList.saveAccount();
 		}
 	}
@@ -149,27 +149,20 @@ public class ReliefApplication {
 	}
 
 	public ArrayList<ReliefRequest> getAvailableRequests() {
-		ArrayList<ReliefRequest> available = new ArrayList<ReliefRequest>();
-
-		for (ReliefRequest request : reliefRequestList.getReliefRequests()) {
-			if (request.getStatus() == Status.NOT_ACCEPTED) {
-				available.add(request);
-			}
-		}
-		return available;
+		return reliefRequestList.getReliefRequest();
 	}
 
-	public void updateOccupancy(int occupancy) {
+	public void updateOccupancy(Shelter shelter, int occupancy) {
 		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateOccupancy(occupancy);
+		((Admin) currentAccount).updateOccupancy(shelter, occupancy);
 		shelterList.saveShelter();
 	}
 
-	public void updateTotalOccupancy(int totalOccupancy) {
+	public void updateTotalOccupancy(Shelter shelter, int totalOccupancy) {
 		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateTotalOccupancy(totalOccupancy);
+		((Admin) currentAccount).updateTotalOccupancy(shelter, totalOccupancy);
 		shelterList.saveShelter();
 	}
 
@@ -198,10 +191,10 @@ public class ReliefApplication {
 		reliefRequestList.saveReliefRequest();
 	}
 
-	public void updateWaterLeft(int water) {
+	public void updateWaterLeft(Shelter shelter, int water) {
 		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateWaterLeft(water);
+		((Admin) currentAccount).updateWaterLeft(shelter, water);
 		shelterList.saveShelter();
 	}
 }

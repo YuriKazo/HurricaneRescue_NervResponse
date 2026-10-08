@@ -12,7 +12,7 @@ public class ReliefRequest {
 
     public ReliefRequest(String description, PriorityLevel level, Location location, int victimCount){
         requestId = UUID.randomUUID();
-        status = Status.Not_Accepted;
+        status = Status.NOT_ACCEPTED;
         requestDescription = description;
         priorityLevel = level;
         location = location;

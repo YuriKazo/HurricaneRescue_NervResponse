@@ -10,7 +10,6 @@ public class Victim extends Account{
 
     public Victim(String firstName, String email, String lastName, String passWord){
         super(firstName, email, lastName, passWord, AccountType.VICTIM);
-        type = AccountType.VICTIM;
         pets = false;
         disabilities = new ArrayList<Disabilities>();
         assignedRescuer = null;
@@ -18,18 +17,9 @@ public class Victim extends Account{
 
     public Victim(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Location> savedLocations, ArrayList<Account> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocations, boolean pets, ArrayList<Disabilities> disabilities, Account assignedRescuer){
         super(id, firstName, email, lastName, passWord, AccountType.VICTIM);
-        this.type = AccountType.VICTIM; 
         this.pets = pets;
         this.disabilities = disabilities;
         this.assignedRescuer = null;
-    }
-    
-    public void registerDisabilities(){
-
-    }
-    
-    public void registerPets(){
-
     }
 
     public void markComplete(){
