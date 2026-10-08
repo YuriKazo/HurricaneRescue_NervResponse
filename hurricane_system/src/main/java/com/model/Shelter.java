@@ -9,7 +9,7 @@ public class Shelter {
     private int currentOccupancy;
     private Location location;
     private String street;
-    private ArrayList<Capabilities> capabilities;
+    private ArrayList<Capabilities> capabilities = new ArrayList<>();
     private int waterCapacity;
     private UUID shelterID;
 
