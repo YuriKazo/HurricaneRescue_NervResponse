@@ -34,11 +34,26 @@ public class DataLoader {
                 String zipCode = (String) locationJson.get(DataConstants.LOCATION_ZIP_LOCATION);
                 Location userCurrentLocations = new Location(longitude, latitude, zipCode);
 
+                System.out.println("User ID: " + accountId);
+                System.out.println("User Type: " + userType);
+                System.out.println("User First Name: " + userFirstName);
+                System.out.println("User Last Name: " + userLastName);
+                System.out.println("User Email: " + userEmail);
+                System.out.println("User Password: " + userPassword);
+                System.out.println("User Saved Locations: " + userSavedLocations);
+                System.out.println("User Saved Accounts: " + userSavedAccounts);
+                System.out.println("User Emergency Contacts: " + userEmergencyContacts);
+                System.out.println("User Current Location: " + userCurrentLocations);
+
                 if (userType.equals("VICTIM")) {
                     boolean pets = (boolean) accountJson.get(DataConstants.VICTIM_PETS);
                     ArrayList<Disabilities> disabilities = (ArrayList<Disabilities>) accountJson.get(DataConstants.VICTIM_DISABILITIES);
                     Account assignedRescuer = (Account) accountJson.get(DataConstants.VICTIM_ASSIGNED_RESCUER);
-                    accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
+                    System.out.println(" Pets: "+pets+
+                        "\n Disabilities: "+disabilities+
+                        "\n Assigned Rescuer: "+assignedRescuer
+                    );
+                    //accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
                     
                 }
                 if (userType.equals("VOLUNTEER")) {
@@ -49,7 +64,7 @@ public class DataLoader {
                         "\n Victim List ID: "+victimListId+
                         "\n Current Target ID: "+currentTargetId
                     );
-                    accounts.add(new Volunteer(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, abilities, victimListId, currentTargetId));
+                    //accounts.add(new Volunteer(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, abilities, victimListId, currentTargetId));
                 }
                 if (userType.equals("ADMIN")) {
                     ArrayList<Shelter> shelters = (ArrayList<Shelter>) accountJson.get(DataConstants.ADMIN_SHELTER_LIST);
