@@ -8,7 +8,8 @@ public class ReliefUI {
 	}
 
 	public void run() {
-		scenario1();
+		//scenario1();
+		signUpScenario();
 	}
 
 	public void scenario1() {
@@ -24,7 +25,13 @@ public class ReliefUI {
 	}
 
 	System.out.println("Tom is now logged in");
+
 }
+	public void signUpScenario() {
+		if (application.createAccount("Tom", "Bradley", "tbradley@gmail.com", "stormcat7") == null) {
+			System.out.println("That email is already registered.");
+		}
+	}
 
 	public static void main(String[] args) {
 		ReliefUI reliefInterface = new ReliefUI();

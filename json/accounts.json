@@ -7,7 +7,7 @@
     "email": "tbradley@gmail.com",
     "password": "stormcat7",
     "savedLocations": [],
-    "savedAccounts": [],
+    "savedAccounts": ["a1b2c3d4-0002-4bbb-9c11-000000000002", "a1b2c3d4-0002-4bbb-9c11-000000000004"],
     "emergencyContact": ["803-555-9911"],
     "currentLocation": {
       "longitude": -80.9401,
@@ -25,7 +25,15 @@
     "lastName": "Logano",
     "email": "jlogano@email.com",
     "password": "password",
-    "savedLocations": [],
+    "savedLocations": [{
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },{
+      "longitude": -11.1111,
+      "latitude": 22.22222,
+      "zipLocation": "69420"
+    }],
     "savedAccounts": [],
     "emergencyContact": ["803-555-3344"],
     "currentLocation": {
@@ -34,7 +42,7 @@
       "zipLocation": "29403"
     },
     "abilities": ["BOAT", "MEDICAL_ASSISTANCE", "HIGH_STRENGTH"],
-    "victimList": ["r1c2e3l4-0001-4ccc-9c11-000000000001"],
-    "currentTarget": "r1c2e3l4-0001-4ccc-9c11-000000000001"
+    "victimList": ["552e4057-52e3-4b4d-9780-d9bd14fcca30"],
+    "currentTarget": "552e4057-52e3-4b4d-9780-d9bd14fcca30"
   }
 ]

@@ -18,7 +18,6 @@ public class ReliefRequestList {
     }
 
     public ArrayList<ReliefRequest> getReliefRequest(){
-
         ArrayList<ReliefRequest> available = new ArrayList<ReliefRequest>();
         for (ReliefRequest request : requests){
             if (request.getStatus() == Status.NOT_ACCEPTED)
