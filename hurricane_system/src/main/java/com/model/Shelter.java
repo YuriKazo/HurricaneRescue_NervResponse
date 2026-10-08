@@ -29,6 +29,8 @@ public class Shelter {
     }
 
     public boolean waterIsAvaliabile(){
+        if (this.waterCapacity > 10)
+            return true;
         return false;
     }
 

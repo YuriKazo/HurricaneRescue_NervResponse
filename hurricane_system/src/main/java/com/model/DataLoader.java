@@ -94,15 +94,19 @@ public class DataLoader {
     public static ArrayList<ReliefRequest> getReliefRequests() {
         ArrayList<ReliefRequest> reliefRequests = new ArrayList<>();
         try {
-            FileReader reader = new FileReader(DataConstants.RELIEF_REQUESTS_FILE));
+            FileReader reader = new FileReader(DataConstants.REQUEST_FILE_NAME);
             JSONParser parser = new JSONParser();
             JSONArray reliefRequestsArray = (JSONArray) parser.parse(reader);
 
             for (int i = 0; i < reliefRequestsArray.size(); i++) {
                 JSONObject reliefRequestJson = (JSONObject) reliefRequestsArray.get(i);
-                UUID requestID = UUID.fromString(reliefRequestJson.get("requestID").toString());
-                String requestDescription = (String) reliefRequestJson.get("requestDescription");
-                Location location = (Location) reliefRequestJson.get("location");
+                UUID requestID = UUID.fromString(reliefRequestJson.get(DataConstants.REQUEST_ID).toString());
+                String requestDescription = (String) reliefRequestJson.get(DataConstants.REQUEST_DESCRIPTION);
+                JSONObject locationJson = (JSONObject) reliefRequestJson.get(DataConstants.REQUEST_LOCATION);
+                double longitude = Double.parseDouble(locationJson.get(DataConstants.LOCATION_LONGITUDE).toString());
+                double latitude = Double.parseDouble(locationJson.get(DataConstants.LOCATION_LATITUDE).toString());
+                String zipCode = (String) locationJson.get(DataConstants.LOCATION_ZIP_LOCATION);
+                Location location = (Location) new Location(longitude, latitude, zipCode);
                 Status status = Status.valueOf(reliefRequestJson.get("status").toString());
                 int victimCount = Integer.parseInt(reliefRequestJson.get("victimCount").toString());
 

@@ -16,7 +16,7 @@ public class Victim extends Account{
         assignedRescuer = null;
     }
 
-    public Victim(UUID id, String firstName, String email, String lastName, String passWord, boolean pets, ArrayList<Disabilities> disabilities){
+    public Victim(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Location> savedLocations, ArrayList<Account> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocations, boolean pets, ArrayList<Disabilities> disabilities, Account assignedRescuer){
         super(id, firstName, email, lastName, passWord, AccountType.VICTIM);
         this.type = AccountType.VICTIM;
         this.pets = pets;
