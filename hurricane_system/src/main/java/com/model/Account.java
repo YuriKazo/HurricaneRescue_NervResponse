@@ -46,6 +46,10 @@ public abstract class Account {
 		return this.email.equalsIgnoreCase(username) && this.password.equals(password);
 	}
 
+	public void makeRequest(String description, PriorityLevel level, Location location, int victimCount) {
+		ReliefRequestList.getInstance().addReliefRequest(description, level, location, victimCount); 
+	}
+
 	public void makeContact(int phone) {
 		String contact = String.valueOf(phone);
 

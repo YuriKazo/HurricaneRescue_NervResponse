@@ -26,10 +26,6 @@ public class Volunteer extends Account{
 
     }
 
-    public void makeRequest(String description){
-
-    }
-
     public boolean addAbilities(Abilities ability){
         return true;
     }
