@@ -44,4 +44,8 @@ public class ShelterList {
 	public boolean saveShelter() {
 		return DataWriter.saveShelters();
 	}
+
+	public ArrayList<Shelter> getShelters(){
+		return shelters;
+	}
 }
