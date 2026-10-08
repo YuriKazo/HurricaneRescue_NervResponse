@@ -25,7 +25,7 @@ public class DataLoader {
                 String userLastName = (String)accountJson.get(DataConstants.ACCOUNT_LAST_NAME);
                 String userEmail = (String)accountJson.get(DataConstants.ACCOUNT_EMAIL);
                 String userPassword = (String)accountJson.get(DataConstants.ACCOUNT_PASSWORD);
-                ArrayList<Location> userSavedLocations = (ArrayList<Location>) accountJson.get(DataConstants.ACCOUNT_SAVED_LOCATIONS));
+                ArrayList<Location> userSavedLocations = (ArrayList<Location>) accountJson.get(DataConstants.ACCOUNT_SAVED_LOCATIONS);
                 ArrayList<Account> userSavedAccounts = (ArrayList<Account>) accountJson.get(DataConstants.ACCOUNT_SAVED_ACCOUNTS);
                 ArrayList<String> userEmergencyContacts = (ArrayList<String>) accountJson.get(DataConstants.ACCOUNT_EMERGENCY_CONTACT);
                 JSONObject locationJson = (JSONObject) accountJson.get(DataConstants.ACCOUNT_CURRENT_LOCATION);
@@ -39,10 +39,11 @@ public class DataLoader {
                     ArrayList<Disabilities> disabilities = (ArrayList<Disabilities>) accountJson.get(DataConstants.VICTIM_DISABILITIES);
                     Account assignedRescuer = (Account) accountJson.get(DataConstants.VICTIM_ASSIGNED_RESCUER);
                     accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
+                    
                 }
                 if (userType.equals("VOLUNTEER")) {
                     ArrayList<Abilities> abilities = (ArrayList<Abilities>) accountJson.get(DataConstants.VOLUNTEER_ABILITIES);
-                    UUID victimListId = UUID.fromString(accountJson.get(DataConstants.VOLUNTEER_VICTIM_LIST).toString());
+                    UUID victimListId = UUID.fromString(accountJson.get(DataConstants.ACCOUNT_USER_ID).toString());
                     UUID currentTargetId = UUID.fromString(accountJson.get(DataConstants.VOLUNTEER_CURRENT_TARGET).toString());
                     System.out.println(" Abilities: "+abilities+
                         "\n Victim List ID: "+victimListId+
