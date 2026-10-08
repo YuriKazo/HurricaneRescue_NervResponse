@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants{
 
 public static boolean saveAccounts(){
-    AccountList accountList = AccountList.getInstance();
+    //AccountList accountList = AccountList.getInstance();
     //ArrayList<Account> accounts = accountList.getUsers();
 
     // hard coded
@@ -38,7 +38,7 @@ public static boolean saveAccounts(){
     return true;
 }
 
-public static JSONObject getAccountJSON(Account account) {
+private static JSONObject getAccountJSON(Account account) {
     JSONObject accountDetails = new JSONObject();
     accountDetails.put(ACCOUNT_USER_ID, account.getID().toString());
     accountDetails.put(ACCOUNT_FIRST_NAME, account.getFirstName());
@@ -88,8 +88,8 @@ public static boolean saveShelters(){
 
     // hard coded
     ArrayList<Shelter> shelters = new ArrayList<>();
-    shelters.add(new Shelter(new Location(72.4, 82.34)));
-    shelters.add(new Shelter(UUID.randomUUID(), 200, 122, new Location(84.12,65.32), "East St", new ArrayList<Capabilities>(List.of(Capabilities.FOOD,Capabilities.WATER)), 20));
+    shelters.add(new Shelter(new Location(72.4, 82.34, "23525")));
+    shelters.add(new Shelter(UUID.randomUUID(), 200, 122, new Location(84.12,65.32,"23523"), "East St", new ArrayList<Capabilities>(List.of(Capabilities.FOOD,Capabilities.WATER)), 20));
 
     JSONArray jsonShelters = new JSONArray();
 
@@ -109,7 +109,7 @@ public static boolean saveShelters(){
 }
 
 
-public static JSONObject getShelterJSON(Shelter shelter){
+private static JSONObject getShelterJSON(Shelter shelter){
     JSONObject shelterDetails = new JSONObject();
     shelterDetails.put(SHELTER_ID, shelter.getID().toString());
     shelterDetails.put(SHELTER_TOTAL_OCCUPANCY, shelter.getTotalOccupancy());
@@ -128,7 +128,7 @@ public static JSONObject getShelterJSON(Shelter shelter){
 }
 
 
-public static JSONObject getLocationJSON(Location location){
+private static JSONObject getLocationJSON(Location location){
     JSONObject locationDetails = new JSONObject();
     locationDetails.put(LOCATION_LONGITUDE,location.getLongitudeCoord());
     locationDetails.put(LOCATION_LATITUDE,location.getLatitudeCoord());
