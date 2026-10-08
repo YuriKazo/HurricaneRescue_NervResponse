@@ -41,12 +41,11 @@ public class Admin extends Account{
     }
 
     public void makeShelter(int totalOccupancy, int currentOccupancy, Location location, String street, ArrayList<Capabilities> capabilities, int waterCapacity){
-        Shelter shelter = new Shelter(totalOccupancy, currentOccupancy, location, street, capabilities, waterCapacity);
-        shelterList.add(shelter);
+        ShelterList.getInstance().addShelter(totalOccupancy, currentOccupancy, location, street, capabilities, waterCapacity);
     }
 
     public boolean deleteShelter(Shelter shelter){
-        return shelterList.remove(shelter);
+        return ShelterList.getInstance().removeShelter(shelter.getID());
     }
 
 }

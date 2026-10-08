@@ -159,17 +159,17 @@ public class ReliefApplication {
 		return available;
 	}
 
-	public void updateOccupancy(int occupancy) {
+	public void updateOccupancy(Shelter shelter, int occupancy) {
 		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateOccupancy(occupancy);
+		((Admin) currentAccount).updateOccupancy(shelter, occupancy);
 		shelterList.saveShelter();
 	}
 
-	public void updateTotalOccupancy(int totalOccupancy) {
+	public void updateTotalOccupancy(Shelter shelter, int totalOccupancy) {
 		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateTotalOccupancy(totalOccupancy);
+		((Admin) currentAccount).updateTotalOccupancy(shelter, totalOccupancy);
 		shelterList.saveShelter();
 	}
 
@@ -198,10 +198,10 @@ public class ReliefApplication {
 		reliefRequestList.saveReliefRequest();
 	}
 
-	public void updateWaterLeft(int water) {
+	public void updateWaterLeft(Shelter shelter, int water) {
 		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateWaterLeft(water);
+		((Admin) currentAccount).updateWaterLeft(shelter, water);
 		shelterList.saveShelter();
 	}
 }

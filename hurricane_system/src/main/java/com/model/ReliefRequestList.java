@@ -18,14 +18,18 @@ public class ReliefRequestList {
     }
 
     public ReliefRequest getReliefRequest(UUID id){
+        for (ReliefRequest request : requests){
+            if (request.getID().equals(id))
+                return request;
+        }
         return null;
     }
 
     public boolean addReliefRequest(String description, PriorityLevel level, Location location, int victimCount){
-        return true;
+        return requests.add(new ReliefRequest(description, level, location, victimCount));
     }
 
     public boolean saveReliefRequest(){
-        return true;
+        return DataWriter.saveReliefRequests();
     }
 }
