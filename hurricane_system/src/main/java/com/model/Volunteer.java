@@ -13,7 +13,7 @@ public class Volunteer extends Account{
         currentTarget = null;
     }
 
-    public Volunteer(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Abilities> abilities){
+    public Volunteer(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Location> savedLocations, ArrayList<Account> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation, ArrayList<Abilities> abilities, UUID victimListId, UUID currentTargetId){
         super(id, firstName, email, lastName, passWord, AccountType.VOLUNTEER);
         this.abilities = abilities;
     }

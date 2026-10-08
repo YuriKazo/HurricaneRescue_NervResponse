@@ -13,7 +13,7 @@ public class Admin extends Account{
         requestList = new ArrayList<ReliefRequest>();
     }
 
-    public Admin(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Shelter> shelterList, ArrayList<ReliefRequest> requestList){
+    public Admin(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Location> savedLocations, ArrayList<Account> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation, ArrayList<Shelter> shelterList, ArrayList<ReliefRequest> requestList){
         super(id, firstName, email, lastName, passWord, AccountType.ADMIN);
         this.shelterList = shelterList;
         this.requestList = requestList;
