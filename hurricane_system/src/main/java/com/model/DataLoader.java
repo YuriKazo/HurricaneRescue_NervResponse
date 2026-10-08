@@ -38,10 +38,7 @@ public class DataLoader {
                     boolean pets = (boolean) accountJson.get(DataConstants.VICTIM_PETS);
                     ArrayList<Disabilities> disabilities = (ArrayList<Disabilities>) accountJson.get(DataConstants.VICTIM_DISABILITIES);
                     Account assignedRescuer = (Account) accountJson.get(DataConstants.VICTIM_ASSIGNED_RESCUER);
-                    System.out.println(" Pets: "+pets+
-                        "\n Disabilities: "+disabilities+
-                        "\n Assigned Rescuer: "+assignedRescuer
-                    );
+                    
                     accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
                     
                 }
@@ -49,10 +46,7 @@ public class DataLoader {
                     ArrayList<Abilities> abilities = (ArrayList<Abilities>) accountJson.get(DataConstants.VOLUNTEER_ABILITIES);
                     UUID victimListId = UUID.fromString(accountJson.get(DataConstants.ACCOUNT_USER_ID).toString());
                     UUID currentTargetId = UUID.fromString(accountJson.get(DataConstants.VOLUNTEER_CURRENT_TARGET).toString());
-                    System.out.println(" Abilities: "+abilities+
-                        "\n Victim List ID: "+victimListId+
-                        "\n Current Target ID: "+currentTargetId
-                    );
+
                     accounts.add(new Volunteer(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, abilities, victimListId, currentTargetId));
                 }
                 if (userType.equals("ADMIN")) {
@@ -87,7 +81,14 @@ public class DataLoader {
                 String street = (String) shelterJson.get(DataConstants.SHELTER_STREET);
                 ArrayList<Capabilities> capabilities = (ArrayList<Capabilities>) shelterJson.get(DataConstants.SHELTER_CAPABILITIES);
                 int waterCapacity = Integer.parseInt(shelterJson.get("waterCapacity").toString());
- 
+                System.out.println("Shelter ID: " + shelterID);
+                System.out.println("Shelter Capacity: " + shelterCapacity);
+                System.out.println("Current Occupancy: " + currentOccupancy);
+                System.out.println("Location: " + location.getZip());
+                System.out.println("Street: " + street);
+                System.out.println("Capabilities: " + capabilities);
+                System.out.println("Water Capacity: " + waterCapacity);
+
                 shelters.add(new Shelter(shelterID, shelterCapacity, currentOccupancy, location, street, capabilities, waterCapacity));
             }
 
@@ -124,5 +125,5 @@ public class DataLoader {
         }
         return reliefRequests;
     }
-    
+
 }
