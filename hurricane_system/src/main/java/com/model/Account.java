@@ -101,4 +101,8 @@ public abstract class Account {
 	public Location getCurrentLocation() {
 		return currentLocation;
 	}
+
+	public AccountType getAccountType(){
+		return type;
+	}
 }
