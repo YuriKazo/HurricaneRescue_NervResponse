@@ -30,6 +30,6 @@ public class ReliefRequestList {
     }
 
     public boolean saveReliefRequest(){
-        return DataWriter.saveReliefRequests();
+        return DataWriter.saveReliefRequests(); 
     }
 }
