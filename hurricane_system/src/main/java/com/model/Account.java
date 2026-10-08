@@ -28,16 +28,17 @@ public abstract class Account {
 		this.currentLocation = new Location(0.0, 0.0, "00000");
 	}
 
-	public Account(UUID id, String firstName, String email, String lastName, String passWord, AccountType accountType) {
+	public Account(UUID id, String firstName, String email, String lastName, String passWord, AccountType accountType, ArrayList<Location> savedLocations, ArrayList<Account> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation) {
 		this.userID = id;
 		this.firstName = firstName;
 		this.email = email;
 		this.lastName = lastName;
 		this.password = passWord;
 		this.type = accountType;
-		this.savedLocations = new ArrayList<Location>();
-		this.savedAccounts = new ArrayList<Account>();
-		this.emergencyContact = new ArrayList<String>();
+		this.savedLocations = savedLocations;
+		this.savedAccounts = savedAccounts;
+		this.emergencyContact = emergencyContacts;
+		this.currentLocation = currentLocation;
 	}
 
 	public boolean isMatch(String username, String password) {

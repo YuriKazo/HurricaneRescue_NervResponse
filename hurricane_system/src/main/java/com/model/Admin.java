@@ -14,7 +14,7 @@ public class Admin extends Account{
     }
 
     public Admin(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Location> savedLocations, ArrayList<Account> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation, ArrayList<Shelter> shelterList, ArrayList<ReliefRequest> requestList){
-        super(id, firstName, email, lastName, passWord, AccountType.ADMIN);
+        super(id, firstName, email, lastName, passWord, AccountType.ADMIN, savedLocations, savedAccounts, emergencyContacts, currentLocation);
         this.shelterList = shelterList;
         this.requestList = requestList;
     }
