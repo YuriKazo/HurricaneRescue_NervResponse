@@ -6,7 +6,7 @@
         "location": {
             "longitude": -24.9401,
             "latitude": 12.8865,
-            "zipLocation": 29223
+            "zipLocation": "29293"
         },
         "street": "Boulevard of Broken Dreams",
         "capabilities": ["MEDICAL_ASSISTANCE", "FOOD","WATER"],
@@ -19,7 +19,7 @@
         "location": {
             "longitude": -13.9401,
             "latitude": 19.8865,
-            "zipLocation": 29293
+            "zipLocation": "29293"
         },
         "street": "Sesame Street",
         "capabilities": ["FOOD"],

@@ -1,6 +1,7 @@
 [
     {
         "requestID": "37b08b54-f977-45f3-a382-081942691d62",
+        "priorityLevel": "MEDIUM",
         "requestDescription": "broken leg",
         "location": {
             "longitude": -22.9401,
@@ -12,6 +13,7 @@
     },
     {
         "requestID": "62029f22-a9ef-445e-aef6-2354194db37d",
+        "priorityLevel": "HIGH",
         "requestDescription": "broken down car",
         "location": {
             "longitude": -99.9401,
