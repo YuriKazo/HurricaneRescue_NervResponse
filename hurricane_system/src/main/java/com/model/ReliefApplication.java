@@ -69,7 +69,7 @@ public class ReliefApplication {
 
 	public void registerPets() {
 		if (currentAccount instanceof Victim) {
-			((Victim) currentAccount).registerPets();
+			((Victim) currentAccount).setPets(true);
 			accountList.saveAccount();
 		}
 	}
@@ -149,14 +149,7 @@ public class ReliefApplication {
 	}
 
 	public ArrayList<ReliefRequest> getAvailableRequests() {
-		ArrayList<ReliefRequest> available = new ArrayList<ReliefRequest>();
-
-		for (ReliefRequest request : reliefRequestList.getReliefRequests()) {
-			if (request.getStatus() == Status.NOT_ACCEPTED) {
-				available.add(request);
-			}
-		}
-		return available;
+		return reliefRequestList.getReliefRequest();
 	}
 
 	public void updateOccupancy(Shelter shelter, int occupancy) {

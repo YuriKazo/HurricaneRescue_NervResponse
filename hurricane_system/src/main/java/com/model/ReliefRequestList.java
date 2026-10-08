@@ -17,6 +17,15 @@ public class ReliefRequestList {
         return reliefRequestList;
     }
 
+    public ArrayList<ReliefRequest> getReliefRequest(){
+
+        ArrayList<ReliefRequest> available = new ArrayList<ReliefRequest>();
+        for (ReliefRequest request : requests){
+            if (request.getStatus() == Status.NOT_ACCEPTED)
+                available.add(request);
+        }
+        return available;
+    }
     public ReliefRequest getReliefRequest(UUID id){
         for (ReliefRequest request : requests){
             if (request.getID().equals(id))
