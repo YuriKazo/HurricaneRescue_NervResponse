@@ -15,7 +15,7 @@ public class ReliefRequest {
         status = Status.NOT_ACCEPTED;
         requestDescription = description;
         priorityLevel = level;
-        location = location;
+        this.location = location;
         this.victimCount = victimCount;
     }
 
