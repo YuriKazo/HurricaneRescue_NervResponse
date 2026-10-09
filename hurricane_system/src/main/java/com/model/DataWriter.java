@@ -76,7 +76,7 @@ private static JSONObject getAccountJSON(Account account) {
     }
     else if(account.getAccountType() == AccountType.VOLUNTEER){
         accountDetails.put(VOLUNTEER_ABILITIES, ((Volunteer)account).getAbilities());
-        accountDetails.put(VOLUNTEER_CURRENT_TARGET, ((Volunteer)account).getCurrentTarget().getID());
+        //accountDetails.put(VOLUNTEER_CURRENT_TARGET, ((Volunteer)account).getCurrentTarget().getID());
         //TODO add current target/ relief request
     }
      else if(account.getAccountType() == AccountType.ADMIN){
@@ -133,11 +133,7 @@ private static JSONObject getShelterJSON(Shelter shelter){
     shelterDetails.put(SHELTER_CURRENT_OCCUPANCY, shelter.getCurrentOccupancy());
     shelterDetails.put(SHELTER_LOCATION, getLocationJSON(shelter.getLocation()));
     shelterDetails.put(SHELTER_STREET, shelter.getStreet());
-    JSONArray shelterCapabilties = new JSONArray();
-    for(Capabilities capability: shelter.getCapabilities()){
-        shelterCapabilties.add(capability.name());
-    }
-    shelterDetails.put(SHELTER_CAPABILITIES, shelterCapabilties);
+    shelterDetails.put(SHELTER_CAPABILITIES, shelter.getCapabilities());
     
     shelterDetails.put(SHELTER_WATER_CAPACITY, shelter.getWaterCapacity());
     
@@ -159,6 +155,6 @@ public static boolean saveReliefRequests(){
 
 public static void main(String[] args) {
     saveAccounts();
-    //saveShelters();
+    saveShelters();
 }
 }
