@@ -16,10 +16,10 @@ public static boolean saveAccounts(){
     ArrayList<Account> accounts = accountList.getUsers();
 
     // hard coded
-    // ArrayList<Account> accounts = new ArrayList<>();
+    //ArrayList<Account> accounts = new ArrayList<>();
     // accounts.add(new Victim("David", "dsmith@gmail.com", "Smith", "password123"));
-    // accounts.add(new Volunteer("Mark", "mbryant@gmail.com", "Byrant", "password321"));
-    //accounts.add(new Admin(UUID.randomUUID(),"Amy", "asmith@gmail.com", "Smith", "password123456", new ArrayList<Shelter>(List.of(new Shelter(0, 0, null, SHELTER_STREET, null, 0))), new ArrayList<ReliefRequest>(List.of(new ReliefRequest("REQUEST_DESCRIPTION", null, null, 0))) ));
+    //accounts.add(new Volunteer("Mark", "mbryant@gmail.com", "Byrant", "password321"));
+    //accounts.add(new Admin(UUID.randomUUID(),"Amy", "asmith@gmail.com", "Smith", "password123456", new ArrayList<Location>(), new ArrayList<Account>(), new ArrayList<String>(), new Location(0, 0, "32521"), new ArrayList<Shelter>(List.of(new Shelter(0, 0, null, SHELTER_STREET, null, 0))), new ArrayList<ReliefRequest>(List.of(new ReliefRequest("REQUEST_DESCRIPTION", null, null, 0))) ));
      JSONArray jsonAccounts = new JSONArray();
 
     //creates the JSON objects
@@ -76,8 +76,7 @@ private static JSONObject getAccountJSON(Account account) {
     }
     else if(account.getAccountType() == AccountType.VOLUNTEER){
         accountDetails.put(VOLUNTEER_ABILITIES, ((Volunteer)account).getAbilities());
-        //accountDetails.put(VOLUNTEER_CURRENT_TARGET, ((Volunteer)account).getCurrentTarget().getID());
-        //TODO add current target/ relief request
+        accountDetails.put(VOLUNTEER_CURRENT_TARGET, ((Volunteer)account).getCurrentTarget() != null ? ((Volunteer)account).getCurrentTarget().getID().toString() : null );
     }
      else if(account.getAccountType() == AccountType.ADMIN){
         JSONArray shelters = new JSONArray();
@@ -184,9 +183,9 @@ private static JSONObject getRequestJSON(ReliefRequest request){
 }
 
 
-public static void main(String[] args) {
-    //saveAccounts();
-    //saveShelters();
-    saveReliefRequests();
-}
+// public static void main(String[] args) {
+//     saveReliefRequests();
+//     saveAccounts();
+//     saveShelters();
+// }
 }
