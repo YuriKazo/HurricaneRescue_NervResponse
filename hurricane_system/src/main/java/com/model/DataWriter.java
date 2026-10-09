@@ -150,11 +150,43 @@ private static JSONObject getLocationJSON(Location location){
 }
 
 public static boolean saveReliefRequests(){
+        
+    ReliefRequestList requestList  = ReliefRequestList.getInstance();
+    ArrayList<ReliefRequest> requests = requestList.getRequests();
+
+    // hard coded
+    JSONArray jsonRequests = new JSONArray();
+
+    //creates the JSON objects
+    for(int i = 0; i < requests.size(); i++){
+        jsonRequests.add(getRequestJSON(requests.get(i)));
+    }
+
+    try (FileWriter file = new FileWriter(REQUEST_TEMP_FILE_NAME)){
+        file.write(jsonRequests.toJSONString());
+        file.flush();
+
+    } catch (IOException e){
+        e.printStackTrace();
+    }
     return true;
 }
 
+private static JSONObject getRequestJSON(ReliefRequest request){
+    JSONObject requestDetails = new JSONObject();
+    requestDetails.put(REQUEST_ID, request.getID().toString());
+    requestDetails.put(REQUEST_PRIORITY_LEVEL, request.getPriorityLevel().name());
+    requestDetails.put(REQUEST_DESCRIPTION, request.getRequestDescription());
+    requestDetails.put(REQUEST_LOCATION, getLocationJSON(request.getLocation()));
+    requestDetails.put(REQUEST_STATUS, request.getStatus().name());
+    requestDetails.put(REQUEST_VICTIM_COUNT, request.getVictimCount());
+    return requestDetails;
+}
+
+
 public static void main(String[] args) {
-    saveAccounts();
-    saveShelters();
+    //saveAccounts();
+    //saveShelters();
+    saveReliefRequests();
 }
 }
