@@ -40,7 +40,6 @@ public class DataLoader {
                     Account assignedRescuer = (Account) accountJson.get(DataConstants.VICTIM_ASSIGNED_RESCUER);
                     
                     accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
-                    
                 }
                 if (userType.equals("VOLUNTEER")) {
                     ArrayList<Abilities> abilities = (ArrayList<Abilities>) accountJson.get(DataConstants.VOLUNTEER_ABILITIES);
@@ -54,6 +53,7 @@ public class DataLoader {
                     ArrayList<ReliefRequest> requestList = (ArrayList<ReliefRequest>) accountJson.get(DataConstants.ADMIN_REQUEST_LIST);
                     accounts.add(new Admin(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, shelters, requestList));
                 }
+                
 
             }
         } catch (Exception e) {
@@ -81,15 +81,9 @@ public class DataLoader {
                 String street = (String) shelterJson.get(DataConstants.SHELTER_STREET);
                 ArrayList<Capabilities> capabilities = (ArrayList<Capabilities>) shelterJson.get(DataConstants.SHELTER_CAPABILITIES);
                 int waterCapacity = Integer.parseInt(shelterJson.get("waterCapacity").toString());
-                System.out.println("Shelter ID: " + shelterID);
-                System.out.println("Shelter Capacity: " + shelterCapacity);
-                System.out.println("Current Occupancy: " + currentOccupancy);
-                System.out.println("Location: " + location.getZip());
-                System.out.println("Street: " + street);
-                System.out.println("Capabilities: " + capabilities);
-                System.out.println("Water Capacity: " + waterCapacity);
 
                 shelters.add(new Shelter(shelterID, shelterCapacity, currentOccupancy, location, street, capabilities, waterCapacity));
+                
             }
 
         } catch (Exception e) {
@@ -103,7 +97,7 @@ public class DataLoader {
             FileReader reader = new FileReader(DataConstants.REQUEST_FILE_NAME);
             JSONParser parser = new JSONParser();
             JSONArray reliefRequestsArray = (JSONArray) parser.parse(reader);
-
+            
             for (int i = 0; i < reliefRequestsArray.size(); i++) {
                 JSONObject reliefRequestJson = (JSONObject) reliefRequestsArray.get(i);
                 UUID requestID = UUID.fromString(reliefRequestJson.get(DataConstants.REQUEST_ID).toString());
@@ -118,6 +112,7 @@ public class DataLoader {
                 int victimCount = Integer.parseInt(reliefRequestJson.get("victimCount").toString());
 
                 reliefRequests.add(new ReliefRequest(requestID, status,requestDescription, priorityLevel, location, victimCount));
+                
             }
 
         } catch (Exception e) {

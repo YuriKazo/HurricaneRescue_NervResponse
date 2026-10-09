@@ -8,29 +8,43 @@ public class ReliefUI {
 	}
 
 	public void run() {
-		//scenario1();
+		//loginScenario();
+		//logOutScenario();
 		signUpScenario();
 	}
 
-	public void scenario1() {
-	System.out.println();
+	
+	public void loginScenario() {
 
-	if (application.createAccount("Tom", "Smith", "Tom@gmail.com", "12345") == null) {
-		System.out.println("That email is already registered.");
+		if (application.login("timmy@gmail.com", "password")) {
+			System.out.println("Timmy is now logged in");
+		}else {
+			System.out.println("Login failed for Timmy");
+		}
+
+		if (application.login("tbradley@gmail.com", "stormcat7")) {
+			System.out.println("TOM is now logged in");
+		}else {
+			System.out.println("Login failed for TOM");
+		}
+		application.viewAccount();
 	}
 
-	if (!application.login("Tom@gmail.com", "12345")) {
-		System.out.println("Sorry we couldn't login.");
-		return;
-	}
-
-	System.out.println("Tom is now logged in");
-
-}
 	public void signUpScenario() {
-		if (application.createAccount("Tom", "Bradley", "tbradley@gmail.com", "stormcat7") == null) {
+		if (application.createAccount("Luke", "Skywalker", "jlogano@email.com", "word") == null) {
 			System.out.println("That email is already registered.");
 		}
+		if (application.createAccount("Luke", "Skywalker", "luke@email.com", "word") != null) {
+			System.out.println("Account created for Luke Skywalker");
+		}
+		application.viewAccount();
+		application.login("luke@email.com", "word");
+		application.viewAccount();
+	}
+
+	public void logOutScenario() {
+		application.logout();
+		application.viewAccount();
 	}
 
 	public static void main(String[] args) {

@@ -101,6 +101,19 @@ public class ReliefApplication {
 		return accountList.getAccount(id);
 	}
 
+	public void viewAccount() {
+		if (currentAccount == null) {
+			System.out.println("No account is currently logged in.");
+			return;
+		}
+		System.out.println(currentAccount.getEmail()+
+	"\n"+currentAccount.getFirstName()+
+	"\n"+currentAccount.getLastName()+
+	"\n"+currentAccount.getID()+
+	"\n"+currentAccount.getType()
+);
+	}
+
 	public void saveAccount(UUID id) {
 		if (accountList.getAccount(id) == null) return;
 
