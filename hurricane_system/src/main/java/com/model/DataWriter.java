@@ -19,8 +19,8 @@ public static boolean saveAccounts(){
     // ArrayList<Account> accounts = new ArrayList<>();
     // accounts.add(new Victim("David", "dsmith@gmail.com", "Smith", "password123"));
     // accounts.add(new Volunteer("Mark", "mbryant@gmail.com", "Byrant", "password321"));
-    // accounts.add(new Admin(UUID.randomUUID(),"Amy", "asmith@gmail.com", "Smith", "password123456", new ArrayList<Shelter>(List.of(new Shelter(0, 0, null, SHELTER_STREET, null, 0))), new ArrayList<ReliefRequest>(List.of(new ReliefRequest("REQUEST_DESCRIPTION", null, null, 0))) ));
-    JSONArray jsonAccounts = new JSONArray();
+    //accounts.add(new Admin(UUID.randomUUID(),"Amy", "asmith@gmail.com", "Smith", "password123456", new ArrayList<Shelter>(List.of(new Shelter(0, 0, null, SHELTER_STREET, null, 0))), new ArrayList<ReliefRequest>(List.of(new ReliefRequest("REQUEST_DESCRIPTION", null, null, 0))) ));
+     JSONArray jsonAccounts = new JSONArray();
 
     //creates the JSON objects
     for(int i = 0; i < accounts.size(); i++){
@@ -45,15 +45,21 @@ private static JSONObject getAccountJSON(Account account) {
     accountDetails.put(ACCOUNT_LAST_NAME, account.getLastName());
     accountDetails.put(ACCOUNT_EMAIL, account.getEmail());
     accountDetails.put(ACCOUNT_PASSWORD, account.getPassword());
+    accountDetails.put(ACCOUNT_CURRENT_LOCATION, getLocationJSON(account.getCurrentLocation()));
+
     JSONArray locations = new JSONArray();
-    for(Location location: account.getSavedLocations())
+
+    for(Location location: account.getSavedLocations()){
         locations.add(getLocationJSON(location));
+    }
     accountDetails.put(ACCOUNT_SAVED_LOCATIONS, locations);
 
     JSONArray savedAccounts = new JSONArray();
-    for(Account savedAccount: account.getSavedAccounts())
-        savedAccounts.add(savedAccount.getID());
-    accountDetails.put(ACCOUNT_SAVED_ACCOUNTS, savedAccounts);
+    
+    // for(Account savedAccount: account.getSavedAccounts()){
+    //     savedAccounts.add(((Account)savedAccount).getID().toString());
+    // }
+    // accountDetails.put(ACCOUNT_SAVED_ACCOUNTS, savedAccounts);
 
     JSONArray contacts = new JSONArray();
     for(String contact: account.getEmergencyContact())
@@ -70,19 +76,19 @@ private static JSONObject getAccountJSON(Account account) {
     }
     else if(account.getAccountType() == AccountType.VOLUNTEER){
         accountDetails.put(VOLUNTEER_ABILITIES, ((Volunteer)account).getAbilities());
-        //accountDetails.put(VOLUNTEER_CURRENT_TARGET, ((Volunteer)account).getCurrentTarget().getID());
+        accountDetails.put(VOLUNTEER_CURRENT_TARGET, ((Volunteer)account).getCurrentTarget().getID());
         //TODO add current target/ relief request
     }
      else if(account.getAccountType() == AccountType.ADMIN){
         JSONArray shelters = new JSONArray();
         for(Shelter shelter: ((Admin)account).getShelterList())
-            shelters.add(shelter.getID());
+            shelters.add(shelter.getID().toString());
         
         accountDetails.put(ADMIN_SHELTER_LIST, shelters);
 
         JSONArray requests = new JSONArray();
         for(ReliefRequest request: ((Admin)account).getRequestList())
-            shelters.add(request.getID());
+            shelters.add(request.getID().toString());
         
         accountDetails.put(ADMIN_REQUEST_LIST, requests);
 
@@ -153,6 +159,6 @@ public static boolean saveReliefRequests(){
 
 public static void main(String[] args) {
     saveAccounts();
-    saveShelters();
+    //saveShelters();
 }
 }
