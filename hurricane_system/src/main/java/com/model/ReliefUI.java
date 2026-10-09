@@ -10,7 +10,8 @@ public class ReliefUI {
 	public void run() {
 		//loginScenario();
 		//logOutScenario();
-		signUpScenario();
+		//signUpScenario();
+		getShelterFromZipCodeScenario();
 	}
 
 	
@@ -45,6 +46,11 @@ public class ReliefUI {
 	public void logOutScenario() {
 		application.logout();
 		application.viewAccount();
+	}
+
+	public void getShelterFromZipCodeScenario() {
+		application.viewShelters(29293);
+		application.viewShelters(19999);
 	}
 
 	public static void main(String[] args) {

@@ -30,8 +30,8 @@ public class Victim extends Account{
         this.pets = pets;
     }
 
-    public void setDisabilities(ArrayList<Disabilities> disabilities) {
-        this.disabilities = disabilities;
+    public void setDisabilities(Disabilities disabilities) {
+        this.disabilities.add(disabilities);
     }
 
     public void setAssignedRescuer(Volunteer assignedRescuer) {

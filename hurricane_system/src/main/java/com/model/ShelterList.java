@@ -28,6 +28,22 @@ public class ShelterList {
 		return null;
 	}
 
+	public void getShelter(int zipCode) {
+		boolean found = false;
+		for (Shelter shelter : shelters) {
+			if (shelter.getLocation().getZip().equals(String.valueOf(zipCode))) 
+				found = true;
+		}
+		if (!found) {
+			System.out.println("No shelters found in zip code " + zipCode);
+			return;
+		}
+		for (Shelter shelter : shelters) {
+			if (shelter.getLocation().getZip().equals(String.valueOf(zipCode))) 
+				System.out.println(shelter.getStreet());
+		}
+	}
+
 	public boolean addShelter(int totalOccupancy, int currentOccupancy, Location location, String street, ArrayList<Capabilities> capabilities, int waterCapacity) {
 		return shelters.add(new Shelter(totalOccupancy, currentOccupancy, location, street, capabilities, waterCapacity));
 	}

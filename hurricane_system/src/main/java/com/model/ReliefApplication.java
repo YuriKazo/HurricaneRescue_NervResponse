@@ -60,9 +60,9 @@ public class ReliefApplication {
 		volunteerFlag = false;
 	}
 
-	public void registerDisabilities() {
+	public void registerDisabilities(Disabilities disability) {
 		if (currentAccount instanceof Victim) {
-			((Victim) currentAccount).registerDisabilities();
+			((Victim) currentAccount).setDisabilities(disability);
 			accountList.saveAccount();
 		}
 	}
@@ -112,6 +112,10 @@ public class ReliefApplication {
 	"\n"+currentAccount.getID()+
 	"\n"+currentAccount.getType()
 );
+	}
+
+	public void viewShelters(int zipCode) {
+		shelterList.getShelter(zipCode);
 	}
 
 	public void saveAccount(UUID id) {
