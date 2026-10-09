@@ -13,14 +13,14 @@ public class DataWriter extends DataConstants{
 
 public static boolean saveAccounts(){
     AccountList accountList = AccountList.getInstance();
-    //ArrayList<Account> accounts = accountList.getUsers();
+    ArrayList<Account> accounts = accountList.getUsers();
 
     // hard coded
-    ArrayList<Account> accounts = new ArrayList<Account>();
-    accounts.add(new Victim("David", "dsmith@gmail.com", "Smith", "password123"));
-    accounts.add(new Volunteer("Mark", "mbryant@gmail.com", "Byrant", "password321"));
-
-    JSONArray jsonAccounts = new JSONArray();
+    //ArrayList<Account> accounts = new ArrayList<>();
+    // accounts.add(new Victim("David", "dsmith@gmail.com", "Smith", "password123"));
+    //accounts.add(new Volunteer("Mark", "mbryant@gmail.com", "Byrant", "password321"));
+    //accounts.add(new Admin(UUID.randomUUID(),"Amy", "asmith@gmail.com", "Smith", "password123456", new ArrayList<Location>(), new ArrayList<Account>(), new ArrayList<String>(), new Location(0, 0, "32521"), new ArrayList<Shelter>(List.of(new Shelter(0, 0, null, SHELTER_STREET, null, 0))), new ArrayList<ReliefRequest>(List.of(new ReliefRequest("REQUEST_DESCRIPTION", null, null, 0))) ));
+     JSONArray jsonAccounts = new JSONArray();
 
     //creates the JSON objects
     for(int i = 0; i < accounts.size(); i++){
@@ -38,34 +38,60 @@ public static boolean saveAccounts(){
     return true;
 }
 
-public static JSONObject getAccountJSON(Account account) {
+private static JSONObject getAccountJSON(Account account) {
     JSONObject accountDetails = new JSONObject();
     accountDetails.put(ACCOUNT_USER_ID, account.getID().toString());
     accountDetails.put(ACCOUNT_FIRST_NAME, account.getFirstName());
     accountDetails.put(ACCOUNT_LAST_NAME, account.getLastName());
     accountDetails.put(ACCOUNT_EMAIL, account.getEmail());
     accountDetails.put(ACCOUNT_PASSWORD, account.getPassword());
-    accountDetails.put(ACCOUNT_SAVED_LOCATIONS, account.getSavedLocations());
-    accountDetails.put(ACCOUNT_SAVED_ACCOUNTS, account.getSavedAccounts());
-    accountDetails.put(ACCOUNT_EMERGENCY_CONTACT, account.getEmergencyContact());
+    accountDetails.put(ACCOUNT_CURRENT_LOCATION, getLocationJSON(account.getCurrentLocation()));
 
-    if(account instanceof Victim){
-        accountDetails.put(ACCOUNT_TYPE, "VICTIM");
+    JSONArray locations = new JSONArray();
+
+    for(Location location: account.getSavedLocations()){
+        locations.add(getLocationJSON(location));
+    }
+    accountDetails.put(ACCOUNT_SAVED_LOCATIONS, locations);
+
+    JSONArray savedAccounts = new JSONArray();
+    
+    // for(Account savedAccount: account.getSavedAccounts()){
+    //     savedAccounts.add(((Account)savedAccount).getID().toString());
+    // }
+    // accountDetails.put(ACCOUNT_SAVED_ACCOUNTS, savedAccounts);
+
+    JSONArray contacts = new JSONArray();
+    for(String contact: account.getEmergencyContact())
+        contacts.add(contact);
+    contacts.addAll(account.getEmergencyContact());
+    accountDetails.put(ACCOUNT_EMERGENCY_CONTACT, contacts);
+    accountDetails.put(ACCOUNT_TYPE, account.getAccountType().name());
+
+    if(account.getAccountType() == AccountType.VICTIM){
         accountDetails.put(VICTIM_PETS, ((Victim)account).hasPets());
         accountDetails.put(VICTIM_DISABILITIES, ((Victim)account).getDisabilities());
 
         accountDetails.put(VICTIM_ASSIGNED_RESCUER, ((Victim)account).getAssignedRescuer() != null ? ((Victim)account).getID().toString() : null);
     }
-    else if(account instanceof Volunteer){
-        accountDetails.put(ACCOUNT_TYPE, "VOLUNTEER");
+    else if(account.getAccountType() == AccountType.VOLUNTEER){
         accountDetails.put(VOLUNTEER_ABILITIES, ((Volunteer)account).getAbilities());
-        //TODO add current target (relief request)
-        //accountDetails.put(VOLUNTEER_CURRENT_TARGET, );
+        accountDetails.put(VOLUNTEER_CURRENT_TARGET, ((Volunteer)account).getCurrentTarget() != null ? ((Volunteer)account).getCurrentTarget().getID().toString() : null );
+    }
+     else if(account.getAccountType() == AccountType.ADMIN){
+        JSONArray shelters = new JSONArray();
+        for(Shelter shelter: ((Admin)account).getShelterList())
+            shelters.add(shelter.getID().toString());
+        
+        accountDetails.put(ADMIN_SHELTER_LIST, shelters);
+
+        JSONArray requests = new JSONArray();
+        for(ReliefRequest request: ((Admin)account).getRequestList())
+            shelters.add(request.getID().toString());
+        
+        accountDetails.put(ADMIN_REQUEST_LIST, requests);
 
     }
-    // else if(account instanceof Admin){
-        //TODO add Admin data writing
-    // }
     return accountDetails;
 }
 
@@ -73,13 +99,14 @@ public static JSONObject getAccountJSON(Account account) {
 
 public static boolean saveShelters(){
     
-    //ShelterList shelterList = ShelterList.getInstance();
-    //ArrayList<Shelter> shelters = shelterList.getShelters();
+    ShelterList shelterList = ShelterList.getInstance();
+    ArrayList<Shelter> shelters = shelterList.getShelters();
 
     // hard coded
-    ArrayList<Shelter> shelters = new ArrayList<Shelter>();
-    shelters.add(new Shelter(new Location(72.4, 82.34)));
-    shelters.add(new Shelter(UUID.randomUUID(), 200, 122, new Location(84.12,65.32), "East St", new ArrayList<Capabilities>(List.of(Capabilities.FOOD,Capabilities.WATER)), 20));
+    // ArrayList<Shelter> shelters = new ArrayList<>();
+    // shelters.add(new Shelter(100, 55, new Location(72.4, 82.34, "23525"), "Northeast St", new ArrayList<Capabilities>(), 5 ));
+    // shelters.add(new Shelter(UUID.randomUUID(), 200, 122, new Location(84.12,65.32,"23523"), "East St", new ArrayList<Capabilities>(List.of(Capabilities.FOOD,Capabilities.WATER)), 20));
+
     JSONArray jsonShelters = new JSONArray();
 
     //creates the JSON objects
@@ -98,7 +125,7 @@ public static boolean saveShelters(){
 }
 
 
-public static JSONObject getShelterJSON(Shelter shelter){
+private static JSONObject getShelterJSON(Shelter shelter){
     JSONObject shelterDetails = new JSONObject();
     shelterDetails.put(SHELTER_ID, shelter.getID().toString());
     shelterDetails.put(SHELTER_TOTAL_OCCUPANCY, shelter.getTotalOccupancy());
@@ -106,12 +133,14 @@ public static JSONObject getShelterJSON(Shelter shelter){
     shelterDetails.put(SHELTER_LOCATION, getLocationJSON(shelter.getLocation()));
     shelterDetails.put(SHELTER_STREET, shelter.getStreet());
     shelterDetails.put(SHELTER_CAPABILITIES, shelter.getCapabilities());
+    
     shelterDetails.put(SHELTER_WATER_CAPACITY, shelter.getWaterCapacity());
+    
     return shelterDetails;
 }
 
 
-public static JSONObject getLocationJSON(Location location){
+private static JSONObject getLocationJSON(Location location){
     JSONObject locationDetails = new JSONObject();
     locationDetails.put(LOCATION_LONGITUDE,location.getLongitudeCoord());
     locationDetails.put(LOCATION_LATITUDE,location.getLatitudeCoord());
@@ -120,11 +149,43 @@ public static JSONObject getLocationJSON(Location location){
 }
 
 public static boolean saveReliefRequests(){
+        
+    ReliefRequestList requestList  = ReliefRequestList.getInstance();
+    ArrayList<ReliefRequest> requests = requestList.getRequests();
+
+    // hard coded
+    JSONArray jsonRequests = new JSONArray();
+
+    //creates the JSON objects
+    for(int i = 0; i < requests.size(); i++){
+        jsonRequests.add(getRequestJSON(requests.get(i)));
+    }
+
+    try (FileWriter file = new FileWriter(REQUEST_TEMP_FILE_NAME)){
+        file.write(jsonRequests.toJSONString());
+        file.flush();
+
+    } catch (IOException e){
+        e.printStackTrace();
+    }
     return true;
 }
 
-public static void main(String[] args) {
-    saveAccounts();
-    saveShelters();
+private static JSONObject getRequestJSON(ReliefRequest request){
+    JSONObject requestDetails = new JSONObject();
+    requestDetails.put(REQUEST_ID, request.getID().toString());
+    requestDetails.put(REQUEST_PRIORITY_LEVEL, request.getPriorityLevel().name());
+    requestDetails.put(REQUEST_DESCRIPTION, request.getRequestDescription());
+    requestDetails.put(REQUEST_LOCATION, getLocationJSON(request.getLocation()));
+    requestDetails.put(REQUEST_STATUS, request.getStatus().name());
+    requestDetails.put(REQUEST_VICTIM_COUNT, request.getVictimCount());
+    return requestDetails;
 }
+
+
+// public static void main(String[] args) {
+//     saveReliefRequests();
+//     saveAccounts();
+//     saveShelters();
+// }
 }

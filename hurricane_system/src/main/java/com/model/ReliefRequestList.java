@@ -8,7 +8,7 @@ public class ReliefRequestList {
     private ArrayList<ReliefRequest> requests;
 
     private ReliefRequestList(){
-        requests = new ArrayList<ReliefRequest>();
+        requests = DataLoader.getReliefRequests();
     }
 
     public static ReliefRequestList getInstance(){
@@ -39,5 +39,9 @@ public class ReliefRequestList {
 
     public boolean saveReliefRequest(){
         return DataWriter.saveReliefRequests(); 
+    }
+
+    public ArrayList<ReliefRequest> getRequests(){
+        return requests;
     }
 }

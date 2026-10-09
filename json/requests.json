@@ -6,7 +6,7 @@
         "location": {
             "longitude": -22.9401,
             "latitude": 12.7765,
-            "zipLocation": 29103
+            "zipLocation": "29103"
         },
         "status": "NOT_ACCEPTED",
         "victimCount": 2
@@ -18,7 +18,7 @@
         "location": {
             "longitude": -99.9401,
             "latitude": 12.7335,
-            "zipLocation": 29411
+            "zipLocation": "29411"
         },
         "status": "ACCEPTED",
         "victimCount": 1
