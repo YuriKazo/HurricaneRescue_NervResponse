@@ -1,4 +1,5 @@
 package com.model;
+import java.util.UUID; 
 
 public class ReliefUI {
 	private ReliefApplication application;
@@ -11,7 +12,8 @@ public class ReliefUI {
 		//loginScenario();
 		//logOutScenario();
 		//signUpScenario();
-		getShelterFromZipCodeScenario();
+		//getSheltersFromZipCodeScenario();
+		createShelterScenario();
 	}
 
 	
@@ -48,9 +50,19 @@ public class ReliefUI {
 		application.viewAccount();
 	}
 
-	public void getShelterFromZipCodeScenario() {
+	public void getSheltersFromZipCodeScenario() {
 		application.viewShelters(29293);
 		application.viewShelters(19999);
+	}
+
+	public void createShelterScenario() {
+		application.login("blagano@email.com", "password");
+		application.viewAccount();
+		UUID id = application.makeShelter(78.111, 34.349, "12356", "Negra Arroyo Lane");
+		application.viewShelter(id);
+		
+		//application.updateWaterLeft(id, 70); doesn't work yet
+		
 	}
 
 	public static void main(String[] args) {

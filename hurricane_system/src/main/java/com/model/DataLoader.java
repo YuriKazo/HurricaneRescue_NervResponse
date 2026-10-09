@@ -26,7 +26,10 @@ public class DataLoader {
                 String userEmail = (String)accountJson.get(DataConstants.ACCOUNT_EMAIL);
                 String userPassword = (String)accountJson.get(DataConstants.ACCOUNT_PASSWORD);
                 ArrayList<Location> userSavedLocations = (ArrayList<Location>) accountJson.get(DataConstants.ACCOUNT_SAVED_LOCATIONS);
-                ArrayList<Account> userSavedAccounts = (ArrayList<Account>) accountJson.get(DataConstants.ACCOUNT_SAVED_ACCOUNTS);
+                ArrayList<UUID> userSavedAccounts = new ArrayList<>();
+                JSONArray savedAccountsJson = (JSONArray) accountJson.get(DataConstants.ACCOUNT_SAVED_ACCOUNTS);
+                for (Object s : savedAccountsJson)
+                    userSavedAccounts.add(UUID.fromString(s.toString()));
                 ArrayList<String> userEmergencyContacts = (ArrayList<String>) accountJson.get(DataConstants.ACCOUNT_EMERGENCY_CONTACT);
                 JSONObject locationJson = (JSONObject) accountJson.get(DataConstants.ACCOUNT_CURRENT_LOCATION);
                 double longitude = Double.parseDouble(locationJson.get(DataConstants.LOCATION_LONGITUDE).toString());
@@ -49,8 +52,14 @@ public class DataLoader {
                     accounts.add(new Volunteer(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, abilities, victimListId, currentTargetId));
                 }
                 if (userType.equals("ADMIN")) {
-                    ArrayList<Shelter> shelters = (ArrayList<Shelter>) accountJson.get(DataConstants.ADMIN_SHELTER_LIST);
-                    ArrayList<ReliefRequest> requestList = (ArrayList<ReliefRequest>) accountJson.get(DataConstants.ADMIN_REQUEST_LIST);
+                    ArrayList<UUID> shelters = new ArrayList<>();
+                    JSONArray savedShelter = (JSONArray) accountJson.get(DataConstants.ADMIN_SHELTER_LIST);
+                    for (Object s : savedShelter)
+                        shelters.add(UUID.fromString(s.toString()));
+                    ArrayList<UUID> requestList = new ArrayList<>();
+                    JSONArray savedRequest = (JSONArray) accountJson.get(DataConstants.ADMIN_REQUEST_LIST);
+                    for (Object s : savedRequest)
+                        requestList.add(UUID.fromString(s.toString()));
                     accounts.add(new Admin(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, shelters, requestList));
                 }
                 

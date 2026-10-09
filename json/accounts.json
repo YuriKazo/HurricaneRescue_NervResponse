@@ -44,5 +44,31 @@
     "abilities": ["BOAT", "MEDICAL_ASSISTANCE", "HIGH_STRENGTH"],
     "victimList": ["552e4057-52e3-4b4d-9780-d9bd14fcca30"],
     "currentTarget": "552e4057-52e3-4b4d-9780-d9bd14fcca30"
+  },
+  {
+    "userID": "ddbea6c7-6e13-4e03-95dd-bc1c3735827e",
+    "type": "ADMIN",
+    "firstName": "Blake",
+    "lastName": "Blagano",
+    "email": "blagano@email.com",
+    "password": "password",
+    "savedLocations": [{
+      "longitude": -22.9401,
+      "latitude": 32.9965,
+      "zipLocation": "29113"
+    },{
+      "longitude": -11.0911,
+      "latitude": 22.2812,
+      "zipLocation": "67676"
+    }],
+    "savedAccounts": [],
+    "emergencyContact": ["222-22-2222"],
+    "currentLocation": {
+      "longitude": -80.1401,
+      "latitude": 32.7095,
+      "zipLocation": "29003"
+    },
+    "shelterList": ["8c860493-3fb8-48ab-8127-beaf991340b3"],
+    "requestList": ["62029f22-a9ef-445e-aef6-2354194db37d"]
   }
 ]

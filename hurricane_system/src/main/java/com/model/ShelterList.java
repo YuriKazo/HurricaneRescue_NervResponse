@@ -21,14 +21,34 @@ public class ShelterList {
 
 	public Shelter getShelter(Location location) {
 		for (Shelter shelter : shelters) {
-			if (shelter.getLocation().equals(location)) {
+			if (shelter.getLocation().equals(location)) 
 				return shelter;
-			}
 		}
 		return null;
 	}
 
-	public void getShelter(int zipCode) {
+	public Shelter getShelter(UUID id) {
+		for (Shelter shelter : shelters) {
+			if (shelter.getID().equals(id))
+				return shelter;
+		}
+		return null;
+	}
+
+	public void viewShelter(UUID id) {
+		
+		for (Shelter shelter : shelters) {
+			if (shelter.getID().equals(id)) {
+				System.out.println("Street Name: "+shelter.getStreet());
+				System.out.println("Total Occupancy: "+shelter.getTotalOccupancy());
+				System.out.println("Current Occupancy"+shelter.getCurrentOccupancy());
+				System.out.println("Water Capcity : "+shelter.getWaterCapacity());
+				System.out.println("Capabilities: "+shelter.getCapabilities());
+			}
+		}
+	}
+
+	public void getShelters(int zipCode) {
 		boolean found = false;
 		for (Shelter shelter : shelters) {
 			if (shelter.getLocation().getZip().equals(String.valueOf(zipCode))) 
@@ -39,13 +59,21 @@ public class ShelterList {
 			return;
 		}
 		for (Shelter shelter : shelters) {
-			if (shelter.getLocation().getZip().equals(String.valueOf(zipCode))) 
+			if (shelter.getLocation().getZip().equals(String.valueOf(zipCode))) {
 				System.out.println(shelter.getStreet());
+				System.out.println(shelter.getTotalOccupancy());
+				System.out.println(shelter.getCurrentOccupancy());
+				System.out.println(shelter.getWaterCapacity());
+				System.out.println(shelter.getCapabilities());
+			}
 		}
 	}
 
-	public boolean addShelter(int totalOccupancy, int currentOccupancy, Location location, String street, ArrayList<Capabilities> capabilities, int waterCapacity) {
-		return shelters.add(new Shelter(totalOccupancy, currentOccupancy, location, street, capabilities, waterCapacity));
+	public UUID addShelter(double longitude, double latittude, String zip, String street) {
+		Location location = new Location(longitude, latittude, zip);
+		Shelter newShelter = new Shelter(location, street);
+		shelters.add(newShelter);
+		return newShelter.getID();
 	}
 
 	public boolean removeShelter(UUID shelterId) {

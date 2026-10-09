@@ -10,7 +10,7 @@ public abstract class Account {
 	protected String password;
 	protected UUID userID;
 	protected ArrayList<Location> savedLocations;
-	protected ArrayList<Account> savedAccounts;
+	protected ArrayList<UUID> savedAccounts;
 	protected ArrayList<String> emergencyContact;
 	protected Location currentLocation;
 	protected AccountType type;
@@ -23,12 +23,12 @@ public abstract class Account {
 		this.password = passWord;
 		this.type = accountType;
 		this.savedLocations = new ArrayList<Location>();
-		this.savedAccounts = new ArrayList<Account>();	
+		this.savedAccounts = new ArrayList<UUID>();	
 		this.emergencyContact = new ArrayList<String>();
 		this.currentLocation = new Location(0.0, 0.0, "00000");
 	}
 
-	public Account(UUID id, String firstName, String email, String lastName, String passWord, AccountType accountType, ArrayList<Location> savedLocations, ArrayList<Account> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation) {
+	public Account(UUID id, String firstName, String email, String lastName, String passWord, AccountType accountType, ArrayList<Location> savedLocations, ArrayList<UUID> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation) {
 		this.userID = id;
 		this.firstName = firstName;
 		this.email = email;
@@ -91,7 +91,7 @@ public abstract class Account {
 		return savedLocations;
 	}
 
-	public ArrayList<Account> getSavedAccounts() {
+	public ArrayList<UUID> getSavedAccounts() {
 		return savedAccounts;
 	}
 
@@ -102,4 +102,5 @@ public abstract class Account {
 	public Location getCurrentLocation() {
 		return currentLocation;
 	}
+	
 }

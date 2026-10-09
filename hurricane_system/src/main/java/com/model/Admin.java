@@ -4,44 +4,45 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Admin extends Account{
-    private ArrayList<Shelter> shelterList;
-    private ArrayList<ReliefRequest> requestList;
+    private ArrayList<UUID> shelterList;
+    private ArrayList<UUID> requestList;
 
     public Admin(String firstName, String email, String lastName, String passWord){
         super(firstName, email, lastName, passWord, AccountType.ADMIN);
-        shelterList = new ArrayList<Shelter>();
-        requestList = new ArrayList<ReliefRequest>();
+        shelterList = new ArrayList<UUID>();
+        requestList = new ArrayList<UUID>();
     }
 
-    public Admin(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Location> savedLocations, ArrayList<Account> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation, ArrayList<Shelter> shelterList, ArrayList<ReliefRequest> requestList){
+    public Admin(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Location> savedLocations, ArrayList<UUID> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation, ArrayList<UUID> shelterList, ArrayList<UUID> requestList){
         super(id, firstName, email, lastName, passWord, AccountType.ADMIN, savedLocations, savedAccounts, emergencyContacts, currentLocation);
         this.shelterList = shelterList;
         this.requestList = requestList;
     }
 
-    public void updateOccupancy(Shelter shelter, int newOccupancy){
-        for(Shelter s : shelterList){
-            if(s.equals(shelter))
-                s.setCurrentOccupancy(newOccupancy);
+    public void addShelter(UUID id) {
+        shelterList.add(id);
+    }
+
+    public void updateOccupancy(UUID id, int newOccupancy){
+        for(UUID s : shelterList){
+            if(s.equals(id))
+                ShelterList.getInstance().getShelter(id).setCurrentOccupancy(newOccupancy);
         }
     }
 
-    public void updateTotalOccupancy(Shelter shelter, int totalOccupancy){
-        for(Shelter s : shelterList){
-            if(s.equals(shelter))
-                s.setTotalOccupancy(totalOccupancy);
+    public void updateTotalOccupancy(UUID id, int totalOccupancy){
+        for(UUID s : shelterList){
+            if(s.equals(id))
+                ShelterList.getInstance().getShelter(id).setTotalOccupancy(totalOccupancy);
         }
     }
 
-    public void updateWaterLeft(Shelter shelter, int waterLeft){
-        for(Shelter s : shelterList){
-            if(s.equals(shelter))
-                s.setWaterCapacity(waterLeft);
+    public void updateWaterLeft(UUID id, int waterLeft){
+        System.out.println(shelterList);
+        for(UUID s : shelterList){
+            if(s.equals(id))
+                ShelterList.getInstance().getShelter(id).setWaterCapacity(waterLeft);
         }
-    }
-
-    public void makeShelter(int totalOccupancy, int currentOccupancy, Location location, String street, ArrayList<Capabilities> capabilities, int waterCapacity){
-        ShelterList.getInstance().addShelter(totalOccupancy, currentOccupancy, location, street, capabilities, waterCapacity);
     }
 
     public boolean deleteShelter(Shelter shelter){

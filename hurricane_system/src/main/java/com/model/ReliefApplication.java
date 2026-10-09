@@ -107,15 +107,20 @@ public class ReliefApplication {
 			return;
 		}
 		System.out.println(currentAccount.getEmail()+
-	"\n"+currentAccount.getFirstName()+
-	"\n"+currentAccount.getLastName()+
-	"\n"+currentAccount.getID()+
-	"\n"+currentAccount.getType()
+	"\n"+"First Name: "+currentAccount.getFirstName()+
+	"\n"+"Last Name: "+currentAccount.getLastName()+
+	"\n"+"Account ID: "+currentAccount.getID()+
+	"\n"+"Account Type: "+currentAccount.getType()			// for testing purposes only
 );
 	}
 
 	public void viewShelters(int zipCode) {
-		shelterList.getShelter(zipCode);
+		shelterList.getShelters(zipCode);
+	}
+
+	public void viewShelter(UUID id) {
+		shelterList.viewShelter(id);
+		shelterList.getShelter(id);
 	}
 
 	public void saveAccount(UUID id) {
@@ -169,17 +174,25 @@ public class ReliefApplication {
 		return reliefRequestList.getReliefRequest();
 	}
 
-	public void updateOccupancy(Shelter shelter, int occupancy) {
+	public void updateOccupancy(UUID shelterID, int occupancy) {
 		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateOccupancy(shelter, occupancy);
+		((Admin) currentAccount).updateOccupancy(shelterID, occupancy);
 		shelterList.saveShelter();
 	}
 
-	public void updateTotalOccupancy(Shelter shelter, int totalOccupancy) {
+	public UUID makeShelter(double longitude, double latittude, String zip, String street) {
+		if (!adminFlag) return null; 
+
+		UUID id = shelterList.addShelter(longitude, latittude, zip, street);
+		((Admin) currentAccount).addShelter(id);
+		return id; 
+	}
+
+	public void updateTotalOccupancy(UUID shelterID, int totalOccupancy) {
 		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateTotalOccupancy(shelter, totalOccupancy);
+		((Admin) currentAccount).updateTotalOccupancy(shelterID, totalOccupancy);
 		shelterList.saveShelter();
 	}
 
@@ -208,10 +221,10 @@ public class ReliefApplication {
 		reliefRequestList.saveReliefRequest();
 	}
 
-	public void updateWaterLeft(Shelter shelter, int water) {
+	public void updateWaterLeft(UUID id, int water) {
 		if (!adminFlag) return;
 
-		((Admin) currentAccount).updateWaterLeft(shelter, water);
+		((Admin) currentAccount).updateWaterLeft(id, water);
 		shelterList.saveShelter();
 	}
 }
