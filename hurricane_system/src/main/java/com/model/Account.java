@@ -102,12 +102,8 @@ public abstract class Account {
 	public Location getCurrentLocation() {
 		return currentLocation;
 	}
-<<<<<<< HEAD
-	
-=======
 
 	public AccountType getAccountType(){
 		return type;
 	}
->>>>>>> a1beb9af72aed85dab63a1e2b0bc6f77f0111564
 }

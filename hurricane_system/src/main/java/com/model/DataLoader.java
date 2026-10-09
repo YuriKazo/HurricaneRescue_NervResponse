@@ -4,8 +4,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONArray; 
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader {
@@ -25,18 +25,11 @@ public class DataLoader {
                 String userLastName = (String)accountJson.get(DataConstants.ACCOUNT_LAST_NAME);
                 String userEmail = (String)accountJson.get(DataConstants.ACCOUNT_EMAIL);
                 String userPassword = (String)accountJson.get(DataConstants.ACCOUNT_PASSWORD);
-                JSONArray locations = (JSONArray) accountJson.get(DataConstants.ACCOUNT_SAVED_LOCATIONS);
-                ArrayList<Location> userSavedLocations = new ArrayList<>();
-                for(int l = 0; l < locations.size(); l++){
-                    JSONObject jsonLocation = (JSONObject) locations.get(l);
-                    double latitude = Double.parseDouble(jsonLocation.get(DataConstants.LOCATION_LATITUDE).toString());
-                    double longitude = Double.parseDouble(jsonLocation.get(DataConstants.LOCATION_LONGITUDE).toString());
-                    String zip = (String)jsonLocation.get(DataConstants.LOCATION_ZIP_LOCATION);
-                    Location location = new Location(longitude, latitude, zip);
-                    userSavedLocations.add(location);
-                }
-
-                ArrayList<Account> userSavedAccounts = (ArrayList<Account>) accountJson.get(DataConstants.ACCOUNT_SAVED_ACCOUNTS);
+                ArrayList<Location> userSavedLocations = (ArrayList<Location>) accountJson.get(DataConstants.ACCOUNT_SAVED_LOCATIONS);
+                ArrayList<UUID> userSavedAccounts = new ArrayList<>();
+                JSONArray savedAccountsJson = (JSONArray) accountJson.get(DataConstants.ACCOUNT_SAVED_ACCOUNTS);
+                for (Object s : savedAccountsJson)
+                    userSavedAccounts.add(UUID.fromString(s.toString()));
                 ArrayList<String> userEmergencyContacts = (ArrayList<String>) accountJson.get(DataConstants.ACCOUNT_EMERGENCY_CONTACT);
                 JSONObject locationJson = (JSONObject) accountJson.get(DataConstants.ACCOUNT_CURRENT_LOCATION);
                 double longitude = Double.parseDouble(locationJson.get(DataConstants.LOCATION_LONGITUDE).toString());
