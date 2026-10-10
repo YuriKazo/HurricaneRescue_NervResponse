@@ -24,6 +24,8 @@ public class Location {
     }
 
     public void setLocation(double longitude, double latitude, String zip){
-
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.zipLocation = zip;
     }
 }
