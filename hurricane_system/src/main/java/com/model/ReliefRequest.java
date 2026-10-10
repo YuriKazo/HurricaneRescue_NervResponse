@@ -29,15 +29,19 @@ public class ReliefRequest {
     }
 
     public void markComplete(){
-
+        status = Status.COMPLETED;
     }
 
     public void changeRequestStatus(Status status){
+        if (status == null) return;
 
+        this.status = status;
     }
 
     public void changePriority(PriorityLevel priorityLevel){
+        if (priorityLevel == null) return;
 
+        this.priorityLevel = priorityLevel;
     }
 
     public UUID getID(){
