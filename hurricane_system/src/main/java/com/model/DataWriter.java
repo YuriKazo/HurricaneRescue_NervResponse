@@ -183,9 +183,9 @@ private static JSONObject getRequestJSON(ReliefRequest request){
 }
 
 
- public static void main(String[] args) {
+//  public static void main(String[] args) {
 //     saveReliefRequests();
-       saveAccounts();
+//     saveAccounts();
 //     saveShelters();
- }
+// }
 }
