@@ -56,10 +56,10 @@ private static JSONObject getAccountJSON(Account account) {
 
     JSONArray savedAccounts = new JSONArray();
     
-    // for(Account savedAccount: account.getSavedAccounts()){
-    //     savedAccounts.add(((Account)savedAccount).getID().toString());
-    // }
-    // accountDetails.put(ACCOUNT_SAVED_ACCOUNTS, savedAccounts);
+    for(UUID savedAccount: account.getSavedAccounts()){
+        savedAccounts.add(savedAccount.toString());
+    }
+    accountDetails.put(ACCOUNT_SAVED_ACCOUNTS, savedAccounts);
 
     JSONArray contacts = new JSONArray();
     for(String contact: account.getEmergencyContact())
@@ -80,14 +80,14 @@ private static JSONObject getAccountJSON(Account account) {
     }
      else if(account.getAccountType() == AccountType.ADMIN){
         JSONArray shelters = new JSONArray();
-        for(Shelter shelter: ((Admin)account).getShelterList())
-            shelters.add(shelter.getID().toString());
+        for(UUID shelter: ((Admin)account).getShelterList())
+            shelters.add(shelter.toString());
         
         accountDetails.put(ADMIN_SHELTER_LIST, shelters);
 
         JSONArray requests = new JSONArray();
-        for(ReliefRequest request: ((Admin)account).getRequestList())
-            shelters.add(request.getID().toString());
+        for(UUID request: ((Admin)account).getRequestList())
+            shelters.add(request.toString());
         
         accountDetails.put(ADMIN_REQUEST_LIST, requests);
 
@@ -183,7 +183,7 @@ private static JSONObject getRequestJSON(ReliefRequest request){
 }
 
 
-// public static void main(String[] args) {
+//  public static void main(String[] args) {
 //     saveReliefRequests();
 //     saveAccounts();
 //     saveShelters();
