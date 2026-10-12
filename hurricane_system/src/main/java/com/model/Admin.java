@@ -7,27 +7,29 @@ public class Admin extends Account {
     private ArrayList<UUID> shelterList;
     private ArrayList<UUID> requestList;
 
-    public Admin(String firstName, String email,
-                 String lastName, String password,
-                 AccountType type) {
-        super(firstName, email, lastName, password, type);
-
-        shelterList = new ArrayList<UUID>();
-        requestList = new ArrayList<UUID>();
-    }
-
-    public Admin(UUID id, String firstName, String email,
-             String lastName, String password,
-             AccountType type) {
-    super(id, firstName, email, lastName, password, type,
-          new ArrayList<Location>(),
-          new ArrayList<UUID>(),
-          new ArrayList<String>(),
-          new Location(0.0, 0.0, "00000"));
+ public Admin(String firstName, String email, String lastName, String password) {
+    super(firstName, email, lastName, password, AccountType.ADMIN);
 
     shelterList = new ArrayList<UUID>();
     requestList = new ArrayList<UUID>();
-    }
+}
+
+public Admin(UUID id, String firstName, String email,
+             String lastName, String password,
+             ArrayList<Location> savedLocations,
+             ArrayList<UUID> savedAccounts,
+             ArrayList<String> emergencyContacts,
+             Location currentLocation,
+             ArrayList<UUID> shelterList,
+             ArrayList<UUID> requestList) {
+
+    super(id, firstName, email, lastName, password,
+          AccountType.ADMIN, savedLocations, savedAccounts,
+          emergencyContacts, currentLocation);
+
+    this.shelterList = shelterList;
+    this.requestList = requestList;
+}
     
      // @param id the shelter's unique ID
     public void addShelter(UUID id) {
@@ -82,5 +84,53 @@ public class Admin extends Account {
             shelterList.remove(shelterId);
         }
         return removed;
+    }
+    //@return ArrayList of shelter UUIDs
+    public ArrayList<UUID> getShelterList() {
+        return shelterList;
+    }
+    //@return ArrayList of relief request UUIDs
+ 
+    public ArrayList<UUID> getRequestList() {
+        return requestList;
+    }
+    
+/**
+ * Updates the current occupancy of a shelter using its UUID.
+ *
+ * @param shelterID the unique ID of the shelter
+ * @param occupancy the new current occupancy
+ */
+public void updateOccupancy(UUID shelterID, int occupancy) {
+    Shelter shelter = ShelterList.getInstance().getShelter(shelterID);
+
+    if (shelter == null) {
+        return;
+    }
+
+    updateOccupancy(shelter, occupancy);
+}
+
+    // @param shelterID the unique ID of the shelter
+    //@param totalOccupancy the new maximum occupancy
+ 
+    public void updateTotalOccupancy(UUID shelterID, int totalOccupancy) {
+        Shelter shelter = ShelterList.getInstance().getShelter(shelterID);
+        if (shelter == null) {
+        return;
+    }
+    updateTotalOccupancy(shelter, totalOccupancy);
+    }
+
+    //@param shelterID the unique ID of the shelter
+    // @param water the new amount of water remaining
+ 
+    public void updateWaterLeft(UUID shelterID, int water) {
+    Shelter shelter = ShelterList.getInstance().getShelter(shelterID);
+    if (shelter == null) {
+        return;
+    }
+
+    updateWaterLeft(shelter, water);
     }
 }
