@@ -23,12 +23,21 @@ public class Volunteer extends Account{
         return null;
     }
 
-    public void markComplete(){
-
+    public void markComplete() {
+        if (currentTarget != null) {
+            currentTarget.markComplete();
+            currentTarget = null;
+        }
     }
 
-    public boolean addAbilities(Abilities ability){
-        return true;
+    // @param ability the ability to add
+    // @return true if added, false if already present or null
+    public boolean addAbilities(Abilities ability) {
+        if (ability == null || abilities.contains(ability)) {
+            return false;
+        }
+        abilities.add(ability);
+         return true;
     }
 
     public String getContact(Account account){
@@ -50,5 +59,4 @@ public class Volunteer extends Account{
     public void setCurrentTarget(ReliefRequest currentTarget) {
         this.currentTarget = currentTarget;
     }
-
 }
