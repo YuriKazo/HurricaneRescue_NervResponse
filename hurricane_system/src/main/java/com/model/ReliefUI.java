@@ -11,9 +11,9 @@ public class ReliefUI {
 	public void run() {
 		//loginScenario();
 		//logOutScenario();
-		//signUpScenario();
+		signUpScenario();
 		//getSheltersFromZipCodeScenario();
-		createShelterScenario();
+		//createShelterScenario();
 	}
 
 	
@@ -46,6 +46,12 @@ public class ReliefUI {
 	}
 
 	public void logOutScenario() {
+		if (application.login("tbradley@gmail.com", "stormcat7")) {
+			System.out.println("TOM is now logged in");
+		}else {
+			System.out.println("Login failed for TOM");
+		}
+		application.viewAccount();
 		application.logout();
 		application.viewAccount();
 	}

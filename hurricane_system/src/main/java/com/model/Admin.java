@@ -49,11 +49,11 @@ public class Admin extends Account{
         return ShelterList.getInstance().removeShelter(shelter.getID());
     }
 
-    public ArrayList<Shelter> getShelterList(){
+    public ArrayList<UUID> getShelterList(){
         return shelterList;
     }
 
-    public ArrayList<ReliefRequest> getRequestList(){
+    public ArrayList<UUID> getRequestList(){
         return requestList;
     }
 }
