@@ -1,0 +1,26 @@
+[
+    {
+        "priorityLevel": "MEDIUM",
+        "requestID": "37b08b54-f977-45f3-a382-081942691d62",
+        "location": {
+            "zipLocation": "29103",
+            "latitude": 12.7765,
+            "longitude": -22.9401
+        },
+        "victimCount": 2,
+        "requestDescription": "broken leg",
+        "status": "NOT_ACCEPTED"
+    },
+    {
+        "priorityLevel": "HIGH",
+        "requestID": "62029f22-a9ef-445e-aef6-2354194db37d",
+        "location": {
+            "zipLocation": "29411",
+            "latitude": 12.7335,
+            "longitude": -99.9401
+        },
+        "victimCount": 1,
+        "requestDescription": "broken down car",
+        "status": "ACCEPTED"
+    }
+]
