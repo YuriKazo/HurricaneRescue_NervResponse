@@ -70,7 +70,13 @@ private static JSONObject getAccountJSON(Account account) {
 
     if(account.getAccountType() == AccountType.VICTIM){
         accountDetails.put(VICTIM_PETS, ((Victim)account).hasPets());
-        accountDetails.put(VICTIM_DISABILITIES, ((Victim)account).getDisabilities());
+        ArrayList<Disabilities> temp = ((Victim)account).getDisabilities();
+        
+        ArrayList<String> disabilites = new ArrayList<>();
+        for(Disabilities d: temp){
+            disabilites.add(d.name());
+        }
+        accountDetails.put(VICTIM_DISABILITIES, disabilites);
 
         accountDetails.put(VICTIM_ASSIGNED_RESCUER, ((Victim)account).getAssignedRescuer() != null ? ((Victim)account).getID().toString() : null);
     }
