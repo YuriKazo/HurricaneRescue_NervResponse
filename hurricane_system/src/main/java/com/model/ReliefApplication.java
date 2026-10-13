@@ -101,26 +101,16 @@ public class ReliefApplication {
 		return accountList.getAccount(id);
 	}
 
-	public void viewAccount() {
-		if (currentAccount == null) {
-			System.out.println("No account is currently logged in.");
-			return;
-		}
-		System.out.println(currentAccount.getEmail()+
-	"\n"+"First Name: "+currentAccount.getFirstName()+
-	"\n"+"Last Name: "+currentAccount.getLastName()+
-	"\n"+"Account ID: "+currentAccount.getID()+
-	"\n"+"Account Type: "+currentAccount.getType()			// for testing purposes only
-);
+	public Account viewAccount() {
+		return currentAccount;
 	}
 
-	public void viewShelters(int zipCode) {
-		shelterList.getShelters(zipCode);
+	public ArrayList<Shelter> viewShelters(int zipCode) {
+		return shelterList.getShelters(zipCode);
 	}
 
-	public void viewShelter(UUID id) {
-		shelterList.viewShelter(id);
-		shelterList.getShelter(id);
+	public Shelter viewShelter(UUID id) {
+		return shelterList.getShelter(id);
 	}
 
 	public void saveAccount(UUID id) {

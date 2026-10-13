@@ -35,20 +35,8 @@ public class ShelterList {
 		return null;
 	}
 
-	public void viewShelter(UUID id) {
-		
-		for (Shelter shelter : shelters) {
-			if (shelter.getID().equals(id)) {
-				System.out.println("Street Name: "+shelter.getStreet());
-				System.out.println("Total Occupancy: "+shelter.getTotalOccupancy());
-				System.out.println("Current Occupancy"+shelter.getCurrentOccupancy());
-				System.out.println("Water Capcity : "+shelter.getWaterCapacity());
-				System.out.println("Capabilities: "+shelter.getCapabilities());
-			}
-		}
-	}
 
-	public void getShelters(int zipCode) {
+	public ArrayList<Shelter> getShelters(int zipCode) {
 		boolean found = false;
 		for (Shelter shelter : shelters) {
 			if (shelter.getLocation().getZip().equals(String.valueOf(zipCode))) 
@@ -56,17 +44,15 @@ public class ShelterList {
 		}
 		if (!found) {
 			System.out.println("No shelters found in zip code " + zipCode);
-			return;
+			return null;
 		}
+		ArrayList<Shelter> toReturn = new ArrayList<>();
 		for (Shelter shelter : shelters) {
 			if (shelter.getLocation().getZip().equals(String.valueOf(zipCode))) {
-				System.out.println(shelter.getStreet());
-				System.out.println(shelter.getTotalOccupancy());
-				System.out.println(shelter.getCurrentOccupancy());
-				System.out.println(shelter.getWaterCapacity());
-				System.out.println(shelter.getCapabilities());
+				toReturn.add(shelter);
 			}
 		}
+		return toReturn;
 	}
 
 	public UUID addShelter(double longitude, double latittude, String zip, String street) {
