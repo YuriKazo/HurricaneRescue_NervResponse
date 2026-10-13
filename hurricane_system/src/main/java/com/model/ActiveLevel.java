@@ -1,7 +1,7 @@
 package com.model;
 
 public enum ActiveLevel {
-   Incoming,
-   Active,
-   Past,
+   INCOMING,
+   ACTIVE,
+   PAST,
 }
