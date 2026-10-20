@@ -12,4 +12,9 @@ public class UserTest {
     public void testTesting() {
         assertTrue(true);
     }
+
+    @Test
+    public void testValidLogin() {
+        
+    }
 }

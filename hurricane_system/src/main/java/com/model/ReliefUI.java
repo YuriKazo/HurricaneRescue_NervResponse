@@ -12,9 +12,9 @@ public class ReliefUI {
 	public void run() {
 		//loginScenario();
 		//logOutScenario();
-		signUpScenario();
+		//signUpScenario();
 		//getSheltersFromZipCodeScenario();
-		//createShelterScenario();
+		createShelterScenario();
 	}
 
 	
