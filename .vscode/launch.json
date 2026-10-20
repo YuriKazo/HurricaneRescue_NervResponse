@@ -2,20 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "java",
-      "name": "Run UI",
-      "request": "launch",
-      "mainClass": "com.movement/com.model.UI",
-      "projectName": "distance",
-      "envFile": "${workspaceFolder}/.env"
+        "type": "java",
+        "name": "UI",
+        "request": "launch",
+        "mainClass": "com.relief/com.model.UI",
+        "projectName": "hellofx",
+         "envFile": "${workspaceFolder}/.env"
     },
     {
-      "type": "java",
-      "name": "Run Map App",
-      "request": "launch",
-      "mainClass": "com.movement/com.movement.App",
-      "projectName": "distance",
-      "envFile": "${workspaceFolder}/.env"
+        "type": "java",
+        "name": "Run Map App",
+        "request": "launch",
+        "mainClass": "com.relief/com.relief.App",
+        "projectName": "hellofx",
+        "envFile": "${workspaceFolder}/.env"
     }
-  ]
+]
 }

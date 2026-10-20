@@ -113,8 +113,8 @@ public class ReliefUI {
 		
 	}
 
-	public static void main(String[] args) {
+/*/	public static void main(String[] args) {
 		ReliefUI reliefInterface = new ReliefUI();
 		reliefInterface.run();
-	}
+	}*/
 }
