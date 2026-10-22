@@ -6,8 +6,15 @@
         "name": "UI",
         "request": "launch",
         "mainClass": "com.relief/com.model.UI",
+        "projectName": "hurricane_system"
+    },
+    {
+        "type": "java",
+        "name": "UI",
+        "request": "launch",
+        "mainClass": "com.relief/com.model.UI",
         "projectName": "hellofx",
-         "envFile": "${workspaceFolder}/.env"
+        "envFile": "${workspaceFolder}/.env"
     },
     {
         "type": "java",
