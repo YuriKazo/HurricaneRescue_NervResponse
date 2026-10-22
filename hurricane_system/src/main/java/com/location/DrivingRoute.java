@@ -1,16 +1,17 @@
 package com.location;
 
 import java.util.ArrayList;
+import com.model.Location;
 
 public class DrivingRoute {
 
-    private final MapLocation startingLocation;
-    private final MapLocation endingLocation;
+    private final Location startingLocation;
+    private final Location endingLocation;
     private final ArrayList<Coordinates> routePoints;
 
     public DrivingRoute(
-            MapLocation startingLocation,
-            MapLocation endingLocation,
+            Location startingLocation,
+            Location endingLocation,
             ArrayList<Coordinates> routePoints
     ) {
         this.startingLocation = startingLocation;
@@ -18,11 +19,11 @@ public class DrivingRoute {
         this.routePoints = routePoints;
     }
 
-    public MapLocation getStartingLocation() {
+    public Location getStartingLocation() {
         return startingLocation;
     }
 
-    public MapLocation getEndingLocation() {
+    public Location getEndingLocation() {
         return endingLocation;
     }
 

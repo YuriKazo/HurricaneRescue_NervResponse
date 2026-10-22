@@ -2,6 +2,7 @@ package com.movement;
 
 import java.util.ArrayList;
 import com.location.*;
+import com.model.Location;
 import javafx.animation.PauseTransition;
 import javafx.concurrent.Task;
 import javafx.concurrent.Worker;
@@ -13,7 +14,8 @@ public class MapController {
 
     @FXML
     private WebView webView;
-    private MapLocation[] locationsToShow;
+    private Location[] locationsToShow;
+    private String[] labelsToShow;
     private ArrayList<Coordinates> routePointsToShow;
 
     @FXML
@@ -54,18 +56,19 @@ public class MapController {
             );
         }
 
-        Task<MapLocation[]> task = new Task<>() {
+        Task<Location[]> task = new Task<>() {
             @Override
-            protected MapLocation[] call() throws Exception {
-                MapLocation[] locations = new MapLocation[addresses.length];
+            protected Location[] call() throws Exception {
+                Location[] locations = new Location[addresses.length];
 
                 for (int i = 0; i < addresses.length; i++) {
                     Coordinates coordinates = MapTools.getInstance()
                             .getCoordinates(addresses[i]);
 
-                    locations[i] = new MapLocation(
-                            addresses[i],
-                            coordinates
+                    locations[i] = new Location(
+                            coordinates.getLongitude(),
+                            coordinates.getLatitude(),
+                            addresses[i].getZip()
                     );
                 }
 
@@ -75,6 +78,10 @@ public class MapController {
 
         task.setOnSucceeded(event -> {
             locationsToShow = task.getValue();
+            labelsToShow = new String[addresses.length];
+            for (int i = 0; i < addresses.length; i++) {
+                labelsToShow[i] = addresses[i].toString();
+            }
             loadMapPage();
         });
 
@@ -105,11 +112,11 @@ public class MapController {
         );
 
         for (int i = 0; i < locationsToShow.length; i++) {
-            MapLocation location = locationsToShow[i];
+            Location location = locationsToShow[i];
 
-            double latitude = location.getCoordinates().getLatitude();
-            double longitude = location.getCoordinates().getLongitude();
-            String address = location.getAddress().toString();
+            double latitude = location.getLatitudeCoord();
+            double longitude = location.getLongitudeCoord();
+            String address = labelsToShow[i];
 
             javascript.append("{")
                     .append("latitude: ")
@@ -154,9 +161,14 @@ public class MapController {
         task.setOnSucceeded(event -> {
             DrivingRoute route = task.getValue();
 
-            locationsToShow = new MapLocation[]{
+            locationsToShow = new Location[]{
                     route.getStartingLocation(),
                     route.getEndingLocation()
+            };
+
+            labelsToShow = new String[]{
+                    startingAddress.toString(),
+                    endingAddress.toString()
             };
 
             routePointsToShow = route.getRoutePoints();

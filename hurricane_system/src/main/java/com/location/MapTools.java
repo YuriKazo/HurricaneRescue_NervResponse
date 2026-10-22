@@ -2,6 +2,7 @@ package com.location;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.model.Location;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.net.URI;
@@ -279,14 +280,16 @@ public class MapTools {
                 endCoordinates
         );
 
-        MapLocation startingLocation = new MapLocation(
-                startingAddress,
-                startCoordinates
+        Location startingLocation = new Location(
+                startCoordinates.getLongitude(),
+                startCoordinates.getLatitude(),
+                startingAddress.getZip()
         );
 
-        MapLocation endingLocation = new MapLocation(
-                endingAddress,
-                endCoordinates
+        Location endingLocation = new Location(
+                endCoordinates.getLongitude(),
+                endCoordinates.getLatitude(),
+                endingAddress.getZip()
         );
 
         return new DrivingRoute(
