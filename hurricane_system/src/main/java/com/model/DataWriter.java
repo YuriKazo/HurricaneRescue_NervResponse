@@ -3,7 +3,6 @@ package com.model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
@@ -189,9 +188,9 @@ private static JSONObject getRequestJSON(ReliefRequest request){
 }
 
 
- public static void main(String[] args) {
-    saveReliefRequests();
-    // saveAccounts();
-    // saveShelters();
-}
+//  public static void main(String[] args) {
+//     saveReliefRequests();
+//     saveAccounts();
+//     saveShelters();
+// }
 }
