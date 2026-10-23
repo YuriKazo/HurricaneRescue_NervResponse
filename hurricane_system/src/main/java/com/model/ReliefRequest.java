@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class ReliefRequest {
@@ -9,6 +10,7 @@ public class ReliefRequest {
     private Status status;
     private int victimCount;
     private UUID requestId;
+    private ArrayList<Abilities> wantedAbilities = new ArrayList<>();
 
     public ReliefRequest(String description, PriorityLevel level, Location location, int victimCount){
         requestId = UUID.randomUUID();
@@ -19,13 +21,14 @@ public class ReliefRequest {
         this.victimCount = victimCount;
     }
 
-    public ReliefRequest(UUID id, Status status, String description, PriorityLevel level, Location location, int victimCount){
+    public ReliefRequest(UUID id, Status status, String description, PriorityLevel level, Location location, int victimCount, ArrayList<Abilities> wantedAbilities){
         requestId = id;
         this.status = status;
         requestDescription = description;
         priorityLevel = level;
         this.location = location;
         this.victimCount = victimCount;
+        this.wantedAbilities = wantedAbilities;
     }
 
     public void markComplete(){
@@ -67,5 +70,9 @@ public class ReliefRequest {
 	public int getVictimCount() {
 		return victimCount;
 	}
+
+    public ArrayList<Abilities> getWantedAbilities(){
+        return wantedAbilities;
+    }
 
 }

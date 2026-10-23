@@ -41,6 +41,8 @@ public abstract class DataConstants {
     protected static final String REQUEST_PRIORITY_LEVEL = "priorityLevel";
     protected static final String REQUEST_STATUS = "status";
     protected static final String REQUEST_VICTIM_COUNT = "victimCount";
+    protected static final String REQUEST_WANTED_ABILITIES = "wantedAbilities";
+
 
 
     protected static final String SHELTER_ID = "shelterID";

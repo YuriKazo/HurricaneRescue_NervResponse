@@ -159,7 +159,6 @@ public static boolean saveReliefRequests(){
     ReliefRequestList requestList  = ReliefRequestList.getInstance();
     ArrayList<ReliefRequest> requests = requestList.getRequests();
 
-    // hard coded
     JSONArray jsonRequests = new JSONArray();
 
     //creates the JSON objects
@@ -185,13 +184,14 @@ private static JSONObject getRequestJSON(ReliefRequest request){
     requestDetails.put(REQUEST_LOCATION, getLocationJSON(request.getLocation()));
     requestDetails.put(REQUEST_STATUS, request.getStatus().name());
     requestDetails.put(REQUEST_VICTIM_COUNT, request.getVictimCount());
+    requestDetails.put(REQUEST_WANTED_ABILITIES, request.getWantedAbilities());
     return requestDetails;
 }
 
 
-//  public static void main(String[] args) {
-//     saveReliefRequests();
-//     saveAccounts();
-//     saveShelters();
-// }
+ public static void main(String[] args) {
+    saveReliefRequests();
+    // saveAccounts();
+    // saveShelters();
+}
 }

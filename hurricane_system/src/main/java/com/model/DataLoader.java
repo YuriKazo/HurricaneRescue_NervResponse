@@ -128,8 +128,8 @@ public class DataLoader {
                 Location location = (Location) new Location(longitude, latitude, zipCode);
                 Status status = Status.valueOf(reliefRequestJson.get("status").toString());
                 int victimCount = Integer.parseInt(reliefRequestJson.get("victimCount").toString());
-
-                reliefRequests.add(new ReliefRequest(requestID, status,requestDescription, priorityLevel, location, victimCount));
+                ArrayList<Abilities> wantedAbilities = (ArrayList<Abilities>) reliefRequestJson.get(DataConstants.REQUEST_WANTED_ABILITIES);
+                reliefRequests.add(new ReliefRequest(requestID, status,requestDescription, priorityLevel, location, victimCount, wantedAbilities));
                 
             }
 

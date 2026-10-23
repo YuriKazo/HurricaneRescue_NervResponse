@@ -9,7 +9,8 @@
             "zipLocation": "29103"
         },
         "status": "NOT_ACCEPTED",
-        "victimCount": 2
+        "victimCount": 2,
+        "wantedAbilities": ["MEDICAL_ASSISTANCE", "CAR"]
     },
     {
         "requestID": "62029f22-a9ef-445e-aef6-2354194db37d",
@@ -21,6 +22,7 @@
             "zipLocation": "29411"
         },
         "status": "ACCEPTED",
-        "victimCount": 1
+        "victimCount": 1,
+        "wantedAbilities": ["POWER_TOOLS"]
     }
 ]
