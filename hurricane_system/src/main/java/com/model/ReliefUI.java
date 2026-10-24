@@ -1,5 +1,10 @@
 package com.model;
-import java.util.UUID; 
+import java.util.UUID;
+
+import com.location.Address;
+import com.location.MapTools;
+
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class ReliefUI {
@@ -16,6 +21,7 @@ public class ReliefUI {
 		//getSheltersFromZipCodeScenario();
 		//createShelterScenario();
 		createReliefRequestScenario();
+		exportTripScenario();
 	}
 
 	
@@ -129,6 +135,64 @@ public class ReliefUI {
 																	// safety porpoises so this doesn't work right now
 		}
 
+	}
+
+	public void exportTripScenario() {
+		application.login("rdelgado@email.com", "password");
+		System.out.println("Rosa is now logged in");
+ 
+		ReliefRequest request = null;
+		Account carter = null;
+		for (ReliefRequest item : application.getAvailableRequests()) {
+			Account asker = application.viewAccount(item.getRequestorID());
+			if (asker != null && asker.getEmail().equals("BSophred@email.com")) {
+				request = item;
+				carter = asker;
+			}
+		}
+		if (request == null) {
+			System.out.println("Rosa could not find the Carter request");
+			return;
+		}
+ 
+		Address rosaAddress = new Address("1 Vendue Range", "Charleston", "SC", "29401");
+		Address carterHome = new Address("128 Franklin Street", "Charleston", "SC", "29401");
+		Address shelter = new Address("2950 Carner Avenue", "North Charleston", "SC", "29405");
+ 
+		String trip = "HURRICANE RELIEF TRIP INFORMATION"
+		+"\n\nFAMILY MEMBERS"
+		+"\n"+carter.getFirstName()+" "+carter.getLastName()+", age 42"
+		+"\nMaria Carter, age 40"
+		+"\nSophie Carter, age 9"
+		+"\nBuddy, dog"
+		+"\n\nCONTACT INFORMATION"
+		+"\nPhone: "+carter.getPhoneNumber()
+		+"\nEmail: "+carter.getEmail()
+		+"\nPickup address: "+carterHome;
+ 
+		if (request.getWantedAbilities().toString().contains("MEDICAL_ASSISTANCE"))
+			trip += "\n\nMEDICAL NOTE\nSophie needs medical assistance.";
+ 
+		try {
+			trip += "\n\nDIRECTIONS FROM ROSA'S LOCATION TO THE CARTER HOME"
+			+"\nRosa's location: "+rosaAddress;
+			for (String direction : MapTools.getInstance().getDrivingDirections(rosaAddress, carterHome))
+				trip += "\n"+direction;
+ 
+			trip += "\n\nDIRECTIONS FROM THE CARTER HOME TO THE SHELTER"
+			+"\nClosest shelter: "+shelter;
+			for (String direction : MapTools.getInstance().getDrivingDirections(carterHome, shelter))
+				trip += "\n"+direction;
+ 
+			trip += "\n\nSHELTER\nName: Military Magnet\nAddress: "+shelter;
+ 
+			PrintWriter file = new PrintWriter("Trip.txt");
+			file.print(trip);
+			file.close();
+			System.out.println(trip);
+		} catch (Exception e) {
+			System.out.println("There was a problem exporting the trip information: "+e);
+		}
 	}
 
 	public static void main(String[] args) {

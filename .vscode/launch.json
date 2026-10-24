@@ -2,12 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-        "type": "java",
-        "name": "ReliefUI",
-        "request": "launch",
-        "mainClass": "com.relief/com.model.ReliefUI",
-        "projectName": "hellofx"
-    },
+       "type": "java",
+       "name": "ReliefUI",
+       "request": "launch",
+       "mainClass": "com.relief/com.model.ReliefUI",
+       "projectName": "hellofx",
+       "envFile": "${workspaceFolder}/.env"
+   },
     {
         "type": "java",
         "name": "UI",
