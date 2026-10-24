@@ -115,7 +115,7 @@ public class ReliefUI {
 	}
 
 	public void createReliefRequestScenario() {
-		if (application.createAccount("Sophred", "Banks", "BSophred@email.com", "word", "111-222-3333") != null) {
+		if (application.createAccount("Sophred", "Carter", "BSophred@email.com", "word", "111-222-3333") != null) {
 			System.out.println("Account created for Sophred Banks");
 			if(application.login("BSophred@email.com", "word"))
 				System.out.println("Login Successful for Sophred");
