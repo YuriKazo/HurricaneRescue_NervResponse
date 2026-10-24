@@ -1,6 +1,7 @@
 [
     {
         "requestID": "37b08b54-f977-45f3-a382-081942691d62",
+        "requestorID": "18ba33c2-6627-4bba-810f-ac29c40fac42",
         "priorityLevel": "MEDIUM",
         "requestDescription": "broken leg",
         "location": {
@@ -9,10 +10,12 @@
             "zipLocation": "29103"
         },
         "status": "NOT_ACCEPTED",
-        "victimCount": 2
+        "victimCount": 2,
+        "wantedAbilities":["CAR", "MEDICAL_ASSISTANCE"]
     },
     {
         "requestID": "62029f22-a9ef-445e-aef6-2354194db37d",
+        "requestorID": "2d012d3f-57ec-43a1-a9f4-4305885a4dd9",
         "priorityLevel": "HIGH",
         "requestDescription": "broken down car",
         "location": {
@@ -21,6 +24,7 @@
             "zipLocation": "29411"
         },
         "status": "ACCEPTED",
-        "victimCount": 1
+        "victimCount": 1,
+        "wantedAbilities":["BOAT", "POWER_TOOLS"]
     }
 ]

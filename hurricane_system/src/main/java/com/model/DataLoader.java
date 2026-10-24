@@ -119,6 +119,7 @@ public class DataLoader {
             for (int i = 0; i < reliefRequestsArray.size(); i++) {
                 JSONObject reliefRequestJson = (JSONObject) reliefRequestsArray.get(i);
                 UUID requestID = UUID.fromString(reliefRequestJson.get(DataConstants.REQUEST_ID).toString());
+                UUID requestorID = UUID.fromString(reliefRequestJson.get(DataConstants.REQUESTOR_ID).toString());
                 PriorityLevel priorityLevel = PriorityLevel.valueOf(reliefRequestJson.get("priorityLevel").toString());
                 String requestDescription = (String) reliefRequestJson.get(DataConstants.REQUEST_DESCRIPTION);
                 JSONObject locationJson = (JSONObject) reliefRequestJson.get(DataConstants.REQUEST_LOCATION);
@@ -128,8 +129,9 @@ public class DataLoader {
                 Location location = (Location) new Location(longitude, latitude, zipCode);
                 Status status = Status.valueOf(reliefRequestJson.get("status").toString());
                 int victimCount = Integer.parseInt(reliefRequestJson.get("victimCount").toString());
+                ArrayList<Abilities> wantedAbilities = (ArrayList<Abilities>) reliefRequestJson.get(DataConstants.WANTED_ABILITIES);
 
-                reliefRequests.add(new ReliefRequest(requestID, status,requestDescription, priorityLevel, location, victimCount));
+                reliefRequests.add(new ReliefRequest(requestID, requestorID, status,requestDescription, priorityLevel, location, victimCount, wantedAbilities));
                 
             }
 

@@ -113,6 +113,18 @@ public class ReliefUI {
 		
 	}
 
+	public void createReliefRequestScenario() {
+		if (application.createAccount("Sophred", "Banks", "BSophred@email.com", "word") != null) {
+			System.out.println("Account created for Sophred Banks");
+			application.login("BSophred@email.com", "word");
+			ArrayList<Abilities> abilities = new ArrayList<>();
+			abilities.add(Abilities.CAR);
+			abilities.add(Abilities.MEDICAL_ASSISTANCE);
+			application.makeRequest("Transportation for three, we also have a dog, and require medical assistance for our 9 year old daughter Sophie, and we are at 128 Franklin St", PriorityLevel.HIGH, 3, abilities);
+		}
+
+	}
+
 /*/	public static void main(String[] args) {
 		ReliefUI reliefInterface = new ReliefUI();
 		reliefInterface.run();

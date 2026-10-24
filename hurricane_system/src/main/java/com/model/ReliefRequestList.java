@@ -33,8 +33,8 @@ public class ReliefRequestList {
         return null;
     }
 
-    public boolean addReliefRequest(String description, PriorityLevel level, Location location, int victimCount){
-        return requests.add(new ReliefRequest(description, level, location, victimCount));
+    public boolean addReliefRequest(String description, PriorityLevel level, Location location, int victimCount, UUID requestor, ArrayList<Abilities> wantedAbilities){
+        return requests.add(new ReliefRequest(description, level, location, victimCount, requestor, wantedAbilities ));
     }
 
     public boolean saveReliefRequest(){

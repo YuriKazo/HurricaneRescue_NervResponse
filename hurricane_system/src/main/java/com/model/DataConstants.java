@@ -36,12 +36,13 @@ public abstract class DataConstants {
     protected static final String HURRICANE_CURRENT_ZIP = "currentZip";
 
     protected static final String REQUEST_ID = "requestID";
+    protected static final String REQUESTOR_ID = "requestorID";
     protected static final String REQUEST_DESCRIPTION = "requestDescription";
     protected static final String REQUEST_LOCATION = "location";
     protected static final String REQUEST_PRIORITY_LEVEL = "priorityLevel";
     protected static final String REQUEST_STATUS = "status";
     protected static final String REQUEST_VICTIM_COUNT = "victimCount";
-
+    protected static final String WANTED_ABILITIES = "wantedAbilities";
 
     protected static final String SHELTER_ID = "shelterID";
     protected static final String SHELTER_TOTAL_OCCUPANCY = "totalOccupancy";
