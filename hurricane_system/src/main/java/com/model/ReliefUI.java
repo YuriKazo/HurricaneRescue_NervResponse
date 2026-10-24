@@ -14,7 +14,8 @@ public class ReliefUI {
 		//logOutScenario();
 		//signUpScenario();
 		//getSheltersFromZipCodeScenario();
-		createShelterScenario();
+		//createShelterScenario();
+		createReliefRequestScenario();
 	}
 
 	
@@ -37,10 +38,10 @@ public class ReliefUI {
 	}
 
 	public void signUpScenario() {
-		if (application.createAccount("Luke", "Skywalker", "jlogano@email.com", "word") == null) {
+		if (application.createAccount("Luke", "Skywalker", "jlogano@email.com", "word", "999-888-7777") == null) {
 			System.out.println("That email is already registered.");
 		}
-		if (application.createAccount("Luke", "Skywalker", "luke@email.com", "word") != null) {
+		if (application.createAccount("Luke", "Skywalker", "luke@email.com", "word", "666-777-9999") != null) {
 			System.out.println("Account created for Luke Skywalker");
 		}
 
@@ -114,19 +115,24 @@ public class ReliefUI {
 	}
 
 	public void createReliefRequestScenario() {
-		if (application.createAccount("Sophred", "Banks", "BSophred@email.com", "word") != null) {
+		if (application.createAccount("Sophred", "Banks", "BSophred@email.com", "word", "111-222-3333") != null) {
 			System.out.println("Account created for Sophred Banks");
-			application.login("BSophred@email.com", "word");
+			if(application.login("BSophred@email.com", "word"))
+				System.out.println("Login Successful for Sophred");
+			
 			ArrayList<Abilities> abilities = new ArrayList<>();
 			abilities.add(Abilities.CAR);
 			abilities.add(Abilities.MEDICAL_ASSISTANCE);
 			application.makeRequest("Transportation for three, we also have a dog, and require medical assistance for our 9 year old daughter Sophie, and we are at 128 Franklin St", PriorityLevel.HIGH, 3, abilities);
+			//System.out.println(application.viewUSerReliefRequest()); this pulls from request.Json but we are currently
+						                                            // inputing information to requestTemp.Json for
+																	// safety porpoises so this doesn't work right now
 		}
 
 	}
 
-/*/	public static void main(String[] args) {
+	public static void main(String[] args) {
 		ReliefUI reliefInterface = new ReliefUI();
 		reliefInterface.run();
-	}*/
+	}
 }

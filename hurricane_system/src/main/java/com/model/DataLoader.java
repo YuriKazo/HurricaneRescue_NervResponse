@@ -25,6 +25,7 @@ public class DataLoader {
                 String userLastName = (String)accountJson.get(DataConstants.ACCOUNT_LAST_NAME);
                 String userEmail = (String)accountJson.get(DataConstants.ACCOUNT_EMAIL);
                 String userPassword = (String)accountJson.get(DataConstants.ACCOUNT_PASSWORD);
+                String userPhoneNumber = (String)accountJson.get(DataConstants.ACCOUNT_PHONE_NUMBER);
                 JSONArray locations = (JSONArray) accountJson.get(DataConstants.ACCOUNT_SAVED_LOCATIONS);
                 ArrayList<Location> userSavedLocations = new ArrayList<>();
                 for(int l = 0; l < locations.size(); l++){
@@ -51,14 +52,14 @@ public class DataLoader {
                     ArrayList<Disabilities> disabilities = (ArrayList<Disabilities>) accountJson.get(DataConstants.VICTIM_DISABILITIES);
                     Account assignedRescuer = (Account) accountJson.get(DataConstants.VICTIM_ASSIGNED_RESCUER);
                     
-                    accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
+                    accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userPhoneNumber, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
                 }
                 if (userType.equals("VOLUNTEER")) {
                     ArrayList<Abilities> abilities = (ArrayList<Abilities>) accountJson.get(DataConstants.VOLUNTEER_ABILITIES);
                     UUID victimListId = UUID.fromString(accountJson.get(DataConstants.ACCOUNT_USER_ID).toString());
                     UUID currentTargetId = UUID.fromString(accountJson.get(DataConstants.VOLUNTEER_CURRENT_TARGET).toString());
 
-                    accounts.add(new Volunteer(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, abilities, victimListId, currentTargetId));
+                    accounts.add(new Volunteer(accountId, userFirstName, userEmail, userLastName, userPassword, userPhoneNumber, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, abilities, victimListId, currentTargetId));
                 }
                 if (userType.equals("ADMIN")) {
                     ArrayList<UUID> shelters = new ArrayList<>();
@@ -69,7 +70,7 @@ public class DataLoader {
                     JSONArray savedRequest = (JSONArray) accountJson.get(DataConstants.ADMIN_REQUEST_LIST);
                     for (Object s : savedRequest)
                         requestList.add(UUID.fromString(s.toString()));
-                    accounts.add(new Admin(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, shelters, requestList));
+                    accounts.add(new Admin(accountId, userFirstName, userEmail, userLastName, userPassword, userPhoneNumber, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, shelters, requestList));
                 }
                 
 

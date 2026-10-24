@@ -49,12 +49,12 @@ public class AccountList {
 		return false;
 	}
 
-	public boolean addUser(String firstName, String lastName, String email, String passWord) {
+	public boolean addUser(String firstName, String lastName, String email, String passWord, String phoneNumber) {
 		if (firstName == null || lastName == null || email == null || passWord == null) return false;
 		if (email.isBlank() || passWord.isBlank()) return false;
 		if (haveEmail(email)) return false;
 
-		users.add(new Victim(firstName, email, lastName, passWord));
+		users.add(new Victim(firstName, email, lastName, passWord, phoneNumber));
 		saveAccount();
 		return true;
 	}

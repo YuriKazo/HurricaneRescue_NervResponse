@@ -7,14 +7,14 @@ public class Volunteer extends Account{
     private ArrayList<Abilities> abilities;
     private ReliefRequest currentTarget;
 
-    public Volunteer(String firstName, String email, String lastName, String passWord){
-        super(firstName, email, lastName, passWord, AccountType.VOLUNTEER);
+    public Volunteer(String firstName, String email, String lastName, String passWord, String phoneNumber){
+        super(firstName, email, lastName, passWord, phoneNumber, AccountType.VOLUNTEER);
         abilities = new ArrayList<Abilities>();
         currentTarget = null;
     }
 
-    public Volunteer(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Location> savedLocations, ArrayList<UUID> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation, ArrayList<Abilities> abilities, UUID victimListId, UUID currentTargetId){
-        super(id, firstName, email, lastName, passWord, AccountType.VOLUNTEER, savedLocations, savedAccounts, emergencyContacts, currentLocation);
+    public Volunteer(UUID id, String firstName, String email, String lastName, String passWord, String phoneNumber, ArrayList<Location> savedLocations, ArrayList<UUID> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation, ArrayList<Abilities> abilities, UUID victimListId, UUID currentTargetId){
+        super(id, firstName, email, lastName, passWord, phoneNumber, AccountType.VOLUNTEER, savedLocations, savedAccounts, emergencyContacts, currentLocation);
         this.abilities = abilities;
         this.currentTarget = ReliefRequestList.getInstance().getReliefRequest(currentTargetId);
     }

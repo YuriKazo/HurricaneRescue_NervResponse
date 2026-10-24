@@ -6,6 +6,7 @@
     "lastName": "Bradley",
     "email": "tbradley@gmail.com",
     "password": "stormcat7",
+    "phoneNumber": "123-456-7891",
     "savedLocations": [],
     "savedAccounts": ["a1b2c3d4-0002-4bbb-9c11-000000000002", "a1b2c3d4-0002-4bbb-9c11-000000000004"],
     "emergencyContact": ["803-555-9911"],
@@ -25,6 +26,7 @@
     "lastName": "Logano",
     "email": "jlogano@email.com",
     "password": "password",
+    "phoneNumber": "123-456-7891",
     "savedLocations": [{
       "longitude": -80.9401,
       "latitude": 32.7765,
@@ -52,6 +54,7 @@
     "lastName": "Blagano",
     "email": "blagano@email.com",
     "password": "password",
+    "phoneNumber": "123-456-7891",
     "savedLocations": [{
       "longitude": -22.9401,
       "latitude": 32.9965,

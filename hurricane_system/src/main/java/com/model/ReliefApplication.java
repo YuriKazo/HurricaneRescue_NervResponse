@@ -74,8 +74,8 @@ public class ReliefApplication {
 		}
 	}
 
-	public Account createAccount(String fN, String lN, String email, String pW) {
-		if (!accountList.addUser(fN, lN, email, pW)) return null;
+	public Account createAccount(String fN, String lN, String email, String pW, String pN) {
+		if (!accountList.addUser(fN, lN, email, pW, pN)) return null;
 
 		return accountList.getAccount(email, pW);
 	}
@@ -107,6 +107,10 @@ public class ReliefApplication {
 
 	public ArrayList<Shelter> viewShelters(int zipCode) {
 		return shelterList.getShelters(zipCode);
+	}
+
+	public ArrayList<ReliefRequest> viewUSerReliefRequest() {
+		return reliefRequestList.getUserReliefRequests(currentAccount.getID());
 	}
 
 	public Shelter viewShelter(UUID id) {

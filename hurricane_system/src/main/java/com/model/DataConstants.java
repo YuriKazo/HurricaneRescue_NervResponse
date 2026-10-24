@@ -16,6 +16,7 @@ public abstract class DataConstants {
     protected static final String ACCOUNT_LAST_NAME = "lastName";
     protected static final String ACCOUNT_EMAIL = "email";
     protected static final String ACCOUNT_PASSWORD = "password";
+    protected static final String ACCOUNT_PHONE_NUMBER = "phoneNumber";
     protected static final String ACCOUNT_SAVED_LOCATIONS = "savedLocations";
     protected static final String ACCOUNT_SAVED_ACCOUNTS = "savedAccounts";
     protected static final String ACCOUNT_EMERGENCY_CONTACT = "emergencyContact";

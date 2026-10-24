@@ -33,6 +33,15 @@ public class ReliefRequestList {
         return null;
     }
 
+    public ArrayList<ReliefRequest> getUserReliefRequests(UUID id) {
+        ArrayList<ReliefRequest> toReturn = new ArrayList<>();
+        for (ReliefRequest request : requests) {
+            if (request.getID().equals(id))
+                toReturn.add(request);
+        }
+        return toReturn;
+    }
+
     public boolean addReliefRequest(String description, PriorityLevel level, Location location, int victimCount, UUID requestor, ArrayList<Abilities> wantedAbilities){
         return requests.add(new ReliefRequest(description, level, location, victimCount, requestor, wantedAbilities ));
     }
