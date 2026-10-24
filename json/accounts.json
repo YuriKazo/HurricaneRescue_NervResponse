@@ -19,6 +19,25 @@
     "assignedRescuer": null
   },
   {
+    "userID": "1b53848c-f21a-4893-a672-21f6331a3db6",
+    "type": "VOLUNTEER",
+    "firstName": "Rosa",
+    "lastName": "Delgado",
+    "email": "rosad@email.com",
+    "password": "password123",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-2361"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },
+    "abilities": ["CAR"],
+    "victimList": [],
+    "currentTarget": null
+  },
+  {
     "userID": "a1b2c3d4-0002-4bbb-9c11-000000000002",
     "type": "VOLUNTEER",
     "firstName": "Jake",
