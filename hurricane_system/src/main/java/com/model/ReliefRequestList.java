@@ -44,4 +44,29 @@ public class ReliefRequestList {
     public ArrayList<ReliefRequest> getRequests(){
         return requests;
     }
+
+    /**
+     * Sorts requests based on matching abilities, requests with no matches are still included
+     * @param volunteerAbilities the abilities the voluteer has
+     * @return an ArrayList of RankedRequest ordered from best match to worst
+     */
+    public ArrayList<RankedRequest> matchRequests(ArrayList<Abilities> volunteerAbilities){
+        ArrayList<ReliefRequest> requests = getReliefRequest();
+        ArrayList<RankedRequest> rankedRequests = new ArrayList<>();
+        for(ReliefRequest request: requests){
+            RankedRequest rankedRequest = new RankedRequest(request);
+            rankedRequests.add(rankedRequest);
+
+            for(Abilities ability: request.getWantedAbilities()){
+                if(volunteerAbilities.contains(ability)){
+                    rankedRequest.addMatchedAbility(ability);
+                }
+            }
+        }
+
+        // uses a lambda function to sort by score
+        rankedRequests.sort((request1, request2) -> Integer.compare(request2.getScore(), request1.getScore()));
+        return rankedRequests;
+    }
+
 }

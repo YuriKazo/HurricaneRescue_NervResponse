@@ -14,7 +14,8 @@ public class ReliefUI {
 		//logOutScenario();
 		//signUpScenario();
 		//getSheltersFromZipCodeScenario();
-		createShelterScenario();
+		//createShelterScenario();
+		matchRequestScenario();
 	}
 
 	
@@ -113,8 +114,24 @@ public class ReliefUI {
 		
 	}
 
-/*/	public static void main(String[] args) {
+	public void matchRequestScenario(){
+		application.login("rosad@email.com", "password123");
+		System.out.println("Avaliable Requests:");
+		int i = 1;
+		for(RankedRequest request: application.viewRequests()){
+			System.out.println(i++ + ". " +  "Request description: " + request.getRequest().getRequestDescription());
+			String message = request.getMessage();
+			if (!message.isEmpty()) {
+				System.out.println("   " + message.trim());
+			}
+			System.out.println();
+		}
+	}
+
+
+	public static void main(String[] args) {
 		ReliefUI reliefInterface = new ReliefUI();
 		reliefInterface.run();
-	}*/
+
+	}
 }
