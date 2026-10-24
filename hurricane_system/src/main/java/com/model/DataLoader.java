@@ -54,7 +54,11 @@ public class DataLoader {
                     accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
                 }
                 if (userType.equals("VOLUNTEER")) {
-                    ArrayList<Abilities> abilities = (ArrayList<Abilities>) accountJson.get(DataConstants.VOLUNTEER_ABILITIES);
+                    JSONArray volunteerAbilities = (JSONArray) accountJson.get(DataConstants.VOLUNTEER_ABILITIES);
+                    ArrayList<Abilities> abilities = new ArrayList<>();
+                    for(Object ability: volunteerAbilities){
+                        abilities.add(Abilities.valueOf(ability.toString()));
+                    }
                     UUID victimListId = UUID.fromString(accountJson.get(DataConstants.ACCOUNT_USER_ID).toString());
                     Object currentTarget = accountJson.get(DataConstants.VOLUNTEER_CURRENT_TARGET);
                     UUID currentTargetId = currentTarget != null?
