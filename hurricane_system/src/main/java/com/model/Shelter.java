@@ -11,6 +11,7 @@ public class Shelter {
     private String street;
     private ArrayList<Capabilities> capabilities = new ArrayList<>();
     private int waterCapacity;
+    private ArrayList<UUID> occupantList;
     private UUID shelterID;
 
     public Shelter(Location location, String street){
@@ -21,10 +22,11 @@ public class Shelter {
         this.currentOccupancy = 0;
         this.capabilities = new ArrayList<>();
         this.waterCapacity = 0;
+        this.occupantList = new ArrayList<>();
 
     }
 
-    public Shelter(UUID id, int totalOccupancy, int currentOccupancy,Location location, String street, ArrayList<Capabilities> capabilities, int waterCapacity){
+    public Shelter(UUID id, int totalOccupancy, int currentOccupancy,Location location, String street, ArrayList<Capabilities> capabilities, int waterCapacity, ArrayList<UUID> occupantList){
         this.shelterID = id;
         this.totalOccupancy = totalOccupancy;
         this.currentOccupancy = currentOccupancy;
@@ -32,6 +34,7 @@ public class Shelter {
         this.street = street;
         this.capabilities = capabilities;
         this.waterCapacity = waterCapacity;
+        this.occupantList = occupantList;
     }
 
     public boolean waterIsAvaliabile(){
@@ -64,6 +67,10 @@ public class Shelter {
         return waterCapacity;
     }
 
+    public ArrayList<UUID> getOccupantList() {
+        return occupantList;
+    }
+
     public UUID getID(){
         return shelterID;
     }
@@ -92,5 +99,18 @@ public class Shelter {
         this.waterCapacity = waterCapacity;
     }
 
-    
+    public void addOccupant(UUID ID) {
+        occupantList.add(ID);
+        currentOccupancy++;
+    }
+
+    public void removeOccupant(UUID ID) {
+        for (UUID obj : occupantList) {
+            if (obj == ID) {
+                occupantList.remove(obj);
+                currentOccupancy--;
+                return; 
+            }
+        }
+    }
 }

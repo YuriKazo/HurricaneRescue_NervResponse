@@ -143,8 +143,8 @@ private static JSONObject getShelterJSON(Shelter shelter){
     shelterDetails.put(SHELTER_LOCATION, getLocationJSON(shelter.getLocation()));
     shelterDetails.put(SHELTER_STREET, shelter.getStreet());
     shelterDetails.put(SHELTER_CAPABILITIES, shelter.getCapabilities());
-    
     shelterDetails.put(SHELTER_WATER_CAPACITY, shelter.getWaterCapacity());
+    shelterDetails.put(SHELTER_OCCUPANT_LIST, shelter.getOccupantList());
     
     return shelterDetails;
 }

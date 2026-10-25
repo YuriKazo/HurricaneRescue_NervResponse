@@ -20,11 +20,12 @@ public class ReliefUI {
 		//signUpScenario();
 		//getSheltersFromZipCodeScenario();
 		//createShelterScenario();
-		createReliefRequestScenario();
-		exportTripScenario();
-		matchRequestScenario();
-		rolePermissionScenario();
-		findShelterAcceptRequestScenario();
+		//createReliefRequestScenario();
+		//exportTripScenario();
+		//matchRequestScenario();
+		//rolePermissionScenario();
+		//findShelterAcceptRequestScenario();
+		checkFamilyIntoShelterBranch();
 	}
 
 	
@@ -257,6 +258,33 @@ public class ReliefUI {
  
 		System.out.println("\nRequest status: "+request.getStatus()
 		+"\nAssigned to: "+(rosa.getCurrentTarget() == request ? rosa.getFirstName()+" "+rosa.getLastName() : "nobody"));
+	}
+
+	public void checkFamilyIntoShelterBranch(){ 
+		if (application.login("felixk@email.com", "password")){
+			System.out.println("Login successful for Felix");
+			for (UUID shelterID : application.viewMyShelters()) {
+				System.out.println("Shelter Street: "+application.viewShelter(shelterID).getStreet());
+				System.out.println("Shelter Location: "+application.viewShelter(shelterID).getLocation());
+				System.out.println("Current Occupancy: "+application.viewShelter(shelterID).getCurrentOccupancy());
+				System.out.println("Max Occupancy: "+application.viewShelter(shelterID).getTotalOccupancy());
+				int i = 1;
+				for (UUID occupantID : application.viewShelter(shelterID).getOccupantList()) {
+					System.out.println("Occupant "+i+": "+application.viewAccount(occupantID).getFirstName()+" "+application.viewAccount(occupantID).getLastName());
+					i++;
+				}
+			}
+			
+			application.viewShelter(UUID.fromString("8c860493-3fb8-48ab-8127-beaf991340b3")).addOccupant(UUID.fromString("d60ebda6-bd56-423d-ac0f-dc13a8b58afb"));
+			application.viewShelter(UUID.fromString("8c860493-3fb8-48ab-8127-beaf991340b3")).addOccupant(UUID.fromString("c55960c5-c9ad-4781-bc98-c59fa5239bdc"));
+			application.viewShelter(UUID.fromString("8c860493-3fb8-48ab-8127-beaf991340b3")).addOccupant(UUID.fromString("d9dacd20-206b-488a-87b3-09672e6a7b64"));
+			int j = 1;
+			for (UUID occupantID : application.viewShelter(UUID.fromString("8c860493-3fb8-48ab-8127-beaf991340b3")).getOccupantList()) {
+					System.out.println("Occupant "+j+": "+application.viewAccount(occupantID).getFirstName()+" "+application.viewAccount(occupantID).getLastName());
+					j++;
+				}
+
+		}
 	}
 
 	public static void main(String[] args) {

@@ -54,6 +54,8 @@ public abstract class DataConstants {
     protected static final String SHELTER_STREET = "street";
     protected static final String SHELTER_CAPABILITIES = "capabilities";
     protected static final String SHELTER_WATER_CAPACITY = "waterCapacity";
+    protected static final String SHELTER_OCCUPANT_LIST = "occupantList";
+
 
     protected static final String LOCATION_LONGITUDE = "longitude";
     protected static final String LOCATION_LATITUDE = "latitude";

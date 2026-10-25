@@ -28,4 +28,8 @@ public class Location {
         this.longitude = longitude;
         this.zipLocation = zip;
     }
+
+    public String toString() {
+        return "Longitude: "+this.longitude+" Latitude: "+this.latitude+" Zip Code: "+this.zipLocation;
+    }
 }

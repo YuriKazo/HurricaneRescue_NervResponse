@@ -114,5 +114,88 @@
     ],
     "victimList": [],
     "currentTarget": "552e4057-52e3-4b4d-9780-d9bd14fcca30"
+  },
+  {
+    "userID": "422a3491-6b57-4280-81c9-8c987feba223",
+    "type": "ADMIN",
+    "firstName": "Felix",
+    "lastName": "Kjellberg",
+    "email": "felixk@email.com",
+    "password": "password",
+    "phoneNumber": "8i3-127-7101",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": [],
+    "currentLocation": {
+      "longitude": -88.9253,
+      "latitude": 23.7766,
+      "zipLocation": "55442"
+    },
+    "shelterList": [
+      "8c860493-3fb8-48ab-8127-beaf991340b3"
+    ],
+    "requestList": ["62029f22-a9ef-445e-aef6-2354194db37d",
+                    "37b08b54-f977-45f3-a382-081942691d62"
+                  ]
+  },
+  {
+    "userID": "d60ebda6-bd56-423d-ac0f-dc13a8b58afb",
+    "type": "VICTIM",
+    "firstName": "Sophred",
+    "lastName": "Carter",
+    "email": "123@gmail.com",
+    "password": "word",
+    "phoneNumber": "123-456-7891",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-9911"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },
+    "pets": true,
+    "disabilities": [],
+    "assignedRescuer": null
+  },
+  {
+    "userID": "c55960c5-c9ad-4781-bc98-c59fa5239bdc",
+    "type": "VICTIM",
+    "firstName": "Rachel",
+    "lastName": "Carter",
+    "email": "5322@gmail.com",
+    "password": "word",
+    "phoneNumber": "123-456-7891",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-9911"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },
+    "pets": true,
+    "disabilities": [],
+    "assignedRescuer": null
+  },
+  {
+    "userID": "d9dacd20-206b-488a-87b3-09672e6a7b64",
+    "type": "VICTIM",
+    "firstName": "Sophie",
+    "lastName": "Carter",
+    "email": "tbradley@gmail.com",
+    "password": "stormcat7",
+    "phoneNumber": "123-456-7891",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-9911"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },
+    "pets": true,
+    "disabilities": [],
+    "assignedRescuer": null
   }
 ]
