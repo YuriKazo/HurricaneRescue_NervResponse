@@ -102,6 +102,8 @@ public class Shelter {
     public void addOccupant(UUID ID) {
         occupantList.add(ID);
         currentOccupancy++;
+        ShelterList.getInstance().saveShelter();
+        
     }
 
     public void removeOccupant(UUID ID) {
@@ -109,6 +111,7 @@ public class Shelter {
             if (obj == ID) {
                 occupantList.remove(obj);
                 currentOccupancy--;
+                ShelterList.getInstance().saveShelter();
                 return; 
             }
         }
