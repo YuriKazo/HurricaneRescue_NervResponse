@@ -59,13 +59,13 @@
         "requestID": "62029f22-a9ef-445e-aef6-2354194db372",
         "requestorID": "2d012d3f-57ec-43a1-a9f4-4305885a4dd1",
         "priorityLevel": "HIGH",
-        "requestDescription": "broken down car",
+        "requestDescription": "Trapped in building",
         "location": {
             "longitude": -81.0254,
             "latitude": 33.9953,
             "zipLocation": "29411"
         },
-        "status": "ACCEPTED",
+        "status": "NOT_ACCEPTED",
         "victimCount": 1,
         "wantedAbilities":["BOAT", "POWER_TOOLS"]
     },
@@ -82,5 +82,19 @@
         "status": "NOT_ACCEPTED",
         "victimCount": 1,
         "wantedAbilities": ["BOAT", "POWER_TOOLS"]
+    },
+        {
+        "requestID": "cbea2ee5-4b3a-4b2a-b4c2-86847d4cdf64",
+        "requestorID": "230649f9-d247-47ba-b37a-1fc29b286464",
+        "priorityLevel": "MEDIUM",
+        "requestDescription": "roadway blocked",
+        "location": {
+            "longitude": -81.0452,
+            "latitude": 32.03451,
+            "zipLocation": "29411"
+        },
+        "status": "NOT_ACCEPTED",
+        "victimCount": 1,
+        "wantedAbilities": ["POWER_TOOLS"]
     }
 ]

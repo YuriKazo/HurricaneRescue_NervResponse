@@ -21,7 +21,7 @@ public class ReliefUI {
 		findShelterAcceptRequestScenario();
 		exportTripScenario();
 		rolePermissionScenario();
-		//checkFamilyIntoShelterBranch();
+		checkFamilyIntoShelterBranch();
 		
 	}
 
