@@ -34,7 +34,7 @@
             "latitude": 32.7787,
             "zipLocation": "29293"
         },
-        "street": "Franklin",
+        "street": "128 Franklin St",
         "capabilities": ["MEDICAL_ASSISTANCE", "FOOD", "WATER", "PETS_ALLOWED"],
         "waterCapacity": 84
     },

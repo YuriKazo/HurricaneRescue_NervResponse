@@ -103,7 +103,11 @@ public class DataLoader {
                 String zipCode = (String) locationJson.get(DataConstants.LOCATION_ZIP_LOCATION);
                 Location location = (Location) new Location(longitude, latitude, zipCode);
                 String street = (String) shelterJson.get(DataConstants.SHELTER_STREET);
-                ArrayList<Capabilities> capabilities = (ArrayList<Capabilities>) shelterJson.get(DataConstants.SHELTER_CAPABILITIES);
+                JSONArray shelterCapabilities = (JSONArray) shelterJson.get(DataConstants.SHELTER_CAPABILITIES);
+                ArrayList<Capabilities> capabilities = new ArrayList<>();
+                for(Object capability: shelterCapabilities){
+                    capabilities.add(Capabilities.valueOf(capability.toString()));
+                }
                 int waterCapacity = Integer.parseInt(shelterJson.get("waterCapacity").toString());
 
                 shelters.add(new Shelter(shelterID, shelterCapacity, currentOccupancy, location, street, capabilities, waterCapacity));

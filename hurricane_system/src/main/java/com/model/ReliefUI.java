@@ -19,10 +19,11 @@ public class ReliefUI {
 		//logOutScenario();
 		//signUpScenario();
 		//getSheltersFromZipCodeScenario();
-		////createShelterScenario();
-		createReliefRequestScenario();
-		exportTripScenario();
-		matchRequestScenario();
+		//createShelterScenario();
+		// createReliefRequestScenario();
+		// exportTripScenario();
+		// matchRequestScenario();
+		findShelterAcceptRequestScenario();
 	}
 
 	
@@ -207,6 +208,27 @@ public class ReliefUI {
 				System.out.println("   " + message.trim());
 			}
 			System.out.println();
+		}
+	}
+
+	public void findShelterAcceptRequestScenario(){
+		application.login("rdelgado@email.com", "password");
+		ArrayList<Capabilities> capabilities = new ArrayList<>();
+		capabilities.add(Capabilities.PETS_ALLOWED);
+		capabilities.add(Capabilities.MEDICAL_ASSISTANCE);
+		Shelter shelter = application.viewNearestSuitableShelter(3, capabilities);
+		double distance = 0;
+		try{
+			distance = MapTools.getInstance().getDrivingDistance(application.viewAccount().getCurrentLocation(), shelter.getLocation());
+		}
+		catch(Exception e){
+			System.err.println(e);
+		}
+		System.out.println("Nearest suitable shelter: " + shelter.getStreet());
+		System.out.println("Driving distance: " + distance/1609.344 + " miles");
+		System.out.println("Capabilities: ");
+		for(Capabilities capability: shelter.getCapabilities()){
+			System.out.println(capability.name().toLowerCase().replace('_', ' '));
 		}
 	}
 

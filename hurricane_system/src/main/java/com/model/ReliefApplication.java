@@ -1,7 +1,6 @@
 package com.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.UUID;
 
 public class ReliefApplication {
@@ -108,6 +107,10 @@ public class ReliefApplication {
 
 	public ArrayList<Shelter> viewShelters(int zipCode) {
 		return shelterList.getShelters(zipCode);
+	}
+
+	public Shelter viewNearestSuitableShelter(int victimCount, ArrayList<Capabilities> capabilities){
+		return shelterList.getNearestShelter(currentAccount.getCurrentLocation(), shelterList.getSuitableShelters(victimCount, capabilities));
 	}
 
 	public ArrayList<ReliefRequest> viewUSerReliefRequest() {
