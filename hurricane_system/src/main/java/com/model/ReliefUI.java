@@ -20,12 +20,12 @@ public class ReliefUI {
 		//signUpScenario();
 		//getSheltersFromZipCodeScenario();
 		//createShelterScenario();
-		//createReliefRequestScenario();
-		//matchRequestScenario();
-		//findShelterAcceptRequestScenario();
-		//exportTripScenario();
-		//rolePermissionScenario();
-		checkFamilyIntoShelterBranch();
+		createReliefRequestScenario();
+		matchRequestScenario();
+		findShelterAcceptRequestScenario();
+		exportTripScenario();
+		rolePermissionScenario();
+		//checkFamilyIntoShelterBranch();
 		
 	}
 
@@ -291,6 +291,7 @@ public class ReliefUI {
 					System.out.println("Occupant "+j+": "+application.viewAccount(occupantID).getFirstName()+" "+application.viewAccount(occupantID).getLastName());
 					j++;
 				}
+			application.markComplete(UUID.fromString("18ba33c2-6627-4bba-810f-ac29c40fac42"));
 
 		}
 	}
