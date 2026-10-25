@@ -142,10 +142,20 @@ private static JSONObject getShelterJSON(Shelter shelter){
     shelterDetails.put(SHELTER_CURRENT_OCCUPANCY, shelter.getCurrentOccupancy());
     shelterDetails.put(SHELTER_LOCATION, getLocationJSON(shelter.getLocation()));
     shelterDetails.put(SHELTER_STREET, shelter.getStreet());
+    ArrayList<Capabilities> shelterCapabilities = shelter.getCapabilities();
+    ArrayList<String> capabilities = new ArrayList<>();
+    for(Capabilities capability: shelterCapabilities){
+        capabilities.add(capability.name());
+    }
     shelterDetails.put(SHELTER_CAPABILITIES, shelter.getCapabilities());
     shelterDetails.put(SHELTER_WATER_CAPACITY, shelter.getWaterCapacity());
-    shelterDetails.put(SHELTER_OCCUPANT_LIST, shelter.getOccupantList());
     
+    ArrayList<UUID> occupantList = shelter.getOccupantList();
+    ArrayList<String> ids = new ArrayList<>();
+    for(UUID id: occupantList){
+        ids.add(id.toString());
+    }
+    shelterDetails.put(SHELTER_OCCUPANT_LIST, ids);
     return shelterDetails;
 }
 
