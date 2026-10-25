@@ -113,4 +113,8 @@ public abstract class Account {
 	public void setLocation(Location location){
 		this.currentLocation = location;
 	}
+
+	public void markComplete(UUID requestID) {
+		ReliefRequestList.getInstance().getReliefRequest(requestID).changeRequestStatus(Status.COMPLETED);
+	}
 }

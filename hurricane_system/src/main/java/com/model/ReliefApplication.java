@@ -93,7 +93,20 @@ public class ReliefApplication {
 		if (currentAccount instanceof Victim) {
 			((Victim) currentAccount).markComplete();
 		} else if (currentAccount instanceof Volunteer) {
-			((Volunteer) currentAccount).markComplete();
+			((Volunteer) currentAccount).markComplete(); 
+		}
+	}
+
+	public void markComplete(UUID requestID) {
+		if (currentAccount instanceof Volunteer) {
+			System.out.println("Permission denied: the volunteer role does not have permission to complete relief requests.");
+			return;
+		}
+
+		if (currentAccount instanceof Victim) {
+			((Victim) currentAccount).markComplete(requestID);
+		} else if (currentAccount instanceof Volunteer) {
+			((Volunteer) currentAccount).markComplete(requestID);
 		}
 
 		if (currentRequest != null) {
