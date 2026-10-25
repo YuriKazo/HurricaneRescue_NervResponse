@@ -76,11 +76,16 @@ private static JSONObject getAccountJSON(Account account) {
             disabilites.add(d.name());
         }
         accountDetails.put(VICTIM_DISABILITIES, disabilites);
-
+        
         accountDetails.put(VICTIM_ASSIGNED_RESCUER, ((Victim)account).getAssignedRescuer() != null ? ((Victim)account).getID().toString() : null);
     }
     else if(account.getAccountType() == AccountType.VOLUNTEER){
-        accountDetails.put(VOLUNTEER_ABILITIES, ((Volunteer)account).getAbilities());
+        ArrayList<Abilities> tempAbilities = (((Volunteer)account).getAbilities());
+        ArrayList<String> abilities = new ArrayList<>();
+        for(Abilities ability: tempAbilities){
+            abilities.add(ability.name());
+        }
+        accountDetails.put(VOLUNTEER_ABILITIES, abilities);
         accountDetails.put(VOLUNTEER_CURRENT_TARGET, ((Volunteer)account).getCurrentTarget() != null ? ((Volunteer)account).getCurrentTarget().getID().toString() : null );
     }
      else if(account.getAccountType() == AccountType.ADMIN){
@@ -184,7 +189,12 @@ private static JSONObject getRequestJSON(ReliefRequest request){
     requestDetails.put(REQUEST_LOCATION, getLocationJSON(request.getLocation()));
     requestDetails.put(REQUEST_STATUS, request.getStatus().name());
     requestDetails.put(REQUEST_VICTIM_COUNT, request.getVictimCount());
-    requestDetails.put(REQUEST_WANTED_ABILITIES, request.getWantedAbilities());
+    ArrayList<Abilities> tempAbilities = request.getWantedAbilities();
+    ArrayList<String> abilities = new ArrayList<>();
+    for(Abilities ability: tempAbilities){
+        abilities.add(ability.name());
+    }
+    requestDetails.put(REQUEST_WANTED_ABILITIES, abilities);
     return requestDetails;
 }
 
