@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class ReliefApplication {
@@ -123,6 +124,16 @@ public class ReliefApplication {
 		accountList.saveAccount();
 	}
 
+	public ArrayList<RankedRequest> viewRequests(){
+		if(currentAccount.getAccountType() != AccountType.VOLUNTEER){
+			ArrayList<RankedRequest> rankedRequests = new ArrayList<>();
+			for(ReliefRequest request: reliefRequestList.getReliefRequest())
+				rankedRequests.add(new RankedRequest(request));
+			return rankedRequests;
+		}
+		return reliefRequestList.matchRequests(((Volunteer)currentAccount).getAbilities());
+	}
+
 	public void removeAccount(UUID id) {
 		if (!isLoggedIn()) return;
 
@@ -221,4 +232,5 @@ public class ReliefApplication {
 		((Admin) currentAccount).updateWaterLeft(id, water);
 		shelterList.saveShelter();
 	}
+
 }

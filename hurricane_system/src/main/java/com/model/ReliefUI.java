@@ -19,9 +19,10 @@ public class ReliefUI {
 		//logOutScenario();
 		//signUpScenario();
 		//getSheltersFromZipCodeScenario();
-		//createShelterScenario();
+		////createShelterScenario();
 		createReliefRequestScenario();
 		exportTripScenario();
+		matchRequestScenario();
 	}
 
 	
@@ -194,6 +195,22 @@ public class ReliefUI {
 			System.out.println("There was a problem exporting the trip information: "+e);
 		}
 	}
+
+	public void matchRequestScenario(){
+		application.login("rosad@email.com", "password123");
+		System.out.println("Avaliable Requests:");
+		int i = 1;
+		for(RankedRequest request: application.viewRequests()){
+			System.out.println(i++ + ". " +  "Request description: " + request.getRequest().getRequestDescription());
+			String message = request.getMessage();
+			if (!message.isEmpty()) {
+				System.out.println("   " + message.trim());
+			}
+			System.out.println();
+		}
+	}
+
+
 
 	public static void main(String[] args) {
 		ReliefUI reliefInterface = new ReliefUI();

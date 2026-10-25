@@ -55,10 +55,15 @@ public class DataLoader {
                     accounts.add(new Victim(accountId, userFirstName, userEmail, userLastName, userPassword, userPhoneNumber, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, pets, disabilities, assignedRescuer));
                 }
                 if (userType.equals("VOLUNTEER")) {
-                    ArrayList<Abilities> abilities = (ArrayList<Abilities>) accountJson.get(DataConstants.VOLUNTEER_ABILITIES);
+                    JSONArray volunteerAbilities = (JSONArray) accountJson.get(DataConstants.VOLUNTEER_ABILITIES);
+                    ArrayList<Abilities> abilities = new ArrayList<>();
+                    for(Object ability: volunteerAbilities){
+                        abilities.add(Abilities.valueOf(ability.toString()));
+                    }
                     UUID victimListId = UUID.fromString(accountJson.get(DataConstants.ACCOUNT_USER_ID).toString());
-                    UUID currentTargetId = UUID.fromString(accountJson.get(DataConstants.VOLUNTEER_CURRENT_TARGET).toString());
-
+                    Object currentTarget = accountJson.get(DataConstants.VOLUNTEER_CURRENT_TARGET);
+                    UUID currentTargetId = currentTarget != null?
+                            UUID.fromString(currentTarget.toString()) : null;
                     accounts.add(new Volunteer(accountId, userFirstName, userEmail, userLastName, userPassword, userPhoneNumber, userSavedLocations, userSavedAccounts, userEmergencyContacts, userCurrentLocations, abilities, victimListId, currentTargetId));
                 }
                 if (userType.equals("ADMIN")) {
@@ -130,7 +135,11 @@ public class DataLoader {
                 Location location = (Location) new Location(longitude, latitude, zipCode);
                 Status status = Status.valueOf(reliefRequestJson.get("status").toString());
                 int victimCount = Integer.parseInt(reliefRequestJson.get("victimCount").toString());
-                ArrayList<Abilities> wantedAbilities = (ArrayList<Abilities>) reliefRequestJson.get(DataConstants.REQUEST_WANTED_ABILITIES);
+                JSONArray abilities = (JSONArray) reliefRequestJson.get(DataConstants.REQUEST_WANTED_ABILITIES);
+                ArrayList<Abilities> wantedAbilities = new ArrayList<>();
+                for(Object ability: abilities){
+                    wantedAbilities.add(Abilities.valueOf(ability.toString()));
+                }
 
                 reliefRequests.add(new ReliefRequest(requestID, requestorID, status,requestDescription, priorityLevel, location, victimCount, wantedAbilities));
                 
