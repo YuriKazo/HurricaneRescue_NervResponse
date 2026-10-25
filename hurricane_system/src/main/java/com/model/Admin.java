@@ -7,8 +7,8 @@ public class Admin extends Account {
     private ArrayList<UUID> shelterList;
     private ArrayList<UUID> requestList;
 
- public Admin(String firstName, String email, String lastName, String password) {
-    super(firstName, email, lastName, password, AccountType.ADMIN);
+ public Admin(String firstName, String email, String lastName, String password, String phoneNumber) {
+    super(firstName, email, lastName, password,phoneNumber, AccountType.ADMIN);
 
     shelterList = new ArrayList<UUID>();
     requestList = new ArrayList<UUID>();
@@ -16,6 +16,7 @@ public class Admin extends Account {
 
 public Admin(UUID id, String firstName, String email,
              String lastName, String password,
+             String phoneNumber,
              ArrayList<Location> savedLocations,
              ArrayList<UUID> savedAccounts,
              ArrayList<String> emergencyContacts,
@@ -23,7 +24,7 @@ public Admin(UUID id, String firstName, String email,
              ArrayList<UUID> shelterList,
              ArrayList<UUID> requestList) {
 
-    super(id, firstName, email, lastName, password,
+    super(id, firstName, email, lastName, password, phoneNumber,
           AccountType.ADMIN, savedLocations, savedAccounts,
           emergencyContacts, currentLocation);
 

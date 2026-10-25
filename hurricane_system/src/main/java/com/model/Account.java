@@ -9,18 +9,20 @@ public abstract class Account {
 	protected String email;
 	protected String password;
 	protected UUID userID;
+	protected String phoneNumber;
 	protected ArrayList<Location> savedLocations;
 	protected ArrayList<UUID> savedAccounts;
 	protected ArrayList<String> emergencyContact;
 	protected Location currentLocation;
 	protected AccountType type;
 
-	public Account(String firstName, String email, String lastName, String passWord, AccountType accountType) {
+	public Account(String firstName, String email, String lastName, String passWord, String phoneNumber, AccountType accountType) {
 		this.userID = UUID.randomUUID();
 		this.firstName = firstName;
 		this.email = email;
 		this.lastName = lastName;
 		this.password = passWord;
+		this.phoneNumber = phoneNumber;
 		this.type = accountType;
 		this.savedLocations = new ArrayList<Location>();
 		this.savedAccounts = new ArrayList<UUID>();	
@@ -28,12 +30,13 @@ public abstract class Account {
 		this.currentLocation = new Location(0.0, 0.0, "00000");
 	}
 
-	public Account(UUID id, String firstName, String email, String lastName, String passWord, AccountType accountType, ArrayList<Location> savedLocations, ArrayList<UUID> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation) {
+	public Account(UUID id, String firstName, String email, String lastName, String passWord, String phoneNumber, AccountType accountType, ArrayList<Location> savedLocations, ArrayList<UUID> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocation) {
 		this.userID = id;
 		this.firstName = firstName;
 		this.email = email;
 		this.lastName = lastName;
 		this.password = passWord;
+		this.phoneNumber = phoneNumber;
 		this.type = accountType;
 		this.savedLocations = savedLocations;
 		this.savedAccounts = savedAccounts;
@@ -45,10 +48,6 @@ public abstract class Account {
 		if (username == null || password == null) return false;
 
 		return this.email.equalsIgnoreCase(username) && this.password.equals(password);
-	}
-
-	public void makeRequest(String description, PriorityLevel level, Location location, int victimCount) {
-		ReliefRequestList.getInstance().addReliefRequest(description, level, location, victimCount); 
 	}
 
 	public void makeContact(int phone) {
@@ -83,6 +82,10 @@ public abstract class Account {
 		return userID;
 	}
 
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	
 	public AccountType getType() {
 		return type;
 	}

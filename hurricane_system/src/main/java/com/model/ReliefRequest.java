@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.UUID;
+import java.util.ArrayList;
 
 public class ReliefRequest {
     private String requestDescription;
@@ -10,19 +11,23 @@ public class ReliefRequest {
     private Status status;
     private int victimCount;
     private UUID requestId;
-    private ArrayList<Abilities> wantedAbilities = new ArrayList<>();
+    private UUID requestorId;
+    private ArrayList<Abilities> wantedAbilities;
 
-    public ReliefRequest(String description, PriorityLevel level, Location location, int victimCount){
+    public ReliefRequest(String description, PriorityLevel level, Location location, int victimCount, UUID requestor, ArrayList<Abilities> wantedAbilities){
         requestId = UUID.randomUUID();
+        this.requestorId = requestor;
         status = Status.NOT_ACCEPTED;
         requestDescription = description;
         priorityLevel = level;
         this.location = location;
         this.victimCount = victimCount;
+        this.wantedAbilities = wantedAbilities;
     }
 
-    public ReliefRequest(UUID id, Status status, String description, PriorityLevel level, Location location, int victimCount, ArrayList<Abilities> wantedAbilities){
+    public ReliefRequest(UUID id, UUID requestorId, Status status, String description, PriorityLevel level, Location location, int victimCount, ArrayList<Abilities> wantedAbilities){
         requestId = id;
+        this.requestorId = requestorId; 
         this.status = status;
         requestDescription = description;
         priorityLevel = level;
@@ -51,6 +56,10 @@ public class ReliefRequest {
         return requestId;
     }
 
+    public UUID getRequestorID() {
+        return this.requestorId;
+    }
+
 	public String getRequestDescription() {
 		return requestDescription;
 	}
@@ -71,8 +80,8 @@ public class ReliefRequest {
 		return victimCount;
 	}
 
-    public ArrayList<Abilities> getWantedAbilities(){
-        return wantedAbilities;
+    public ArrayList<Abilities> getWantedAbilities() {
+        return this.wantedAbilities;
     }
 
 }

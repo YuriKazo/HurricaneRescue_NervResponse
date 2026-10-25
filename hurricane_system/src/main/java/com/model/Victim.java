@@ -10,15 +10,15 @@ public class Victim extends Account{
     private ArrayList<Disabilities> disabilities;
     private Volunteer assignedRescuer;
 
-    public Victim(String firstName, String email, String lastName, String passWord){
-        super(firstName, email, lastName, passWord, AccountType.VICTIM);
+    public Victim(String firstName, String email, String lastName, String passWord, String phoneNumber){
+        super(firstName, email, lastName, passWord, phoneNumber, AccountType.VICTIM);
         pets = false;
         disabilities = new ArrayList<Disabilities>();
         assignedRescuer = null;
     }
 
-    public Victim(UUID id, String firstName, String email, String lastName, String passWord, boolean pets, ArrayList<Disabilities> disabilities){
-        super(id, firstName, email, lastName, passWord, AccountType.VICTIM,
+    public Victim(UUID id, String firstName, String email, String lastName, String passWord, String phoneNumber, boolean pets, ArrayList<Disabilities> disabilities){
+        super(id, firstName, email, lastName, passWord, phoneNumber, AccountType.VICTIM,
                 new ArrayList<Location>(), new ArrayList<UUID>(), new ArrayList<String>(), new Location(0.0, 0.0, "00000"));
         this.pets = pets;
         this.disabilities = new ArrayList<Disabilities>();
@@ -35,8 +35,8 @@ public class Victim extends Account{
         }
     }
 
-    public Victim(UUID id, String firstName, String email, String lastName, String passWord, ArrayList<Location> savedLocations, ArrayList<UUID> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocations, boolean pets, ArrayList<Disabilities> disabilities, Account assignedRescuer){
-        this(id, firstName, email, lastName, passWord, pets, disabilities);
+    public Victim(UUID id, String firstName, String email, String lastName, String passWord, String phoneNumber, ArrayList<Location> savedLocations, ArrayList<UUID> savedAccounts, ArrayList<String> emergencyContacts, Location currentLocations, boolean pets, ArrayList<Disabilities> disabilities, Account assignedRescuer){
+        this(id, firstName, email, lastName, passWord, phoneNumber, pets, disabilities);
 
         if (savedLocations != null) this.savedLocations = savedLocations;
         if (savedAccounts != null) this.savedAccounts = savedAccounts;

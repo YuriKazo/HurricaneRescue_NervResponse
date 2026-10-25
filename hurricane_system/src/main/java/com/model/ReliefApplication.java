@@ -34,10 +34,10 @@ public class ReliefApplication {
 		return currentAccount != null;
 	}
 
-	public void makeRequest(String description, PriorityLevel level, Location location, int victimCount) {
+	public void makeRequest(String description, PriorityLevel level, int victimCount, ArrayList<Abilities> wantedAbilities) {
 		if (!isLoggedIn()) return;
 
-		if (reliefRequestList.addReliefRequest(description, level, location, victimCount)) {
+		if (reliefRequestList.addReliefRequest(description, level, currentAccount.getCurrentLocation(), victimCount, currentAccount.getID(), wantedAbilities)) {
 			reliefRequestList.saveReliefRequest();
 		}
 	}
@@ -74,8 +74,8 @@ public class ReliefApplication {
 		}
 	}
 
-	public Account createAccount(String fN, String lN, String email, String pW) {
-		if (!accountList.addUser(fN, lN, email, pW)) return null;
+	public Account createAccount(String fN, String lN, String email, String pW, String pN) {
+		if (!accountList.addUser(fN, lN, email, pW, pN)) return null;
 
 		return accountList.getAccount(email, pW);
 	}
@@ -107,6 +107,10 @@ public class ReliefApplication {
 
 	public ArrayList<Shelter> viewShelters(int zipCode) {
 		return shelterList.getShelters(zipCode);
+	}
+
+	public ArrayList<ReliefRequest> viewUSerReliefRequest() {
+		return reliefRequestList.getUserReliefRequests(currentAccount.getID());
 	}
 
 	public Shelter viewShelter(UUID id) {

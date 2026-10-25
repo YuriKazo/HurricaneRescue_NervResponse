@@ -178,6 +178,7 @@ public static boolean saveReliefRequests(){
 private static JSONObject getRequestJSON(ReliefRequest request){
     JSONObject requestDetails = new JSONObject();
     requestDetails.put(REQUEST_ID, request.getID().toString());
+    requestDetails.put(REQUESTOR_ID, request.getRequestorID().toString());
     requestDetails.put(REQUEST_PRIORITY_LEVEL, request.getPriorityLevel().name());
     requestDetails.put(REQUEST_DESCRIPTION, request.getRequestDescription());
     requestDetails.put(REQUEST_LOCATION, getLocationJSON(request.getLocation()));

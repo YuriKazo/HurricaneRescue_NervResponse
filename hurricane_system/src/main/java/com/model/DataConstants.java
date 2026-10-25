@@ -16,6 +16,7 @@ public abstract class DataConstants {
     protected static final String ACCOUNT_LAST_NAME = "lastName";
     protected static final String ACCOUNT_EMAIL = "email";
     protected static final String ACCOUNT_PASSWORD = "password";
+    protected static final String ACCOUNT_PHONE_NUMBER = "phoneNumber";
     protected static final String ACCOUNT_SAVED_LOCATIONS = "savedLocations";
     protected static final String ACCOUNT_SAVED_ACCOUNTS = "savedAccounts";
     protected static final String ACCOUNT_EMERGENCY_CONTACT = "emergencyContact";
@@ -36,6 +37,7 @@ public abstract class DataConstants {
     protected static final String HURRICANE_CURRENT_ZIP = "currentZip";
 
     protected static final String REQUEST_ID = "requestID";
+    protected static final String REQUESTOR_ID = "requestorID";
     protected static final String REQUEST_DESCRIPTION = "requestDescription";
     protected static final String REQUEST_LOCATION = "location";
     protected static final String REQUEST_PRIORITY_LEVEL = "priorityLevel";
