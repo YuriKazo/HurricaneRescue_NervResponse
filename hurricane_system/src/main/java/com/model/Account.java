@@ -109,4 +109,8 @@ public abstract class Account {
 	public AccountType getAccountType(){
 		return type;
 	}
+
+	public void setLocation(Location location){
+		this.currentLocation = location;
+	}
 }

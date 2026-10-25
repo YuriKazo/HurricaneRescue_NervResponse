@@ -86,10 +86,6 @@ public class ShelterList {
 		boolean suitable;
 		for(Shelter shelter : shelters){
 			suitable = true;
-			// System.out.print(shelter.getID() + " ");
-			// for(Capabilities c : shelter.getCapabilities())
-			// 	System.out.print(c.name());
-			System.out.println();
 			if(shelter.getCurrentOccupancy()+ victimCount <= shelter.getTotalOccupancy()){
 				for(Capabilities capability: capabilities){
 					if(!(shelter.getCapabilities().contains(capability))){

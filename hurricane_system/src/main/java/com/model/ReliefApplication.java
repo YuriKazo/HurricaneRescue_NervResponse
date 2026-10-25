@@ -79,6 +79,10 @@ public class ReliefApplication {
 
 		return accountList.getAccount(email, pW);
 	}
+	
+	public void updateLocation(Location location){
+		currentAccount.setLocation(location);
+	}
 
 	public void markComplete() {
 		if (currentAccount instanceof Volunteer) {
@@ -139,7 +143,7 @@ public class ReliefApplication {
 				rankedRequests.add(new RankedRequest(request));
 			return rankedRequests;
 		}
-		return reliefRequestList.matchRequests(((Volunteer)currentAccount).getAbilities());
+		return reliefRequestList.matchRequests(((Volunteer)currentAccount).getAbilities(), currentAccount.getCurrentLocation());
 	}
 
 	public void removeAccount(UUID id) {
@@ -231,6 +235,7 @@ public class ReliefApplication {
 
 		currentRequest = request;
 		currentRequest.changeRequestStatus(Status.ACCEPTED);
+		
 		reliefRequestList.saveReliefRequest();
 	}
 
