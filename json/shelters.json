@@ -4,8 +4,8 @@
         "totalOccupancy": 200,
         "currentOccupancy": 112,
         "location": {
-            "longitude": -24.9401,
-            "latitude": 12.8865,
+            "longitude": -80.8650,
+            "latitude": 33.4895,
             "zipLocation": "29293"
         },
         "street": "Boulevard of Broken Dreams",
@@ -17,8 +17,8 @@
         "totalOccupancy": 90,
         "currentOccupancy": 84,
         "location": {
-            "longitude": -13.9401,
-            "latitude": 19.8865,
+            "longitude": -82.5492,
+            "latitude": 35.5943, 
             "zipLocation": "29294"
         },
         "street": "Sesame Street",
@@ -30,12 +30,12 @@
         "totalOccupancy": 200,
         "currentOccupancy": 112,
         "location": {
-            "longitude": -24.9401,
-            "latitude": 12.8865,
+            "longitude": -79.9374,
+            "latitude": 32.7787,
             "zipLocation": "29293"
         },
-        "street": "Boulevard of Broken Dreams",
-        "capabilities": ["MEDICAL_ASSISTANCE", "FOOD", "WATER"],
+        "street": "Franklin",
+        "capabilities": ["MEDICAL_ASSISTANCE", "FOOD", "WATER", "PETS_ALLOWED"],
         "waterCapacity": 84
     },
     {
@@ -43,8 +43,8 @@
         "totalOccupancy": 90,
         "currentOccupancy": 84,
         "location": {
-            "longitude": -13.9401,
-            "latitude": 19.8865,
+            "longitude": -78.9582,
+            "latitude": 33.6343,
             "zipLocation": "29294"
         },
         "street": "Sesame Street",
@@ -61,7 +61,7 @@
             "zipLocation": "29201"
         },
         "street": "Main Street",
-        "capabilities": ["FOOD", "WATER", "MEDICAL_ASSISTANCE"],
+        "capabilities": ["FOOD", "WATER", "MEDICAL_ASSISTANCE", "PETS_ALLOWED"],
         "waterCapacity": 120
     },
     {
