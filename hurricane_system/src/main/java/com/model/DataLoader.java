@@ -109,8 +109,12 @@ public class DataLoader {
                     capabilities.add(Capabilities.valueOf(capability.toString()));
                 }
                 int waterCapacity = Integer.parseInt(shelterJson.get("waterCapacity").toString());
+                ArrayList<UUID> occupantList = new ArrayList<>();
+                    JSONArray occupants = (JSONArray) shelterJson.get(DataConstants.SHELTER_OCCUPANT_LIST);
+                    for (Object s : occupants)
+                        occupantList.add(UUID.fromString(s.toString()));
 
-                shelters.add(new Shelter(shelterID, shelterCapacity, currentOccupancy, location, street, capabilities, waterCapacity));
+                shelters.add(new Shelter(shelterID, shelterCapacity, currentOccupancy, location, street, capabilities, waterCapacity, occupantList));
                 
             }
 

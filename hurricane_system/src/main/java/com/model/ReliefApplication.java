@@ -130,6 +130,15 @@ public class ReliefApplication {
 		return shelterList.getShelter(id);
 	}
 
+	public ArrayList<UUID> viewMyShelters() {
+		if (!adminFlag) return null;
+		ArrayList<UUID> toReturn = new ArrayList<>();
+		if (currentAccount instanceof Admin) {
+			toReturn = ((Admin) currentAccount).getShelterList();
+		}
+		return toReturn;
+	}
+
 	public void saveAccount(UUID id) {
 		if (accountList.getAccount(id) == null) return;
 
