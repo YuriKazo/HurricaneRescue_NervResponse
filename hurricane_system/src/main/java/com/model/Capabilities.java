@@ -4,5 +4,6 @@ public enum Capabilities {
     MEDICAL_ASSISTANCE,
     FOOD,
     WATER,
-    VETERINARY_CARE
+    VETERINARY_CARE,
+    PETS_ALLOWED
 }

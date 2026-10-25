@@ -221,6 +221,22 @@ public class MapTools {
     }
 
     /**
+     * Calculates the driving distance in meters between two locations
+     * @param start Starting location
+     * @param end Ending location
+     * @return Distance in meters
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    public double getDrivingDistance(Location start, Location end)
+            throws IOException, InterruptedException {
+        Coordinates startCoordinates = new Coordinates(start.getLatitudeCoord(), start.getLongitudeCoord());
+        Coordinates endCoordinates = new Coordinates(end.getLatitudeCoord(), end.getLongitudeCoord());
+        JsonNode route = getRoute(startCoordinates, endCoordinates);
+        
+        return route.path("summary").path("distance").asDouble();
+    }
+    /**
      * Calculates the route information from one location to the next
      * @param start Starting location
      * @param end Ending location
@@ -252,6 +268,7 @@ public class MapTools {
         );
 
         if (response.statusCode() != 200) {
+
             throw new IOException("Could not get driving directions.");
         }
 

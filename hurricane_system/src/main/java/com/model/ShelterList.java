@@ -3,6 +3,8 @@ package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import com.location.MapTools;
+
 public class ShelterList {
 	private static ShelterList shelterList;
 	private ArrayList<Shelter> shelters;
@@ -77,5 +79,49 @@ public class ShelterList {
 
 	public ArrayList<Shelter> getShelters(){
 		return shelters;
+	}
+
+	public ArrayList<Shelter> getSuitableShelters(int victimCount, ArrayList<Capabilities> capabilities){
+		ArrayList<Shelter> suitableShelters = new ArrayList<>();
+		boolean suitable;
+		for(Shelter shelter : shelters){
+			suitable = true;
+			// System.out.print(shelter.getID() + " ");
+			// for(Capabilities c : shelter.getCapabilities())
+			// 	System.out.print(c.name());
+			System.out.println();
+			if(shelter.getCurrentOccupancy()+ victimCount <= shelter.getTotalOccupancy()){
+				for(Capabilities capability: capabilities){
+					if(!(shelter.getCapabilities().contains(capability))){
+						suitable = false;
+						break;
+					}
+				}
+			if(suitable)
+				suitableShelters.add(shelter);
+			}
+		}
+		return suitableShelters;
+	}
+
+	public Shelter getNearestShelter(Location location, ArrayList<Shelter> shelters){
+		if(shelters == null || shelters.size() < 1)
+			return null;
+		Shelter nearestShelter = null;
+		double shortestDistance = Double.MAX_VALUE;
+		try{
+		MapTools mapTools = MapTools.getInstance();
+		for(Shelter shelter : shelters){
+			double distance = mapTools.getDrivingDistance(location,shelter.getLocation());
+			if(distance < shortestDistance){
+				nearestShelter = shelter;
+				shortestDistance = mapTools.getDrivingDistance(location, shelter.getLocation());
+			}
+		}
+		}
+		catch(Exception e){
+			System.err.println(e);
+		}
+		return nearestShelter;
 	}
 }
