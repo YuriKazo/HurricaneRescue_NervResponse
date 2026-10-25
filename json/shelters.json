@@ -30,11 +30,11 @@
         "totalOccupancy": 200,
         "currentOccupancy": 112,
         "location": {
-            "longitude": -79.9374,
-            "latitude": 32.7787,
-            "zipLocation": "29293"
+            "longitude": -79.9681,
+            "latitude": 32.8501,
+            "zipLocation": "29405"
         },
-        "street": "128 Franklin St",
+        "street": "2950 Carner Ave",
         "capabilities": ["MEDICAL_ASSISTANCE", "FOOD", "WATER", "PETS_ALLOWED"],
         "waterCapacity": 84
     },
