@@ -33,7 +33,7 @@ public class RankedRequest {
      */
     public void addMatchedAbility(Abilities ability){
         matchedAbilities.add(ability);
-        score++;
+        score+=100;
     }
 
     /**
@@ -44,12 +44,15 @@ public class RankedRequest {
         return score;
     }
 
+    /**
+     * Calculate the distance from request
+     * @param location The location of the volunteer
+     */
     public void checkDistance(Location location){
         try{
             double distanceMeters = MapTools.getInstance().getDrivingDistance(location, request.getLocation());
             score -= distanceMeters*0.1;
             distance = distanceMeters/1609.344;
-            distance = Math.floor(distance * 100) /100.0;
         }
         catch(Exception e){
             System.err.println(e);
@@ -62,9 +65,9 @@ public class RankedRequest {
      */
     public String getMessage(){
         if(matchedAbilities.size()<1)
-            return "Distance: " + distance + " miles.";
+            return "Distance: " + Math.floor(distance*100)/100.0 + " miles.";
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Distance: " + distance + " miles. Matching abilities: ");
+        stringBuilder.append("Distance: " + Math.floor(distance * 100)/100.0 + " miles. Matching abilities: ");
         for(Abilities ability: matchedAbilities){
             stringBuilder.append(ability.name().toLowerCase() + ", ");
         }

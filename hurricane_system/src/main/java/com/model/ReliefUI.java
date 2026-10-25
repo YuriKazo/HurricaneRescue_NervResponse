@@ -16,12 +16,21 @@ public class ReliefUI {
 
 	public void run() {
 		
+<<<<<<< HEAD
 		createReliefRequestScenario();  // check account_temp.json, reliefrequest_temp.json
 		matchRequestScenario();			
 		findShelterAcceptRequestScenario(); 
 		exportTripScenario();			// txt file
 		rolePermissionScenario();		
 		checkFamilyIntoShelterBranch();	// shelter.json, relief request temp json
+=======
+		createReliefRequestScenario();  // check account_temp.json, relief
+		matchRequestScenario();
+		findShelterAcceptRequestScenario();
+		exportTripScenario();
+		rolePermissionScenario();
+		checkFamilyIntoShelterBranch();
+>>>>>>> c2e654f0232367fb415c4f1d80af5a972b23f8eb
 		
 	}
 
@@ -105,7 +114,9 @@ public class ReliefUI {
 		application.login("rosad@email.com", "password123");
 		System.out.println("Avaliable Requests:");
 		int i = 1;
-		for(RankedRequest request: application.viewRequests()){
+		ArrayList<RankedRequest> requests = application.viewRequests();
+		System.out.println("Top result based on distance and abilities");
+		for(RankedRequest request: requests){
 			System.out.println(i++ + ". " +  "Request description: " + request.getRequest().getRequestDescription());
 			String message = request.getMessage();
 			if (!message.isEmpty()) {
@@ -113,6 +124,13 @@ public class ReliefUI {
 			}
 			System.out.println();
 		}
+		ReliefRequest reliefRequest= requests.get(0).getRequest();
+		System.out.println("Request description: " + reliefRequest.getRequestDescription() + "\nVictim Count:" + reliefRequest.getVictimCount());
+		System.out.println("Wanted abilities:");
+		for(Abilities abilities: reliefRequest.getWantedAbilities()){
+			System.out.print(abilities.name().toLowerCase() + " ");
+		}
+		System.out.println("\n");
 	}
 
 	public void findShelterAcceptRequestScenario(){
@@ -129,11 +147,12 @@ public class ReliefUI {
 			System.err.println(e);
 		}
 		System.out.println("Nearest suitable shelter: " + shelter.getStreet());
-		System.out.println("Driving distance: " + Math.floor(distance/1609.344 *100)/100.0 + " miles");
-		System.out.println("Capabilities: ");
+		System.out.printf("Driving distance: %.2f miles. \n", distance/1609.344);
+		System.out.print("Capabilities: ");
 		for(Capabilities capability: shelter.getCapabilities()){
 			System.out.println(capability.name().toLowerCase().replace('_', ' '));
 		}
+		System.out.println();
 		System.out.println();
 		ReliefRequest request = application.viewRequests().get(0).getRequest();
 		Account requester = application.viewAccount(request.getRequestorID());
