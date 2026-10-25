@@ -21,11 +21,12 @@ public class ReliefUI {
 		//getSheltersFromZipCodeScenario();
 		//createShelterScenario();
 		//createReliefRequestScenario();
-		//exportTripScenario();
 		//matchRequestScenario();
-		//rolePermissionScenario();
 		//findShelterAcceptRequestScenario();
+		//exportTripScenario();
+		//rolePermissionScenario();
 		checkFamilyIntoShelterBranch();
+		
 	}
 
 	
@@ -129,7 +130,7 @@ public class ReliefUI {
 			System.out.println("Account created for Sophred Banks");
 			if(application.login("BSophred@email.com", "word"))
 				System.out.println("Login Successful for Sophred");
-			
+			application.updateLocation(new Location(-79.9374, 32.7787, "29401"));
 			ArrayList<Abilities> abilities = new ArrayList<>();
 			abilities.add(Abilities.CAR);
 			abilities.add(Abilities.MEDICAL_ASSISTANCE);
@@ -232,6 +233,13 @@ public class ReliefUI {
 		for(Capabilities capability: shelter.getCapabilities()){
 			System.out.println(capability.name().toLowerCase().replace('_', ' '));
 		}
+		System.out.println();
+		ReliefRequest request = application.viewRequests().get(0).getRequest();
+		Account requester = application.viewAccount(request.getRequestorID());
+		System.out.println("Self-assigning to request");
+		((Volunteer)application.viewAccount()).setCurrentTarget(request);
+		System.out.println("Accepted " + requester.getFirstName() + " " + requester.getLastName() +  "'s Request");
+		System.out.println();
 	}
 
 	public void rolePermissionScenario() {

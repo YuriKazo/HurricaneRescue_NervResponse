@@ -59,7 +59,7 @@ public class ReliefRequestList {
      * @param volunteerAbilities the abilities the voluteer has
      * @return an ArrayList of RankedRequest ordered from best match to worst
      */
-    public ArrayList<RankedRequest> matchRequests(ArrayList<Abilities> volunteerAbilities){
+    public ArrayList<RankedRequest> matchRequests(ArrayList<Abilities> volunteerAbilities, Location volunteerLocation){
         ArrayList<ReliefRequest> requests = getReliefRequest();
         ArrayList<RankedRequest> rankedRequests = new ArrayList<>();
         for(ReliefRequest request: requests){
@@ -71,10 +71,11 @@ public class ReliefRequestList {
                     rankedRequest.addMatchedAbility(ability);
                 }
             }
+            rankedRequest.checkDistance(volunteerLocation);
         }
 
         // uses a lambda function to sort by score
-        rankedRequests.sort((request1, request2) -> Integer.compare(request2.getScore(), request1.getScore()));
+        rankedRequests.sort((request1, request2) -> Double.compare(request2.getScore(), request1.getScore()));
         return rankedRequests;
     }
 

@@ -2,9 +2,12 @@ package com.model;
 
 import java.util.ArrayList;
 
+import com.location.MapTools;
+
 public class RankedRequest {
     private ReliefRequest request;
-    private int score;
+    private double score;
+    private double distance = 0;
     private ArrayList<Abilities> matchedAbilities = new ArrayList<>();
 
     /**
@@ -37,10 +40,20 @@ public class RankedRequest {
      * Score is based on volunteer and request abilties
      * @return score of a RankedRequest
      */
-    public int getScore(){
+    public double getScore(){
         return score;
     }
 
+    public void checkDistance(Location location){
+        try{
+            double distanceMeters = MapTools.getInstance().getDrivingDistance(location, request.getLocation());
+            score -= distanceMeters*0.1;
+            distance=distanceMeters;
+        }
+        catch(Exception e){
+            System.err.println(e);
+        }
+    }
     /**
      * Builds a recommendation message listing the abilities that matched
      * between the volunteer and request
@@ -50,7 +63,7 @@ public class RankedRequest {
         if(matchedAbilities.size()<1)
             return "";
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Recommended request based on matching abilities: ");
+        stringBuilder.append("Distance: " + distance + " Matching abilities: ");
         for(Abilities ability: matchedAbilities){
             stringBuilder.append(ability.name().toLowerCase() + ", ");
         }

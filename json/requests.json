@@ -5,8 +5,8 @@
         "priorityLevel": "MEDIUM",
         "requestDescription": "broken leg",
         "location": {
-            "longitude": -22.9401,
-            "latitude": 12.7765,
+            "longitude": -81.0816,
+            "latitude": 32.0456,
             "zipLocation": "29103"
         },
         "status": "NOT_ACCEPTED",
@@ -19,8 +19,8 @@
         "priorityLevel": "HIGH",
         "requestDescription": "broken down car",
         "location": {
-            "longitude": -99.9401,
-            "latitude": 12.7335,
+            "longitude": -81.0254,
+            "latitude": 33.9953,
             "zipLocation": "29411"
         },
         "status": "ACCEPTED",
@@ -33,12 +33,12 @@
         "priorityLevel": "MEDIUM",
         "requestDescription": "tree fallen on driveway",
         "location": {
-            "longitude": -95.2351,
-            "latitude": 15.3212,
+            "longitude": -81.10761633125306,
+            "latitude": 32.0483,
             "zipLocation": "29411"
         },
         "status": "NOT_ACCEPTED",
         "victimCount": 1,
-        "wantedAbilities": ["CAR"]
+        "wantedAbilities": ["CAR", "POWER_TOOLS"]
     }
 ]
