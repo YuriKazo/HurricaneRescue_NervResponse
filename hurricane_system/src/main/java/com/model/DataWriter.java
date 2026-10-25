@@ -147,7 +147,7 @@ private static JSONObject getShelterJSON(Shelter shelter){
     for(Capabilities capability: shelterCapabilities){
         capabilities.add(capability.name());
     }
-    shelterDetails.put(SHELTER_CAPABILITIES, shelter.getCapabilities());
+    shelterDetails.put(SHELTER_CAPABILITIES, capabilities);
     shelterDetails.put(SHELTER_WATER_CAPACITY, shelter.getWaterCapacity());
     
     ArrayList<UUID> occupantList = shelter.getOccupantList();
