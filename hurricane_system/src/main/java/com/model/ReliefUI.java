@@ -227,7 +227,7 @@ public class ReliefUI {
 			System.err.println(e);
 		}
 		System.out.println("Nearest suitable shelter: " + shelter.getStreet());
-		System.out.println("Driving distance: " + distance/1609.344 + " miles");
+		System.out.println("Driving distance: " + Math.floor(distance/1609.344 *100)/100.0 + " miles");
 		System.out.println("Capabilities: ");
 		for(Capabilities capability: shelter.getCapabilities()){
 			System.out.println(capability.name().toLowerCase().replace('_', ' '));

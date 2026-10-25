@@ -48,7 +48,8 @@ public class RankedRequest {
         try{
             double distanceMeters = MapTools.getInstance().getDrivingDistance(location, request.getLocation());
             score -= distanceMeters*0.1;
-            distance=distanceMeters;
+            distance = distanceMeters/1609.344;
+            distance = Math.floor(distance * 100) /100.0;
         }
         catch(Exception e){
             System.err.println(e);
@@ -61,9 +62,9 @@ public class RankedRequest {
      */
     public String getMessage(){
         if(matchedAbilities.size()<1)
-            return "";
+            return "Distance: " + distance + " miles.";
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Distance: " + distance + " Matching abilities: ");
+        stringBuilder.append("Distance: " + distance + " miles. Matching abilities: ");
         for(Abilities ability: matchedAbilities){
             stringBuilder.append(ability.name().toLowerCase() + ", ");
         }
