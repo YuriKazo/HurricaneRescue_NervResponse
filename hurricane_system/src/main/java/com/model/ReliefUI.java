@@ -213,7 +213,7 @@ public class ReliefUI {
 	}
 
 	public void findShelterAcceptRequestScenario(){
-		application.login("rdelgado@email.com", "password");
+		application.login("rosad@email.com", "password123");
 		ArrayList<Capabilities> capabilities = new ArrayList<>();
 		capabilities.add(Capabilities.PETS_ALLOWED);
 		capabilities.add(Capabilities.MEDICAL_ASSISTANCE);

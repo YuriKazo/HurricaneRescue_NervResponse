@@ -30,8 +30,8 @@
     "savedAccounts": [],
     "emergencyContact": ["803-555-2361"],
     "currentLocation": {
-      "longitude": -80.9401,
-      "latitude": 32.7765,
+      "longitude": -79.9253,
+      "latitude": 32.7766,
       "zipLocation": "29403"
     },
     "abilities": ["CAR"],
