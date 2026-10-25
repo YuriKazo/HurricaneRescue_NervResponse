@@ -23,6 +23,7 @@ public class ReliefUI {
 		createReliefRequestScenario();
 		exportTripScenario();
 		matchRequestScenario();
+		rolePermissionScenario();
 	}
 
 	
@@ -210,7 +211,31 @@ public class ReliefUI {
 		}
 	}
 
-
+	public void rolePermissionScenario() {
+		application.login("rosad@email.com", "password123");
+		System.out.println("Rosa is now logged in");
+		Volunteer rosa = (Volunteer) application.viewAccount();
+ 
+		ReliefRequest request = null;
+		for (ReliefRequest item : application.getAvailableRequests()) {
+			Account asker = application.viewAccount(item.getRequestorID());
+			if (asker != null && asker.getEmail().equals("BSophred@email.com"))
+				request = item;
+		}
+		if (request == null) {
+			System.out.println("Rosa could not find the Carter request");
+			return;
+		}
+		application.acceptRequest(request.getID());
+		rosa.setCurrentTarget(request);
+		System.out.println("Request status: "+request.getStatus()+", assigned to "+rosa.getFirstName()+" "+rosa.getLastName());
+ 
+		System.out.println("\nRosa tries to mark the request Complete");
+		application.markComplete();
+ 
+		System.out.println("\nRequest status: "+request.getStatus()
+		+"\nAssigned to: "+(rosa.getCurrentTarget() == request ? rosa.getFirstName()+" "+rosa.getLastName() : "nobody"));
+	}
 
 	public static void main(String[] args) {
 		ReliefUI reliefInterface = new ReliefUI();

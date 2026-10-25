@@ -82,6 +82,11 @@ public class ReliefApplication {
 	}
 
 	public void markComplete() {
+		if (currentAccount instanceof Volunteer) {
+			System.out.println("Permission denied: the volunteer role does not have permission to complete relief requests.");
+			return;
+		}
+
 		if (currentAccount instanceof Victim) {
 			((Victim) currentAccount).markComplete();
 		} else if (currentAccount instanceof Volunteer) {
