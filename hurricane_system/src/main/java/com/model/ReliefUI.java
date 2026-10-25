@@ -121,7 +121,7 @@ public class ReliefUI {
 		for(Abilities abilities: reliefRequest.getWantedAbilities()){
 			System.out.print(abilities.name().toLowerCase() + " ");
 		}
-		System.out.println();
+		System.out.println("\n");
 	}
 
 	public void findShelterAcceptRequestScenario(){
@@ -138,10 +138,10 @@ public class ReliefUI {
 			System.err.println(e);
 		}
 		System.out.println("Nearest suitable shelter: " + shelter.getStreet());
-		System.out.printf("Driving distance: %.2f miles. \n", distance);
+		System.out.printf("Driving distance: %.2f miles. \n", distance/1609.344);
 		System.out.print("Capabilities: ");
 		for(Capabilities capability: shelter.getCapabilities()){
-			System.out.print(capability.name().toLowerCase().replace('_', ' ') + " ");
+			System.out.println(capability.name().toLowerCase().replace('_', ' '));
 		}
 		System.out.println();
 		System.out.println();
