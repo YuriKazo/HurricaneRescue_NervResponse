@@ -1,5 +1,10 @@
+// @author NervResponse
 package com.model;
 
+/**
+ * Defines constant values used throughout the NervResponse relief management system.
+ * Contains file paths for JSON data storage and field names used when reading and writing account, hurricane, relief request, shelter, and location information.
+ */
 public abstract class DataConstants {
     protected static final String ACCOUNT_FILE_NAME = "json/accounts.json";
     protected static final String HURRICANE_FILE_NAME = "json/hurricanes.json";

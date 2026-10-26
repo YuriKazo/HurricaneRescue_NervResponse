@@ -1,3 +1,4 @@
+// @author NervResponse
 package com.model;
 
 import java.io.FileReader;
@@ -10,6 +11,12 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader {
     
+    /**
+    * Loads user accounts from the accounts JSON file.
+    * Reads account information, saved locations, emergency contacts, and account-specific data.
+    * Creates Victim, Volunteer, or Admin objects based on the account type stored in the JSON file.
+    * @return an ArrayList containing the loaded accounts, or an empty list if no accounts are loaded
+    */
     public static ArrayList<Account> getAccounts() {
         ArrayList<Account> accounts = new ArrayList<>();
         try {
@@ -85,6 +92,13 @@ public class DataLoader {
         }
         return accounts;
     }
+
+    /**
+    * Loads shelter information from the shelters JSON file.
+    * Reads shelter IDs, occupancy information, locations, capabilities, water capacity, and occupant lists.
+    * Creates Shelter objects using the stored information.
+    * @return an ArrayList containing the loaded shelters, or an empty list if no shelters are loaded
+    */
     public static ArrayList<Shelter> getShelters() {
         ArrayList<Shelter> shelters = new ArrayList<>();
         try {
@@ -123,6 +137,13 @@ public class DataLoader {
         }
         return shelters;
     }
+
+    /**
+    * Loads relief requests from the requests JSON file.
+    * Reads request IDs, descriptions, priority levels, locations, statuses, victim counts, and required abilities.
+    * Creates ReliefRequest objects using the stored information.
+    * @return an ArrayList containing the loaded relief requests, or an empty list if no requests are loaded
+    */
     public static ArrayList<ReliefRequest> getReliefRequests() {
         ArrayList<ReliefRequest> reliefRequests = new ArrayList<>();
         try {
