@@ -6,7 +6,6 @@ import com.location.MapTools;
 
 /**
  * A class representation of a ranked request
- * <p> use
  * @author NerveResponse
  */
 public class RankedRequest {
