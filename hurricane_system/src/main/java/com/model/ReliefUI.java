@@ -7,6 +7,11 @@ import com.location.MapTools;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+/**
+ * A console driver that runs the relief scenarios for the hurricane system, such as
+ * making a request, matching volunteers, finding shelters, and exporting a trip.
+ * @author NervResponse
+ */
 public class ReliefUI {
 	private ReliefApplication application;
 
@@ -16,25 +21,20 @@ public class ReliefUI {
 
 	public void run() {
 		
-<<<<<<< HEAD
 		createReliefRequestScenario();  // check account_temp.json, reliefrequest_temp.json
 		matchRequestScenario();			
 		findShelterAcceptRequestScenario(); 
 		exportTripScenario();			// txt file
 		rolePermissionScenario();		
 		checkFamilyIntoShelterBranch();	// shelter.json, relief request temp json
-=======
-		createReliefRequestScenario();  // check account_temp.json, relief
-		matchRequestScenario();
-		findShelterAcceptRequestScenario();
-		exportTripScenario();
-		rolePermissionScenario();
-		checkFamilyIntoShelterBranch();
->>>>>>> c2e654f0232367fb415c4f1d80af5a972b23f8eb
 		
 	}
 
 
+	/**
+	 * Creates a victim account, logs in, and makes a relief request that needs a car
+	 * and medical assistance
+	 */
 	public void createReliefRequestScenario() {
 		if (application.createAccount("Sophred", "Carter", "BSophred@email.com", "word", "111-222-3333") != null) {
 			System.out.println("Account created for Sophred Banks");
@@ -52,6 +52,10 @@ public class ReliefUI {
 
 	}
 
+	/**
+	 * Logs in as a volunteer, finds the victim's request, and writes the trip
+	 * information (family, contact info, directions, and shelter) to Trip.txt
+	 */
 	public void exportTripScenario() {
 		application.login("rdelgado@email.com", "password");
 		System.out.println("Rosa is now logged in");
@@ -110,6 +114,10 @@ public class ReliefUI {
 		}
 	}
 
+	/**
+	 * Logs in as a volunteer and prints the available requests ranked by how well they
+	 * match the volunteer's abilities and distance
+	 */
 	public void matchRequestScenario(){
 		application.login("rosad@email.com", "password123");
 		System.out.println("Avaliable Requests:");
@@ -133,6 +141,10 @@ public class ReliefUI {
 		System.out.println("\n");
 	}
 
+	/**
+	 * Logs in as a volunteer, finds the nearest shelter that fits the family's needs,
+	 * and has the volunteer assign themselves to the top request
+	 */
 	public void findShelterAcceptRequestScenario(){
 		application.login("rosad@email.com", "password123");
 		ArrayList<Capabilities> capabilities = new ArrayList<>();
@@ -162,6 +174,9 @@ public class ReliefUI {
 		System.out.println();
 	}
 
+	/**
+	 * Shows that a volunteer can accept a request but is not allowed to mark it complete
+	 */
 	public void rolePermissionScenario() {
 		application.login("rosad@email.com", "password123");
 		System.out.println("Rosa is now logged in");
@@ -188,6 +203,10 @@ public class ReliefUI {
 		+"\nAssigned to: "+(rosa.getCurrentTarget() == request ? rosa.getFirstName()+" "+rosa.getLastName() : "nobody"));
 	}
 
+	/**
+	 * Logs in as a shelter admin, prints the admin's shelters and occupants, checks
+	 * three people into a shelter, and marks a request complete
+	 */
 	public void checkFamilyIntoShelterBranch(){ 
 		if (application.login("felixk@email.com", "password")){
 			System.out.println("Login successful for Felix");

@@ -3,6 +3,11 @@ package com.model;
 import com.location.Address;
 import com.location.MapTools;
 
+/**
+ * A simple console demo that finds the closest hurricane shelter to an address and
+ * prints driving directions to it.
+ * @author NervResponse
+ */
 public class UI {
 
     public void run() {
