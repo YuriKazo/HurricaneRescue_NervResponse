@@ -1,3 +1,4 @@
+// @author NervResponse
 package com.model;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public Admin(UUID id, String firstName, String email,
         }
     }
 
-     //@param shelter the shelter to update
+     // @param shelter the shelter to update
      // @param occupancy the new occupancy
     public void updateOccupancy(Shelter shelter,
                                 int occupancy) {
@@ -86,19 +87,19 @@ public Admin(UUID id, String firstName, String email,
         }
         return removed;
     }
+
     //@return ArrayList of shelter UUIDs
     public ArrayList<UUID> getShelterList() {
         return shelterList;
     }
+
     //@return ArrayList of relief request UUIDs
- 
     public ArrayList<UUID> getRequestList() {
         return requestList;
     }
     
 /**
  * Updates the current occupancy of a shelter using its UUID.
- *
  * @param shelterID the unique ID of the shelter
  * @param occupancy the new current occupancy
  */
@@ -113,7 +114,7 @@ public void updateOccupancy(UUID shelterID, int occupancy) {
 }
 
     // @param shelterID the unique ID of the shelter
-    //@param totalOccupancy the new maximum occupancy
+    // @param totalOccupancy the new maximum occupancy
  
     public void updateTotalOccupancy(UUID shelterID, int totalOccupancy) {
         Shelter shelter = ShelterList.getInstance().getShelter(shelterID);
@@ -123,7 +124,7 @@ public void updateOccupancy(UUID shelterID, int occupancy) {
     updateTotalOccupancy(shelter, totalOccupancy);
     }
 
-    //@param shelterID the unique ID of the shelter
+    // @param shelterID the unique ID of the shelter
     // @param water the new amount of water remaining
  
     public void updateWaterLeft(UUID shelterID, int water) {
