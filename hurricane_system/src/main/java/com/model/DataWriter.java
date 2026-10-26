@@ -8,8 +8,17 @@ import java.util.UUID;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * A DataWriter class that writes to JSON files
+ * @author NervResponse
+ * 
+ */
 public class DataWriter extends DataConstants{
 
+/**
+ * Writes the list of accounts to JSON
+ * @return true if successful
+ */
 public static boolean saveAccounts(){
     AccountList accountList = AccountList.getInstance();
     ArrayList<Account> accounts = accountList.getUsers();
@@ -37,6 +46,11 @@ public static boolean saveAccounts(){
     return true;
 }
 
+/**
+ * Converts account to a JSONObject
+ * @param account The account being written
+ * @return account as a JSONObject
+ */
 private static JSONObject getAccountJSON(Account account) {
     JSONObject accountDetails = new JSONObject();
     accountDetails.put(ACCOUNT_USER_ID, account.getID().toString());
@@ -106,7 +120,10 @@ private static JSONObject getAccountJSON(Account account) {
 }
 
 
-
+/**
+ * Writes the list of shelters to JSON
+ * @return true if successful
+ */
 public static boolean saveShelters(){
     
     ShelterList shelterList = ShelterList.getInstance();
@@ -134,7 +151,11 @@ public static boolean saveShelters(){
     return true;
 }
 
-
+/**
+ * Converts shelter to a JSONObject
+ * @param shelter The shelter being written
+ * @return a JSONObject as a shelter
+ */
 private static JSONObject getShelterJSON(Shelter shelter){
     JSONObject shelterDetails = new JSONObject();
     shelterDetails.put(SHELTER_ID, shelter.getID().toString());
@@ -159,7 +180,11 @@ private static JSONObject getShelterJSON(Shelter shelter){
     return shelterDetails;
 }
 
-
+/**
+ * Converts location into JSONObject
+ * @param location The location being written
+ * @return A location as a JSONObject
+ */
 private static JSONObject getLocationJSON(Location location){
     JSONObject locationDetails = new JSONObject();
     locationDetails.put(LOCATION_LONGITUDE,location.getLongitudeCoord());
@@ -168,6 +193,10 @@ private static JSONObject getLocationJSON(Location location){
     return locationDetails;
 }
 
+/**
+ * Writes the list of ReliefRequests to JSON
+ * @return true if successful
+ */
 public static boolean saveReliefRequests(){
         
     ReliefRequestList requestList  = ReliefRequestList.getInstance();
@@ -190,6 +219,11 @@ public static boolean saveReliefRequests(){
     return true;
 }
 
+/**
+ * Converts relief request to JSON
+ * @param request The request being written 
+ * @return A request as a JSONObject
+ */
 private static JSONObject getRequestJSON(ReliefRequest request){
     JSONObject requestDetails = new JSONObject();
     requestDetails.put(REQUEST_ID, request.getID().toString());

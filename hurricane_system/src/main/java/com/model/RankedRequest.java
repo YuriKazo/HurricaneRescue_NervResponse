@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import com.location.MapTools;
 
+/**
+ * A class representation of a ranked request
+ * @author NerveResponse
+ */
 public class RankedRequest {
     private ReliefRequest request;
     private double score;
@@ -37,7 +41,7 @@ public class RankedRequest {
     }
 
     /**
-     * Score is based on volunteer and request abilties
+     * Score is based on volunteer and request abilties, and the distance to the request
      * @return score of a RankedRequest
      */
     public double getScore(){
