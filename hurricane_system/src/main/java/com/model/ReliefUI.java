@@ -16,21 +16,12 @@ public class ReliefUI {
 
 	public void run() {
 		
-<<<<<<< HEAD
 		createReliefRequestScenario();  // check account_temp.json, reliefrequest_temp.json
 		matchRequestScenario();			
 		findShelterAcceptRequestScenario(); 
 		exportTripScenario();			// txt file
 		rolePermissionScenario();		
 		checkFamilyIntoShelterBranch();	// shelter.json, relief request temp json
-=======
-		createReliefRequestScenario();  // check account_temp.json, relief
-		matchRequestScenario();
-		findShelterAcceptRequestScenario();
-		exportTripScenario();
-		rolePermissionScenario();
-		checkFamilyIntoShelterBranch();
->>>>>>> c2e654f0232367fb415c4f1d80af5a972b23f8eb
 		
 	}
 
