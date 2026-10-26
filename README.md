@@ -28,3 +28,9 @@ Hurricane prone areas often face recurring and life-threatening challenges durin
   <img src="docs/images/scrum.png" alt="scrum board" width="20">
 </a>
 <a href="https://github.com/users/YuriKazo/projects/1">SCRUM Board</a>
+
+## Implementation Presentation
+<a href="https://youtu.be/X8wzsGifxYI">
+  <img src="docs/images/scrum.png" alt="youtube video" width="20">
+</a>
+<a href="https://youtu.be/X8wzsGifxYI">Presentation Video</a>
