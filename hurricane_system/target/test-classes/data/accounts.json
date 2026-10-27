@@ -1,0 +1,201 @@
+[
+  {
+    "userID": "a1b2c3d4-0001-4aaa-9c11-000000000004",
+    "type": "VICTIM",
+    "firstName": "Tom",
+    "lastName": "Bradley",
+    "email": "tbradley@gmail.com",
+    "password": "stormcat7",
+    "phoneNumber": "123-456-7891",
+    "savedLocations": [],
+    "savedAccounts": ["a1b2c3d4-0002-4bbb-9c11-000000000002", "a1b2c3d4-0002-4bbb-9c11-000000000004"],
+    "emergencyContact": ["803-555-9911"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },
+    "pets": false,
+    "disabilities": ["PARALYSIS"],
+    "assignedRescuer": null
+  },
+  {
+    "userID": "1b53848c-f21a-4893-a672-21f6331a3db6",
+    "type": "VOLUNTEER",
+    "firstName": "Rosa",
+    "lastName": "Delgado",
+    "email": "rosad@email.com",
+    "password": "password123",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-2361"],
+    "currentLocation": {
+      "longitude": -79.9253,
+      "latitude": 32.7766,
+      "zipLocation": "29403"
+    },
+    "abilities": ["CAR"],
+    "victimList": [],
+    "currentTarget": null
+  },
+  {
+    "userID": "a1b2c3d4-0002-4bbb-9c11-000000000002",
+    "type": "VOLUNTEER",
+    "firstName": "Jake",
+    "lastName": "Logano",
+    "email": "jlogano@email.com",
+    "password": "password",
+    "phoneNumber": "123-456-7891",
+    "savedLocations": [{
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },{
+      "longitude": -11.1111,
+      "latitude": 22.22222,
+      "zipLocation": "69420"
+    }],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-3344"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },
+    "abilities": ["BOAT", "MEDICAL_ASSISTANCE", "HIGH_STRENGTH"],
+    "victimList": ["552e4057-52e3-4b4d-9780-d9bd14fcca30"],
+    "currentTarget": "552e4057-52e3-4b4d-9780-d9bd14fcca30"
+  },
+  {
+    "userID": "ddbea6c7-6e13-4e03-95dd-bc1c3735827e",
+    "type": "ADMIN",
+    "firstName": "Blake",
+    "lastName": "Blagano",
+    "email": "blagano@email.com",
+    "password": "password",
+    "phoneNumber": "123-456-7891",
+    "savedLocations": [{
+      "longitude": -22.9401,
+      "latitude": 32.9965,
+      "zipLocation": "29113"
+    },{
+      "longitude": -11.0911,
+      "latitude": 22.2812,
+      "zipLocation": "67676"
+    }],
+    "savedAccounts": [],
+    "emergencyContact": ["222-22-2222"],
+    "currentLocation": {
+      "longitude": -80.1401,
+      "latitude": 32.7095,
+      "zipLocation": "29003"
+    },
+    "shelterList": ["8c860493-3fb8-48ab-8127-beaf991340b3"],
+    "requestList": ["62029f22-a9ef-445e-aef6-2354194db37d"]
+  },
+  {
+    "userID": "c13db620-9a36-5a16-9445-fb200cdca76e",
+    "type": "VOLUNTEER",
+    "firstName": "Rosa",
+    "lastName": "Delgado",
+    "email": "rdelgado@email.com",
+    "password": "password",
+    "phoneNumber": "843-555-0177",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": [],
+    "currentLocation": {
+      "longitude": -79.9253,
+      "latitude": 32.7766,
+      "zipLocation": "29401"
+    },
+    "abilities": [
+      "CAR"
+    ],
+    "victimList": [],
+    "currentTarget": "552e4057-52e3-4b4d-9780-d9bd14fcca30"
+  },
+  {
+    "userID": "422a3491-6b57-4280-81c9-8c987feba223",
+    "type": "ADMIN",
+    "firstName": "Felix",
+    "lastName": "Kjellberg",
+    "email": "felixk@email.com",
+    "password": "password",
+    "phoneNumber": "8i3-127-7101",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": [],
+    "currentLocation": {
+      "longitude": -88.9253,
+      "latitude": 23.7766,
+      "zipLocation": "55442"
+    },
+    "shelterList": [
+      "8c860493-3fb8-48ab-8127-beaf991340b3"
+    ],
+    "requestList": ["62029f22-a9ef-445e-aef6-2354194db37d",
+                    "37b08b54-f977-45f3-a382-081942691d62"
+                  ]
+  },
+  {
+    "userID": "d60ebda6-bd56-423d-ac0f-dc13a8b58afb",
+    "type": "VICTIM",
+    "firstName": "Sophred",
+    "lastName": "Carter",
+    "email": "123@gmail.com",
+    "password": "word",
+    "phoneNumber": "123-456-7891",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-9911"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },
+    "pets": true,
+    "disabilities": [],
+    "assignedRescuer": null
+  },
+  {
+    "userID": "c55960c5-c9ad-4781-bc98-c59fa5239bdc",
+    "type": "VICTIM",
+    "firstName": "Rachel",
+    "lastName": "Carter",
+    "email": "5322@gmail.com",
+    "password": "word",
+    "phoneNumber": "123-456-7891",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-9911"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },
+    "pets": true,
+    "disabilities": [],
+    "assignedRescuer": null
+  },
+  {
+    "userID": "d9dacd20-206b-488a-87b3-09672e6a7b64",
+    "type": "VICTIM",
+    "firstName": "Sophie",
+    "lastName": "Carter",
+    "email": "tbradley@gmail.com",
+    "password": "stormcat7",
+    "phoneNumber": "123-456-7891",
+    "savedLocations": [],
+    "savedAccounts": [],
+    "emergencyContact": ["803-555-9911"],
+    "currentLocation": {
+      "longitude": -80.9401,
+      "latitude": 32.7765,
+      "zipLocation": "29403"
+    },
+    "pets": true,
+    "disabilities": [],
+    "assignedRescuer": null
+  }
+]

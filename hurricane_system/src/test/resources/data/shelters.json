@@ -1,0 +1,170 @@
+[
+    {
+        "shelterID": "8c860493-3fb8-48ab-8127-beaf991340b3",
+        "totalOccupancy": 200,
+        "currentOccupancy": 1,
+        "location": {
+            "longitude": -80.8650,
+            "latitude": 33.4895,
+            "zipLocation": "29293"
+        },
+        "street": "Boulevard of Broken Dreams",
+        "capabilities": ["MEDICAL_ASSISTANCE", "FOOD","WATER"],
+        "waterCapacity": 84,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "e5008493-b785-44fc-8f80-8b5cf6959863",
+        "totalOccupancy": 90,
+        "currentOccupancy": 0,
+        "location": {
+            "longitude": -82.5492,
+            "latitude": 35.5943, 
+            "zipLocation": "29294"
+        },
+        "street": "Sesame Street",
+        "capabilities": ["FOOD"],
+        "waterCapacity": 0,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "8c860493-3fb8-48ab-8127-beaf991340b3",
+        "totalOccupancy": 200,
+        "currentOccupancy": 112,
+        "location": {
+            "longitude": -79.9681,
+            "latitude": 32.8501,
+            "zipLocation": "29405"
+        },
+        "street": "2950 Carner Ave",
+        "capabilities": ["MEDICAL_ASSISTANCE", "FOOD", "WATER", "PETS_ALLOWED"],
+        "waterCapacity": 84,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "e5008493-b785-44fc-8f80-8b5cf6959863",
+        "totalOccupancy": 90,
+        "currentOccupancy": 84,
+        "location": {
+            "longitude": -78.9582,
+            "latitude": 33.6343,
+            "zipLocation": "29294"
+        },
+        "street": "Sesame Street",
+        "capabilities": ["FOOD"],
+        "waterCapacity": 0,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "a72f19d4-8c35-4b90-9e12-6f7a3c5d2841",
+        "totalOccupancy": 150,
+        "currentOccupancy": 75,
+        "location": {
+            "longitude": -80.8401,
+            "latitude": 34.0007,
+            "zipLocation": "29201"
+        },
+        "street": "Main Street",
+        "capabilities": ["FOOD", "WATER", "MEDICAL_ASSISTANCE", "PETS_ALLOWED"],
+        "waterCapacity": 120,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "b83e20c5-7d46-4a81-8f23-5e6b4d9c1732",
+        "totalOccupancy": 300,
+        "currentOccupancy": 245,
+        "location": {
+            "longitude": -80.8572,
+            "latitude": 34.0298,
+            "zipLocation": "29206"
+        },
+        "street": "Forest Drive",
+        "capabilities": ["FOOD", "WATER"],
+        "waterCapacity": 200,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "c94d31b6-6e57-4c72-9a34-4d5c3e8b0623",
+        "totalOccupancy": 120,
+        "currentOccupancy": 120,
+        "location": {
+            "longitude": -81.0348,
+            "latitude": 34.0154,
+            "zipLocation": "29203"
+        },
+        "street": "North Main Street",
+        "capabilities": ["MEDICAL_ASSISTANCE", "FOOD"],
+        "waterCapacity": 0,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "d05a42c7-5f68-4d63-8b45-3c4d2f7a9514",
+        "totalOccupancy": 250,
+        "currentOccupancy": 98,
+        "location": {
+            "longitude": -81.0732,
+            "latitude": 34.0471,
+            "zipLocation": "29210"
+        },
+        "street": "Broad River Road",
+        "capabilities": ["FOOD", "WATER", "MEDICAL_ASSISTANCE"],
+        "waterCapacity": 175,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "e16b53d8-4a79-4e54-9c56-2b3e1a6d8405",
+        "totalOccupancy": 180,
+        "currentOccupancy": 42,
+        "location": {
+            "longitude": -80.9568,
+            "latitude": 33.9784,
+            "zipLocation": "29209"
+        },
+        "street": "Garners Ferry Road",
+        "capabilities": ["FOOD", "WATER"],
+        "waterCapacity": 95,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "f27c64e9-3b80-4f45-8d67-1a2f9b5c7306",
+        "totalOccupancy": 100,
+        "currentOccupancy": 15,
+        "location": {
+            "longitude": -81.1054,
+            "latitude": 34.0812,
+            "zipLocation": "29212"
+        },
+        "street": "Harbison Boulevard",
+        "capabilities": ["WATER", "MEDICAL_ASSISTANCE"],
+        "waterCapacity": 65,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "a38d75f0-2c91-4056-9e78-0b1a8c4d6207",
+        "totalOccupancy": 400,
+        "currentOccupancy": 325,
+        "location": {
+            "longitude": -80.8956,
+            "latitude": 34.0623,
+            "zipLocation": "29223"
+        },
+        "street": "Two Notch Road",
+        "capabilities": ["FOOD", "WATER", "MEDICAL_ASSISTANCE"],
+        "waterCapacity": 300,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    },
+    {
+        "shelterID": "b49e86a1-1d02-4167-8f89-9c0b7d3e5108",
+        "totalOccupancy": 75,
+        "currentOccupancy": 0,
+        "location": {
+            "longitude": -81.0125,
+            "latitude": 33.9654,
+            "zipLocation": "29169"
+        },
+        "street": "Meeting Street",
+        "capabilities": ["FOOD", "WATER"],
+        "waterCapacity": 50,
+        "occupantList": ["422a3491-6b57-4280-81c9-8c987feba223"]
+    }
+]
