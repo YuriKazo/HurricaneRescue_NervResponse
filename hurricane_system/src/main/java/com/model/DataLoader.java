@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONArray; 
 import org.json.simple.parser.JSONParser;
 
-public class DataLoader {
+public class DataLoader extends DataConstants{
     
     /**
     * Loads user accounts from the accounts JSON file.
@@ -186,7 +186,7 @@ public class DataLoader {
     private static BufferedReader getReaderFromFile(String fileName, String jsonFileName){
 		try {
 			if(isJUnitTest()){
-				InputStream inputStream = Database.class.getResourceAsStream(jsonFileName);
+				InputStream inputStream = DataLoader.class.getResourceAsStream(jsonFileName);
 				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 				return new BufferedReader(inputStreamReader);
 			} else {
