@@ -1,10 +1,8 @@
 package com.model;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +11,47 @@ import java.util.UUID;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+/*
+ * Test                                | Reasoning
+ * ------------------------------------|---------------------------------------------------------------------
+ * getReliefRequest()                  |
+ *      No requests                    | Only existing requests should be returned
+ *      Only available requests        | Requests must be NOT_ACCEPTED to be available
+ *      Mixed statuses                 | Only NOT_ACCEPTED requests are considered available 
+ *      No available requests          | Needs to filter statuses correctly
+ *                                     |
+ * ------------------------------------|---------------------------------------------------------------------
+ * getRequestById(UUID)                |
+ *      UUID doesn't match             | UUID must match in order to retrieve
+ *      UUID matches                   | The correct request must be returned
+ *                                     |
+ * ------------------------------------|---------------------------------------------------------------------
+ * getUserReliefRequests()             |
+ *      One user request               | The matching request by user ID should be returned
+ *      Two requests from same user    | User can have multiple requests
+ *      No requests by user            | Only requests from given user should be returned
+ *                                     |
+ * ------------------------------------|---------------------------------------------------------------------
+ * addReliefRequest()                  |
+ *      Valid request                  | Valid requests must be added to list
+ *      Empty description              | Request must describe what help is needed
+ *      Empty abilities list           | Request does not require abilities
+ *      Null description               | Request must have a description
+ *      Null location                  | Request must have a location
+ *      Negative victim count          | Victim count needs to be positive
+ *      Null requestor ID              | Request must have a valid requestor ID
+ *      Null abilities list            | The abilities list must not be null
+ *                                     |
+ * ------------------------------------|---------------------------------------------------------------------
+ * matchRequests()                     |
+ *      Same location, matching        | Matching requests must outrank non-matching requests
+ *      Same location, no matches      | Requests with no matching abilities must still appear
+ *      More ability matches           | Requests with more matching abilities should rank higher
+ *      Equal abilities and location   | Requests with equal rankings should be in their original order
+ *      Empty request list             | There must be requests to rank
+ *      No volunteer abilities         | Distance still matters when there are no abilities
+ */
 
 public class ReliefRequestListTest {
     private ReliefRequestList requestList = ReliefRequestList.getInstance();

@@ -11,6 +11,28 @@ import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test                                | Reasoning
+ * ------------------------------------|---------------------------------------------------------------------
+ * waterIsAvaliable()                  |
+ *      Water capacity greater than 10 | Water capacity must be greater than 10 for there to be enough water
+ *      Water capacity equal to 10     | Water capacity must be greater than 10
+ *      Water capacity less than 10    | There is not enough water when capacity less than 10
+ *                                     |
+ * ------------------------------------|---------------------------------------------------------------------
+ * addOccupant()                       |
+ *      Valid UUID                     | Occupants must be added when there is space available
+ *      Full occupancy                 | Shelters must not go over max shelter capacity
+ *      One space remaining            | Occupants must be added as long as there is space available 
+ *      Null UUID                      | Occupants must have a valid UUID
+ *                                     |
+ * ------------------------------------|---------------------------------------------------------------------
+ * removeOccupant()                    |
+ *      Matching UUID                  | Shelter must remove the occupant with matching UUID
+ *      No matching UUID               | Only existing occupants can be removed
+ *      Null UUID                      | Occupants must have a valid UUID
+ */
+
 public class ShelterTest {
     private Shelter shelter;
     
@@ -84,21 +106,24 @@ public class ShelterTest {
     public void testRemoveOccupantMatchingUUID() {
         UUID id = UUID.randomUUID();
         shelter.addOccupant(id);
+        shelter.addOccupant(UUID.randomUUID());
 
         shelter.removeOccupant(id);
 
         assertFalse(shelter.getOccupantList().contains(id));
-        assertEquals(0, shelter.getCurrentOccupancy());
+        assertEquals(1, shelter.getCurrentOccupancy());
     }
 
     @Test
     public void testRemoveOccupantNoMatchingUUID() {
         UUID id = UUID.randomUUID();
+        UUID existingId = UUID.randomUUID();
+        shelter.addOccupant(existingId);
 
         shelter.removeOccupant(id);
 
-        assertEquals(0, shelter.getCurrentOccupancy());
-        assertFalse(shelter.getOccupantList().contains(id));
+        assertEquals(1, shelter.getCurrentOccupancy());
+        assertTrue(shelter.getOccupantList().contains(existingId));
     }
 
     @Test

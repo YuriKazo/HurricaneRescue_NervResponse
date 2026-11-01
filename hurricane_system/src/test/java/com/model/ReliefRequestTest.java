@@ -10,6 +10,23 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.model.*;
+
+/*
+ *
+ * Test                              | Reasoning
+ * ----------------------------------|-------------------------------------------------
+ * markComplete()                    |
+ *      Normal case                  | Status should change to COMPLETED
+ * ----------------------------------|--------------------------------------------------                              
+ * changeRequestStatus()             |
+ *      Different status             | New status should reflect the given status
+ *      Null status                  | Status must not be null
+ * ----------------------------------|--------------------------------------------------
+ * changePriority()                  |
+ *      Different priority           | New priority should reflect the given priority
+ *      Null priority                | Priority must not be null
+ */
+
 public class ReliefRequestTest {
     private ReliefRequest reliefRequest;
 

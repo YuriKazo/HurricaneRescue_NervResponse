@@ -14,6 +14,60 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test                                | Reasoning
+ * ------------------------------------|------------------------------------------------------
+ * getShelter(Location):               |
+ *      Shelter matches location       | Needs to return the correct shelter
+ *      No shelter matches location    | Needs to return null when no matches
+ *      Null location                  | Given location must not be null
+ *                                     |
+ * ------------------------------------|------------------------------------------------------
+ * getShelter(UUID):                   |
+ *      Matching UUID                  | Needs to return the correct shelter
+ *      No matching UUID               | Needs to return null when no matches
+ *      Null UUID                      | Cannot retrieve shelter when UUID is null
+ *                                     |
+ * ------------------------------------|------------------------------------------------------
+ * getShelters(int zipcode):           |
+ *      One matching shelter           | Must retrieve shelter matching zipcode
+ *      Two matching shelters          | Must return multiple matches
+ *      No matches                     | Non-matching zipcodes must not retrieve shelters
+ *                                     |
+ * ------------------------------------|------------------------------------------------------
+ * addShelter():                       |
+ *      Valid shelter                  | The list must contain added shelters
+ *      Out-of-bounds latitude         | Coordinates must be real-world coordinates
+ *      Out-of-bounds longitude        | Coordinates must be real-world coordinates
+ *      Empty zip                      | Shelter must have a zipcode
+ *      Null zip                       | Shelter must have a zipcode
+ *      Empty street                   | Shelter must have a street
+ *      Null street                    | Shelter must have a street
+ *                                     |
+ * ------------------------------------|------------------------------------------------------
+ * removeShelter():                    |
+ *      Matching UUID                  | Must remove the correct shelter with matching UUID
+ *      No matches                     | Must not remove anything when no matches exist
+ *      Null UUID                      | Cannot remove a shelter when UUID is null
+ *                                     |
+ * ------------------------------------|------------------------------------------------------
+ * getSuitableShelters():              |
+ *      All shelters have wanted caps  | Returned list must include all matching shelters
+ *      Extra capabilities             | Must only filter by the wanted capabilities
+ *      Mixed capabilities             | Must filter shelters without matching capabilities
+ *      No matching capabilities       | Must exclude all shelters without matching capabilities
+ *      Negative victim count          | Victim count must not be negative
+ *      Empty capabilities             | Needs to check occupancy only
+ *      Null capabilities              | Given capabilities must not be null
+ *                                     |
+ * ------------------------------------|------------------------------------------------------
+ * getNearestShelter():                |
+ *      Null input shelter list        | Given list must not be null
+ *      Empty input shelter list       | Must return null when there are no shelters
+ *      Shelters at different locations| The closest shelter must be returned
+ *      Null location                  | Must have a location to determine distance
+ */
+
 public class ShelterListTest {
     private ShelterList shelterList = ShelterList.getInstance();
     private ArrayList<Shelter> shelters = shelterList.getShelters();
