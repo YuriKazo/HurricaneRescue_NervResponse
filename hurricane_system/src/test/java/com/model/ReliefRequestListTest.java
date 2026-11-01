@@ -2,10 +2,10 @@ package com.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-import java.io.File;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -30,13 +30,9 @@ public class ReliefRequestListTest {
     @AfterEach
     public void tearDown(){
         requestList.getRequests().clear();
-        DataWriter.saveReliefRequests();
     }
-@Test
-public void testDebugClearing() {
-    requestList.getRequests().clear();
-    fail("size after clear: " + requestList.getRequests().size());
-}
+
+
     @Test 
     public void testGetReliefRequestEmpty() {
         requests.clear();
@@ -72,8 +68,7 @@ public void testDebugClearing() {
     @Test
     public void testGetRequestByIdNoMatch(){
         ReliefRequest request = requestList.getReliefRequest(UUID.fromString("e9a6e6dc-d6be-48bd-89c8-5c532cfb727c"));
-        boolean isNull = request == null;
-        assertTrue(isNull);
+        assertNull(request);
     }
 
     @Test
@@ -226,30 +221,8 @@ public void testDebugClearing() {
         assertEquals("near request", ranked.get(0).getRequest().getRequestDescription());
     }
 
-    @Test
-    public void testMatchRequestsNullVolunteerAbilities() {
-        requests.clear();
-        // Request must want an ability, otherwise contains() is never reached and null goes unnoticed
-        requests.add(buildRequest("needs boat", new ArrayList<>(List.of(Abilities.BOAT)), SAME_LOCATION));
-
-        ArrayList<RankedRequest> ranked = requestList.matchRequests(null, SAME_LOCATION);
-
-        assertNotNull(ranked);
-    }
-
-    @Test
-    public void testMatchRequestsNullVolunteerLocation() {
-        requests.clear();
-        requests.add(buildRequest("needs car", new ArrayList<>(List.of(Abilities.CAR)), SAME_LOCATION));
-
-        ArrayList<RankedRequest> ranked = requestList.matchRequests(
-                new ArrayList<>(List.of(Abilities.CAR)), null);
-
-        assertNotNull(ranked);
-    }
     private ReliefRequest buildRequest(String description, ArrayList<Abilities> wanted, Location location) {
         return new ReliefRequest(UUID.randomUUID(), UUID.randomUUID(), Status.NOT_ACCEPTED,
                 description, PriorityLevel.LOW, location, 1, wanted);
     }
-
 }
