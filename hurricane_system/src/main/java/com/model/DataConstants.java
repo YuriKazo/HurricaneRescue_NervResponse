@@ -7,21 +7,21 @@ package com.model;
  */
 public abstract class DataConstants {
     protected static final String ACCOUNT_FILE_NAME = "json/accounts.json";
-    protected static final String ACCOUNT_FILE_NAME_JUNIT = "hurricane_system/target/data/accounts.json";
+    protected static final String ACCOUNT_FILE_NAME_JUNIT = "/data/accounts.json";
     protected static final String HURRICANE_FILE_NAME = "json/hurricanes.json";
-    protected static final String HURRICANE_FILE_NAME_JUNIT = "hurricane_system/target/data/hurricanes.json";
+    protected static final String HURRICANE_FILE_NAME_JUNIT = "/data/hurricanes.json";
     protected static final String REQUEST_FILE_NAME = "json/requests.json";
-    protected static final String REQUEST_FILE_NAME_JUNIT = "hurricane_system/target/data/requests.json";
+    protected static final String REQUEST_FILE_NAME_JUNIT = "/data/requests.json";
     protected static final String SHELTER_FILE_NAME = "json/shelters.json";
-    protected static final String SHELTER_FILE_NAME_JUNIT = "hurricane_system/target/data/shelters.json";
+    protected static final String SHELTER_FILE_NAME_JUNIT = "/data/shelters.json";
     protected static final String ACCOUNT_TEMP_FILE_NAME = "json/accounts_temp.json";
-    protected static final String ACCOUNT_TEMP_FILE_NAME_JUNIT = "hurricane_system/target/data/accounts_temp.json";
+    protected static final String ACCOUNT_TEMP_FILE_NAME_JUNIT = "/data/accounts_temp.json";
     protected static final String HURRICANE_TEMP_FILE_NAME = "json/hurricanes_temp.json";
-    protected static final String HURRICANE_TEMP_FILE_NAME_JUNIT = "hurricane_system/target/data/hurricanes_temp.json";
+    protected static final String HURRICANE_TEMP_FILE_NAME_JUNIT = "/data/hurricanes_temp.json";
     protected static final String REQUEST_TEMP_FILE_NAME = "json/requests_temp.json";
-    protected static final String REQUEST_TEMP_FILE_NAME_JUNIT = "hurricane_system/target/data/requests_temp.json";
+    protected static final String REQUEST_TEMP_FILE_NAME_JUNIT = "/data/requests_temp.json";
     protected static final String SHELTER_TEMP_FILE_NAME = "json/shelters_temp.json";
-    protected static final String SHELTER_TEMP_FILE_NAME_JUNIT = "hurricane_system/target/data/shelters_temp.json";
+    protected static final String SHELTER_TEMP_FILE_NAME_JUNIT = "/data/shelters_temp.json";
 
     protected static final String ACCOUNT_USER_ID = "userID";
     protected static final String ACCOUNT_TYPE = "type";

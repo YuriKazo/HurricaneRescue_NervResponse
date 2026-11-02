@@ -36,7 +36,7 @@ public static boolean saveAccounts(){
         jsonAccounts.add(getAccountJSON(accounts.get(i)));
     }
 
-    try (FileWriter file = new FileWriter(ACCOUNT_TEMP_FILE_NAME)){
+    try (FileWriter file = new FileWriter(getFileWritingPath(ACCOUNT_TEMP_FILE_NAME, ACCOUNT_TEMP_FILE_NAME_JUNIT))){
         file.write(jsonAccounts.toJSONString());
         file.flush();
 
@@ -59,6 +59,7 @@ private static JSONObject getAccountJSON(Account account) {
     accountDetails.put(ACCOUNT_LAST_NAME, account.getLastName());
     accountDetails.put(ACCOUNT_EMAIL, account.getEmail());
     accountDetails.put(ACCOUNT_PASSWORD, account.getPassword());
+    accountDetails.put(ACCOUNT_PHONE_NUMBER, account.getPhoneNumber());
     accountDetails.put(ACCOUNT_CURRENT_LOCATION, getLocationJSON(account.getCurrentLocation()));
 
     JSONArray locations = new JSONArray();
@@ -112,7 +113,7 @@ private static JSONObject getAccountJSON(Account account) {
 
         JSONArray requests = new JSONArray();
         for(UUID request: ((Admin)account).getRequestList())
-            shelters.add(request.toString());
+            requests.add(request.toString());
         
         accountDetails.put(ADMIN_REQUEST_LIST, requests);
 
@@ -142,7 +143,7 @@ public static boolean saveShelters(){
         jsonShelters.add(getShelterJSON(shelters.get(i)));
     }
 
-    try (FileWriter file = new FileWriter(SHELTER_TEMP_FILE_NAME)){
+    try (FileWriter file = new FileWriter(getFileWritingPath(SHELTER_TEMP_FILE_NAME, SHELTER_TEMP_FILE_NAME_JUNIT))){
         file.write(jsonShelters.toJSONString());
         file.flush();
 
@@ -210,7 +211,7 @@ public static boolean saveReliefRequests(){
         jsonRequests.add(getRequestJSON(requests.get(i)));
     }
 
-    try (FileWriter file = new FileWriter(REQUEST_TEMP_FILE_NAME)){
+    try (FileWriter file = new FileWriter(getFileWritingPath(REQUEST_TEMP_FILE_NAME, REQUEST_TEMP_FILE_NAME_JUNIT))){
         file.write(jsonRequests.toJSONString());
         file.flush();
 
