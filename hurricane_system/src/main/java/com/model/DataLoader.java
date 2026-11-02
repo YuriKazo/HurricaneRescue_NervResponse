@@ -23,7 +23,7 @@ public class DataLoader extends DataConstants{
     public static ArrayList<Account> getAccounts() {
         ArrayList<Account> accounts = new ArrayList<>();
         try {
-            FileReader reader = new FileReader(DataConstants.ACCOUNT_FILE_NAME);
+            BufferedReader reader = getReaderFromFile(DataConstants.ACCOUNT_FILE_NAME, DataConstants.ACCOUNT_FILE_NAME_JUNIT);
             JSONParser parser = new JSONParser();
             JSONArray accountsArray = (JSONArray) parser.parse(reader);
 
@@ -105,7 +105,7 @@ public class DataLoader extends DataConstants{
     public static ArrayList<Shelter> getShelters() {
         ArrayList<Shelter> shelters = new ArrayList<>();
         try {
-            FileReader reader = new FileReader(DataConstants.SHELTER_FILE_NAME);
+            BufferedReader reader = getReaderFromFile(DataConstants.SHELTER_FILE_NAME, DataConstants.SHELTER_FILE_NAME_JUNIT);
             JSONParser parser = new JSONParser();
             JSONArray sheltersArray = (JSONArray) parser.parse(reader);
             
@@ -150,7 +150,7 @@ public class DataLoader extends DataConstants{
     public static ArrayList<ReliefRequest> getReliefRequests() {
         ArrayList<ReliefRequest> reliefRequests = new ArrayList<>();
         try {
-            FileReader reader = new FileReader(DataConstants.REQUEST_FILE_NAME);
+            BufferedReader reader = getReaderFromFile(DataConstants.REQUEST_FILE_NAME, DataConstants.REQUEST_FILE_NAME_JUNIT);
             JSONParser parser = new JSONParser();
             JSONArray reliefRequestsArray = (JSONArray) parser.parse(reader);
             
