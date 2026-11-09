@@ -37,6 +37,6 @@ Hurricane prone areas often face recurring and life-threatening challenges durin
 
 ## Prototype
 <a href="docs/Victim_Prototype.pdf">
-  <img src="docs/Victim_Prototype.pdf" alt="Prototype" width="20">
+  <img src="docs/images/scrum.png" alt="Prototype" width="20">
 </a>
 <a href="docs/Victim_Prototype.pdf">Victim Prototype</a>
