@@ -34,3 +34,9 @@ Hurricane prone areas often face recurring and life-threatening challenges durin
   <img src="docs/images/scrum.png" alt="youtube video" width="20">
 </a>
 <a href="https://youtu.be/X8wzsGifxYI">Presentation Video</a>
+
+## Prototype
+<a href="docs/Victim_Prototype.pdf">
+  <img src="docs/Victim_Prototype.pdf" alt="Prototype" width="20">
+</a>
+<a href="docs/Victim_Prototype.pdf">Victim Prototype</a>
