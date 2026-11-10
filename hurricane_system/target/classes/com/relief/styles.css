@@ -1,0 +1,35 @@
+
+/* Primary Button */
+.button {
+    -fx-background-color: #247B91;
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-padding: 12px 24px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(21, 50, 75, 0.15), 6, 0, 0, 2);
+}
+
+/* Hover Effect */
+.button:hover {
+    -fx-background-color: #1B6579;
+    -fx-effect: dropshadow(gaussian, rgba(21, 50, 75, 0.25), 8, 0, 0, 3);
+}
+
+/* Click Effect */
+.button:pressed {
+    -fx-background-color: #15324B;
+    -fx-effect: none;
+}
+
+/* Disabled Button */
+.button:disabled {
+    -fx-background-color: #B8C9CE;
+    -fx-text-fill: #FFFFFF;
+    -fx-opacity: 1;
+}
