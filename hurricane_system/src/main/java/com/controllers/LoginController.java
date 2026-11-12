@@ -1,15 +1,47 @@
 package com.controllers;
 
-import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import com.model.*;
 
 import com.relief.App;
-
-import javafx.fxml.FXML;
 
 public class LoginController {
 
     @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot("home");
+    private Button secondaryButton;
+
+    @FXML
+    private Label lbl_error;
+
+    @FXML
+    private TextField txt_password;
+
+    @FXML
+    private TextField txt_username;
+
+    @FXML
+    void login(ActionEvent event) {
+        String username = txt_username.getText();
+        String password = txt_password.getText();
+        System.out.println(username + " " + password);
+
+        ReliefApplication app = ReliefApplication.getInstance();
+
+        if (!app.login(username, password)) {
+            lbl_error.setText("Invalid username or password");
+            return;
+        }
+
+        try {
+            App.setRoot("home");
+        } catch (java.io.IOException e) {
+            lbl_error.setText("Unable to load home screen");
+        }
+
     }
+
 }
