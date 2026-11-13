@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.TextField;
 import com.model.*;
 
@@ -42,6 +43,31 @@ public class LoginController {
             lbl_error.setText("Unable to load home screen");
         }
 
+    }
+
+    @FXML
+    void goToHome(ActionEvent event) {
+
+    }
+
+    @FXML
+    void goToMap(ActionEvent event) {
+        
+    }
+
+    @FXML
+    void goToCreateReliefRequest(ActionEvent event) {
+
+    }
+
+    @FXML
+    void goToLogin(ActionEvent event) {
+        
+    }
+
+    @FXML
+    void goToSignUp(ActionEvent event) {
+        
     }
 
 }
