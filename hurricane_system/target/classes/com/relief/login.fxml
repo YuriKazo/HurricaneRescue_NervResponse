@@ -16,53 +16,8 @@
    <left>
       <VBox prefHeight="901.0" prefWidth="350.0" styleClass="sidebar" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="1047.0" prefWidth="586.0" styleClass="sidebar-background">
+            <Pane prefHeight="181.0" prefWidth="261.0" styleClass="sidebar-background">
                <children>
-                  <Button fx:id="navHome" alignment="BASELINE_LEFT" graphicTextGap="50.0" layoutX="8.0" layoutY="194.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Home">
-                     <graphic>
-                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/home-icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="navMap" alignment="BASELINE_LEFT" graphicTextGap="50.0" layoutX="8.0" layoutY="297.0" mnemonicParsing="false" onAction="#goToMap" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Map">
-                     <graphic>
-                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/map-icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="navCreateRequest" alignment="BASELINE_LEFT" graphicTextGap="50.0" layoutX="8.0" layoutY="403.0" mnemonicParsing="false" onAction="#goToCreateReliefRequest" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Create Relief Request">
-                     <graphic>
-                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/request-icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="navLogin" alignment="BASELINE_LEFT" graphicTextGap="50.0" layoutX="8.0" layoutY="503.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Login">
-                     <graphic>
-                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/login-logo.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="navSignUp" alignment="BASELINE_LEFT" graphicTextGap="50.0" layoutX="5.0" layoutY="604.0" mnemonicParsing="false" onAction="#goToSignUp" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Sign Up">
-                     <graphic>
-                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/sign-up-logo.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                   <AnchorPane prefHeight="200.0" prefWidth="270.0">
                      <children>
                         <Label alignment="TOP_LEFT" layoutX="180.0" layoutY="13.0" prefHeight="155.0" prefWidth="157.0" styleClass="website-name" text="HURRICANE&#10;RELIEF&#10;TRACKER" />
@@ -75,6 +30,55 @@
                   </AnchorPane>
                </children>
             </Pane>
+            <VBox prefHeight="729.0" prefWidth="353.0">
+               <children>
+                  <Button id="home-button" fx:id="navHome" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Home">
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/home-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="map-button" fx:id="navMap" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToMap" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Map">
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/map-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="create-request-button" fx:id="navCreateRequest" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToCreateReliefRequest" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Create Relief Request">
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/request-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="nav-login-button" fx:id="navLogin" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Login">
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/login-logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="nav-sign-up-button" fx:id="navSignUp" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToSignUp" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Sign Up">
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/sign-up-logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
          </children>
       </VBox>
    </left>

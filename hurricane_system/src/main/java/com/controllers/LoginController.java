@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
+
 import com.model.*;
 
 import com.relief.App;
@@ -46,28 +49,26 @@ public class LoginController {
     }
 
     @FXML
-    void goToHome(ActionEvent event) {
+    private void goToHome() throws IOException {
 
     }
 
     @FXML
-    void goToMap(ActionEvent event) {
+    private void goToMap() throws IOException {
+    }
+
+    @FXML
+    private void goToCreateReliefRequest() throws IOException {
         
     }
 
     @FXML
-    void goToCreateReliefRequest(ActionEvent event) {
+    private void goToLogin() throws IOException {
 
     }
 
     @FXML
-    void goToLogin(ActionEvent event) {
-        
-    }
-
-    @FXML
-    void goToSignUp(ActionEvent event) {
-        
+    private void goToSignUp() throws IOException {
     }
 
 }
