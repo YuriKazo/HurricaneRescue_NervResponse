@@ -4,7 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
+
 import com.model.*;
 
 import com.relief.App;
@@ -42,6 +46,29 @@ public class LoginController {
             lbl_error.setText("Unable to load home screen");
         }
 
+    }
+
+    @FXML
+    private void goToHome() throws IOException {
+
+    }
+
+    @FXML
+    private void goToMap() throws IOException {
+    }
+
+    @FXML
+    private void goToCreateReliefRequest() throws IOException {
+        
+    }
+
+    @FXML
+    private void goToLogin() throws IOException {
+
+    }
+
+    @FXML
+    private void goToSignUp() throws IOException {
     }
 
 }
