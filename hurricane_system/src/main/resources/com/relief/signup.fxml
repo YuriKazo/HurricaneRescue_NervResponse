@@ -13,9 +13,9 @@
     </stylesheets>
     <children>
         <Label text="UserName" />
-      <TextField fx:id="txt_username" />
+      <TextField fx:id="new_username" />
       <Label prefHeight="0.0" prefWidth="56.0" text="Password" />
-      <TextField fx:id="txt_password" />
+      <TextField fx:id="new_password" />
         <Button fx:id="signUp" onAction="#signUp" text="Sign Up" />
     </children>
     <padding>
