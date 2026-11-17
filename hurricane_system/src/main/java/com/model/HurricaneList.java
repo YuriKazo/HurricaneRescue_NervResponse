@@ -22,6 +22,7 @@ public class HurricaneList {
     }
 
     public Hurricane getNearestHurricane(String zip) {
+        
         Hurricane nearestHurricane = null;
         int nearestDistance = 200;
         for (Hurricane hurricane : hurricanes) {

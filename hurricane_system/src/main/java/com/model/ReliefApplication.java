@@ -29,6 +29,7 @@ public class ReliefApplication {
 		accountList = AccountList.getInstance();
 		shelterList = ShelterList.getInstance();
 		reliefRequestList = ReliefRequestList.getInstance();
+		hurricaneList = HurricaneList.getInstance();
 	}
 
 	/**
@@ -187,9 +188,7 @@ public class ReliefApplication {
 	 * @return The active hurricane
 	 */
 	public Hurricane viewHurricane() {
-		if (activeHurricane == null) {
-			activeHurricane = hurricaneList.getNearestHurricane(currentAccount.getCurrentLocation().getZip());
-		}
+		Hurricane activeHurricane = hurricaneList.getNearestHurricane(currentAccount.getCurrentLocation().getZip());
 		return activeHurricane;
 	}
 

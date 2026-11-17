@@ -192,7 +192,7 @@ public class DataLoader extends DataConstants{
             
             for (int i = 0; i < hurricanesArray.size(); i++) {
                 JSONObject hurricaneJson = (JSONObject) hurricanesArray.get(i);
-                UUID hurricaneID = UUID.fromString((String) hurricaneJson.get(DataConstants.HURRICANE_ID));
+                UUID hurricaneID = UUID.fromString((String) hurricaneJson.get(DataConstants.HURRICANE_ID).toString());
                 String name = (String) hurricaneJson.get(DataConstants.HURRICANE_NAME);
                 int category = Integer.parseInt(hurricaneJson.get(DataConstants.HURRICANE_CATEGORY).toString());
                 ActiveLevel level = ActiveLevel.valueOf((String) hurricaneJson.get(DataConstants.HURRICANE_ACTIVE_LEVEL));
