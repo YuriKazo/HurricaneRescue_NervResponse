@@ -27,6 +27,22 @@ public class Hurricane {
         activeLevel = level;
         currentZip = zip;
     }
+
+    /**
+     * Loads hurricane from DataLoader
+     * @param id The UUID of the hurricane
+     * @param name The name of the hurricane
+     * @param category The category of the hurricane
+     * @param level The active level of the hurricane
+     * @param zip The zipcodes the hurricane covers
+     */
+    public Hurricane(UUID id, String name, int category, ActiveLevel level, ArrayList<String> zip){
+        hurricaneID = id;
+        hurricaneName = name;
+        hurricaneCategory = category;
+        activeLevel = level;
+        currentZip = zip;
+    }
     
     /**
      * Gets hurricane name
