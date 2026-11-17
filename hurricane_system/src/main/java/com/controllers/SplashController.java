@@ -10,6 +10,6 @@ public class SplashController {
     
     @FXML
     private void goToHome() throws IOException {
-
+        App.setRoot("home");
     }
 }
