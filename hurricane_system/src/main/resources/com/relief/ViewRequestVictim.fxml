@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="900.0" prefWidth="1600.0" styleClass="main-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.HomeController">
+   <left>
+      <VBox prefHeight="901.0" prefWidth="350.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="1047.0" prefWidth="586.0" styleClass="sidebar-background">
+               <children>
+                  <VBox layoutY="172.0" prefHeight="730.0" prefWidth="351.0">
+                     <children>
+                        <VBox prefHeight="659.0" prefWidth="343.0">
+                           <children>
+                              <VBox prefHeight="145.0" prefWidth="344.0">
+                                 <children>
+                                    <Button fx:id="navHome" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Home">
+                                       <graphic>
+                                          <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/home-icon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="navMap" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToMap" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Map">
+                                       <graphic>
+                                          <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/map-icon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="navCreateRequest" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToCreateReliefRequest" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Create Relief Request">
+                                       <graphic>
+                                          <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/request-icon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="loggedOutNav" prefHeight="145.0" prefWidth="334.0">
+                                 <children>
+                                    <Button fx:id="navViewRequestVictim" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToViewRequestVictim" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="View Request">
+                                       <graphic>
+                                          <ImageView fitHeight="58.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/view-request.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="navLogout" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToLogout" prefHeight="94.0" prefWidth="334.0" styleClass="nav-button" text="Logout">
+                                       <graphic>
+                                          <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/logout-icon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="loggedInNav" prefHeight="75.0" prefWidth="273.0" />
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="118.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/user-icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="270.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" layoutX="180.0" layoutY="13.0" prefHeight="155.0" prefWidth="157.0" styleClass="website-name" text="HURRICANE&#10;RELIEF&#10;TRACKER">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/hurricane-logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="907.0" prefWidth="1301.0" styleClass="main-background" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="37.0" layoutY="33.0" prefHeight="836.0" prefWidth="1175.0" styleClass="form-background">
+               <children>
+                  <Label fx:id="lbl_welcome" alignment="CENTER" contentDisplay="CENTER" layoutX="374.0" layoutY="36.0" prefHeight="102.0" prefWidth="453.0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="TOP_CENTER" layoutX="225.0" layoutY="201.0" prefHeight="588.0" prefWidth="725.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="hurricane-info-background">
+                           <children>
+                              <Label fx:id="lbl_hurricane_info" prefHeight="197.0" prefWidth="727.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <Label layoutX="516.0" layoutY="45.0" prefHeight="68.0" prefWidth="152.0" text="Find Shelters">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="114.0" layoutY="160.0" prefHeight="57.0" prefWidth="287.0" text="Mark Wanted Capabilities ">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="checkFood" layoutX="114.0" layoutY="240.0" mnemonicParsing="false" text="Food">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="checkWater" layoutX="114.0" layoutY="300.0" mnemonicParsing="false" text="Water">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="checkMedicalAssistance" layoutX="114.0" layoutY="360.0" mnemonicParsing="false" text="Medical Assistance ">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="checkAllowsPets" layoutX="370.0" layoutY="240.0" mnemonicParsing="false" text="Allows Pets">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+                  <Separator layoutX="164.0" layoutY="460.0" prefHeight="7.0" prefWidth="854.0" />
+                  <Label layoutX="114.0" layoutY="500.0" prefHeight="57.0" prefWidth="287.0" text="Shelters:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonFilter" layoutX="762.0" layoutY="299.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="266.0" text="Filter">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Button>
+                  <VBox fx:id="ShelterContainer" layoutX="111.0" layoutY="567.0" prefHeight="110.0" prefWidth="1012.0" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
