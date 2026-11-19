@@ -15,6 +15,14 @@
     -fx-effect: dropshadow(gaussian, rgba(21, 50, 75, 0.15), 6, 0, 0, 2);
 }
 
+.nav-background .nav-button,
+.nav-background .nav-button:hover,
+.nav-background .nav-button:pressed,
+.nav-background .nav-button:disabled {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
 /* Hover Effect */
 .button:hover {
     -fx-background-color: #1B6579;
@@ -36,7 +44,18 @@
 
 }
 
-#NavVBox {
-    -fx-background-image: url("com/relief/images/Nav-Background.png");
+.nav-background {
+    -fx-background-image: url("images/Nav-Background.png");
+}
+
+.main-background {
+    -fx-background-image: url("images/Background.png");
+}
+
+.website-name {
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
 }
 

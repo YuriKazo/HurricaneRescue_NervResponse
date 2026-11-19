@@ -12,26 +12,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="900.0" prefWidth="1600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginController">
+<BorderPane prefHeight="900.0" prefWidth="1600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginController" styleClass="main-background">
    <left>
       <VBox prefHeight="685.0" prefWidth="350.0" styleClass="sidebar" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="181.0" prefWidth="261.0" styleClass="sidebar-background">
+            <VBox fx:id="NavVBox" prefHeight="900.0" prefWidth="361.0" styleClass="nav-background">
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="270.0">
+                  <AnchorPane prefHeight="0.0" prefWidth="350.0">
                      <children>
                         <Label alignment="TOP_LEFT" layoutX="180.0" layoutY="13.0" prefHeight="155.0" prefWidth="157.0" styleClass="website-name" text="HURRICANE&#10;RELIEF&#10;TRACKER" />
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="113.0" fitWidth="113.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/hurricane-logo.png" />
                            </image>
                         </ImageView>
                      </children>
                   </AnchorPane>
-               </children>
-            </Pane>
-            <VBox fx:id="NavVBox" prefHeight="729.0" prefWidth="353.0">
-               <children>
                   <Button id="home-button" fx:id="navHome" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Home">
                      <graphic>
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">

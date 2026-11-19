@@ -30,7 +30,7 @@
                   </AnchorPane>
                </children>
             </Pane>
-            <VBox prefHeight="729.0" prefWidth="353.0">
+            <VBox prefHeight="729.0" prefWidth="353.0" styleClass="nav-background">
                <children>
                   <Button id="home-button" fx:id="navHome" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Home">
                      <graphic>

@@ -16,7 +16,7 @@
          <children>
             <Pane prefHeight="1047.0" prefWidth="586.0" styleClass="sidebar-background">
                <children>
-                  <VBox layoutY="172.0" prefHeight="730.0" prefWidth="351.0">
+                  <VBox layoutY="172.0" prefHeight="729.0" prefWidth="353.0" styleClass="nav-background">
                      <children>
                         <VBox prefHeight="659.0" prefWidth="343.0">
                            <children>
@@ -80,10 +80,7 @@
                   </VBox>
                   <AnchorPane prefHeight="200.0" prefWidth="270.0">
                      <children>
-                        <Label alignment="TOP_LEFT" layoutX="180.0" layoutY="13.0" prefHeight="155.0" prefWidth="157.0" styleClass="website-name" text="HURRICANE&#10;RELIEF&#10;TRACKER">
-                           <font>
-                              <Font size="28.0" />
-                           </font></Label>
+                        <Label alignment="TOP_LEFT" layoutX="180.0" layoutY="13.0" prefHeight="155.0" prefWidth="157.0" styleClass="website-name" text="HURRICANE&#10;RELIEF&#10;TRACKER" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/hurricane-logo.png" />
