@@ -64,6 +64,19 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
+                                    <Button fx:id="navFindShelters" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#gotofindshelters" prefHeight="94.0" prefWidth="334.0" styleClass="nav-button" text="Find Shelters">
+                                       <graphic>
+                                          <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/FindShelterIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="loggedInNav" prefHeight="75.0" prefWidth="273.0">
+                                 <children>
                                     <Button fx:id="navLogout" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToLogout" prefHeight="94.0" prefWidth="334.0" styleClass="nav-button" text="Logout">
                                        <graphic>
                                           <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
@@ -73,9 +86,7 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="loggedInNav" prefHeight="75.0" prefWidth="273.0" />
+                                 </children></VBox>
                            </children>
                         </VBox>
                         <ImageView fitHeight="118.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
