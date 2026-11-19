@@ -20,13 +20,13 @@ public class ReliefUI {
 	}
 
 	public void run() {
-		
-		createReliefRequestScenario();  // check account_temp.json, reliefrequest_temp.json
-		matchRequestScenario();			
-		findShelterAcceptRequestScenario(); 
-		exportTripScenario();			// txt file
-		rolePermissionScenario();		
-		checkFamilyIntoShelterBranch();	// shelter.json, relief request temp json
+		viewHurricaneScenario();  // check account_temp.json, reliefrequest_temp.json
+		//createReliefRequestScenario();  // check account_temp.json, reliefrequest_temp.json
+		//matchRequestScenario();			
+		//findShelterAcceptRequestScenario(); 
+		//exportTripScenario();			// txt file
+		//rolePermissionScenario();		
+		//checkFamilyIntoShelterBranch();	// shelter.json, relief request temp json
 		
 	}
 
@@ -232,6 +232,14 @@ public class ReliefUI {
 				}
 			application.markComplete(UUID.fromString("18ba33c2-6627-4bba-810f-ac29c40fac42"));
 
+		}
+	}
+
+	public void viewHurricaneScenario() {
+		if (application.login("felixk@email.com", "password")) {
+			System.out.println("Login successful for Felix");
+			Hurricane hurricane = application.viewHurricane();
+			System.out.println("Active Hurricane: " + hurricane.getHurricaneName() + ", Category: " + hurricane.getHurricaneCategory());
 		}
 	}
 

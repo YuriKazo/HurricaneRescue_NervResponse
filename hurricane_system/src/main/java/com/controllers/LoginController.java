@@ -50,7 +50,7 @@ public class LoginController {
 
     @FXML
     private void goToHome() throws IOException {
-
+        App.setRoot("home");
     }
 
     @FXML
@@ -64,11 +64,12 @@ public class LoginController {
 
     @FXML
     private void goToLogin() throws IOException {
-
+        // Button that does nothing
     }
 
     @FXML
     private void goToSignUp() throws IOException {
+        App.setRoot("signup");
     }
 
 }

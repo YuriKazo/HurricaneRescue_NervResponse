@@ -20,7 +20,7 @@ public class HomeController {
 
     @FXML
     private void goToHome() throws IOException {
-
+        // Button that does nothing
     }
 
     @FXML
@@ -34,11 +34,13 @@ public class HomeController {
 
     @FXML
     private void goToLogin() throws IOException {
-
+        App.setRoot("login");
     }
 
     @FXML
     private void goToSignUp() throws IOException {
+        System.out.println("Going to sign up");
+        App.setRoot("signup");
     }
 
     @FXML

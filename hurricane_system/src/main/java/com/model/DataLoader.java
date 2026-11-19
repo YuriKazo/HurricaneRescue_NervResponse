@@ -183,6 +183,34 @@ public class DataLoader extends DataConstants{
         return reliefRequests;
     }
 
+    public static ArrayList<Hurricane> getHurricanes() {
+        ArrayList<Hurricane> hurricanes = new ArrayList<>();
+        try {
+            BufferedReader reader = getReaderFromFile(DataConstants.HURRICANE_FILE_NAME, DataConstants.HURRICANE_FILE_NAME_JUNIT);
+            JSONParser parser = new JSONParser();
+            JSONArray hurricanesArray = (JSONArray) parser.parse(reader);
+            
+            for (int i = 0; i < hurricanesArray.size(); i++) {
+                JSONObject hurricaneJson = (JSONObject) hurricanesArray.get(i);
+                UUID hurricaneID = UUID.fromString((String) hurricaneJson.get(DataConstants.HURRICANE_ID).toString());
+                String name = (String) hurricaneJson.get(DataConstants.HURRICANE_NAME);
+                int category = Integer.parseInt(hurricaneJson.get(DataConstants.HURRICANE_CATEGORY).toString());
+                ActiveLevel level = ActiveLevel.valueOf((String) hurricaneJson.get(DataConstants.HURRICANE_ACTIVE_LEVEL));
+                JSONArray zipCodes = (JSONArray) hurricaneJson.get(DataConstants.HURRICANE_CURRENT_ZIP);
+                ArrayList<String> zipCode = new ArrayList<>();
+                for (Object zip: zipCodes) {
+                    zipCode.add(zip.toString());
+                }
+
+                hurricanes.add(new Hurricane(hurricaneID, name, category, level, zipCode));
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hurricanes;
+    }
+
     private static BufferedReader getReaderFromFile(String fileName, String jsonFileName){
 		try {
 			if(isJUnitTest()){

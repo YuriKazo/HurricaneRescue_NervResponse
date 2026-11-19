@@ -32,4 +32,11 @@
     -fx-background-color: #B8C9CE;
     -fx-text-fill: #FFFFFF;
     -fx-opacity: 1;
+
+
 }
+
+#NavVBox {
+    -fx-background-image: url("com/relief/images/Nav-Background.png");
+}
+
