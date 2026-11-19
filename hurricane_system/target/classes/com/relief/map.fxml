@@ -13,7 +13,7 @@
    <left>
       <VBox prefHeight="901.0" prefWidth="350.0" styleClass="sidebar" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="181.0" prefWidth="261.0" styleClass="sidebar-background">
+            <VBox prefHeight="900.0" prefWidth="353.0" styleClass="nav-background">
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="270.0">
                      <children>
@@ -25,10 +25,6 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
-               </children>
-            </Pane>
-            <VBox prefHeight="729.0" prefWidth="353.0">
-               <children>
                   <Button id="home-button" fx:id="navHome" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Home">
                      <graphic>
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">

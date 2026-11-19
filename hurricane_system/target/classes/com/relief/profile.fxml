@@ -21,7 +21,7 @@
                   <AnchorPane prefHeight="0.0" prefWidth="350.0">
                      <children>
                         <Label alignment="TOP_LEFT" layoutX="180.0" layoutY="13.0" prefHeight="155.0" prefWidth="157.0" styleClass="website-name" text="HURRICANE&#10;RELIEF&#10;TRACKER" />
-                        <ImageView fitHeight="113.0" fitWidth="113.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/hurricane-logo.png" />
                            </image>
