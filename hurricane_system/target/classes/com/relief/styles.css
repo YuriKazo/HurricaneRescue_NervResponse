@@ -61,3 +61,174 @@
     -fx-font-style: italic;
 }
 
+.label {
+    -fx-text-fill: white;
+}
+
+.capabilities-button {
+    -fx-background-color: #0F2340;
+    -fx-background-radius: 30px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 6px 14px;
+}
+
+.capabilities-button:hover {
+    -fx-background-color: #1B3A66;
+}
+
+/* Sidebar */
+.sidebar,
+.sidebar-background {
+    -fx-background-color: #0B2243;
+}
+
+/* See-through white panel */
+.form-background {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-radius: 20px;
+}
+
+/* Nav buttons */
+.sidebar .nav-button,
+.sidebar .nav-button:hover,
+.sidebar .nav-button:pressed,
+.sidebar .nav-button:disabled {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-text-fill: white;
+    -fx-effect: none;
+}
+
+.sidebar .nav-button {
+    -fx-font-size: 26px;
+    -fx-wrap-text: true;
+}
+
+/* Highlighted nav button */
+.sidebar .nav-button-active,
+.sidebar .nav-button-active:hover,
+.sidebar .nav-button-active:pressed {
+    -fx-background-color: #3F78B8;
+}
+
+/* Navy pill buttons */
+.button {
+    -fx-background-color: #1E3350;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+}
+
+.button:hover {
+    -fx-background-color: #2A4670;
+}
+
+.button:pressed {
+    -fx-background-color: #15263F;
+}
+
+/* Close button */
+.button.request-button-close {
+    -fx-background-color: #3A5675;
+}
+
+/* Add/Remove Capabilities button */
+.button.capabilities-button {
+    -fx-background-color: #0F2340;
+}
+
+.button.capabilities-button:hover {
+    -fx-background-color: #1B3A66;
+}
+
+/* Login / Sign Up toggle backdrop */
+.form-background > .hbox {
+    -fx-background-color: #1F3A63;
+    -fx-background-radius: 30px;
+    -fx-pref-height: 42px;
+    -fx-min-height: 42px;
+}
+
+/* Login / Sign Up toggle buttons */
+.auth-toggle {
+    -fx-background-color: #1F3A63;
+    -fx-background-radius: 30px;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+    -fx-pref-height: 42px;
+    -fx-min-height: 42px;
+    -fx-cursor: hand;
+}
+
+/* Selected toggle */
+.auth-toggle:selected {
+    -fx-background-color: #3F78B8;
+}
+
+/* Text fields */
+.text-field,
+.text-field:focused {
+    -fx-background-color: white;
+    -fx-background-radius: 30px;
+    -fx-background-insets: 0;
+    -fx-border-color: #3B7F99;
+    -fx-border-width: 3px;
+    -fx-border-radius: 30px;
+    -fx-text-fill: #1E3350;
+    -fx-prompt-text-fill: #8A929C;
+    -fx-font-size: 13px;
+    -fx-padding: 0 18px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.text-field:focused {
+    -fx-border-color: #4FA3C0;
+}
+
+.anchor-pane > .text-field {
+    -fx-pref-height: 42px;
+    -fx-min-height: 42px;
+}
+
+/* Field labels */
+.field-label,
+.anchor-pane > .label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Logo text in the panel */
+.anchor-pane > .website-name {
+    -fx-font-size: 32px;
+    -fx-font-style: italic;
+}
+
+/* "Active Hurricane" title box */
+.form-background > .vbox > .label {
+    -fx-background-color: #24416E;
+    -fx-background-radius: 20px;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 351px;
+    -fx-pref-height: 75px;
+}
+
+/* Hurricane info box */
+.hurricane-info-background {
+    -fx-background-color: rgba(31, 58, 99, 0.92);
+    -fx-background-radius: 25px;
+    -fx-padding: 30px 55px;
+}
+
+.hurricane-info-background .label {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+}
