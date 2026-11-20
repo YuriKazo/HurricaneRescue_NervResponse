@@ -21,6 +21,8 @@
 .nav-background .nav-button:disabled {
     -fx-background-color: transparent;
     -fx-text-fill: white;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
 }
 
 /* Hover Effect */
