@@ -10,9 +10,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="900.0" prefWidth="1600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginController" styleClass="main-background">
+<BorderPane prefHeight="900.0" prefWidth="1600.0" styleClass="main-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginController">
    <left>
       <VBox prefHeight="685.0" prefWidth="350.0" styleClass="sidebar" BorderPane.alignment="CENTER">
          <children>
@@ -69,6 +70,16 @@
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/sign-up-logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Region prefHeight="314.0" prefWidth="350.0" />
+                  <Button id="nav-sign-up-button" fx:id="navSignUp1" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToSignUp" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button">
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/profile-icon.png" />
                            </image>
                         </ImageView>
                      </graphic>

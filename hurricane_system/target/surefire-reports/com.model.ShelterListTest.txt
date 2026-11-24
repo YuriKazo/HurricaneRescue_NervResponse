@@ -1,0 +1,99 @@
+-------------------------------------------------------------------------------
+Test set: com.model.ShelterListTest
+-------------------------------------------------------------------------------
+Tests run: 30, Failures: 8, Errors: 1, Skipped: 0, Time elapsed: 0.044 s <<< FAILURE! -- in com.model.ShelterListTest
+com.model.ShelterListTest.testAddShelterEmptyStreet -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<bec67a2e-ce16-4498-97ae-7d9aaa906960>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotNull(Assert.java:756)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:738)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:748)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ShelterListTest.testAddShelterEmptyStreet(ShelterListTest.java:199)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ShelterListTest.testAddShelterNullZip -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<aca1e363-d2d9-4e18-a431-6e595b028248>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotNull(Assert.java:756)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:738)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:748)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ShelterListTest.testAddShelterNullZip(ShelterListTest.java:194)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ShelterListTest.testAddShelterOutOfBoundsLongitude -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<7beba512-181a-436b-9775-b18595b182d2>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotNull(Assert.java:756)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:738)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:748)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ShelterListTest.testAddShelterOutOfBoundsLongitude(ShelterListTest.java:184)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ShelterListTest.testAddShelterOutOfBoundsLatitude -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<0c270bb7-dfa5-40c7-99b9-2c2bee6c3f9a>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotNull(Assert.java:756)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:738)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:748)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ShelterListTest.testAddShelterOutOfBoundsLatitude(ShelterListTest.java:179)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ShelterListTest.testGetNearestShelterDifferentLocations -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.model.Shelter.getID()" because "result" is null
+	at com.relief@0.0.1-SNAPSHOT/com.model.ShelterListTest.testGetNearestShelterDifferentLocations(ShelterListTest.java:366)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ShelterListTest.testGetSuitableSheltersNullCapabilities -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<[]>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotNull(Assert.java:756)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:738)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:748)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ShelterListTest.testGetSuitableSheltersNullCapabilities(ShelterListTest.java:341)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ShelterListTest.testAddShelterEmptyZip -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<ba2b34e9-76bc-4978-aa75-695342215bba>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotNull(Assert.java:756)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:738)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:748)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ShelterListTest.testAddShelterEmptyZip(ShelterListTest.java:189)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ShelterListTest.testGetSuitableSheltersNegativeVictimCount -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<[com.model.Shelter@48f5bde6, com.model.Shelter@525d79f0, com.model.Shelter@5149f008]>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotNull(Assert.java:756)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:738)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:748)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ShelterListTest.testGetSuitableSheltersNegativeVictimCount(ShelterListTest.java:321)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ShelterListTest.testAddShelterNullStreet -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<316fc8c3-a563-4762-8e8d-6be82a666157>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotNull(Assert.java:756)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:738)
+	at junit@4.13.2/org.junit.Assert.assertNull(Assert.java:748)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ShelterListTest.testAddShelterNullStreet(ShelterListTest.java:204)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

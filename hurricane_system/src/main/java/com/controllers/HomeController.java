@@ -25,11 +25,12 @@ public class HomeController {
 
     @FXML
     private void goToMap() throws IOException {
+        App.setRoot("map");
     }
 
     @FXML
     private void goToCreateReliefRequest() throws IOException {
-        
+        App.setRoot("create_requests");
     }
 
     @FXML
@@ -45,6 +46,5 @@ public class HomeController {
 
     @FXML
     private void logOut() throws IOException {
-        
     }
 }

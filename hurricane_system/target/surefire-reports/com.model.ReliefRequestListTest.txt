@@ -1,0 +1,101 @@
+-------------------------------------------------------------------------------
+Test set: com.model.ReliefRequestListTest
+-------------------------------------------------------------------------------
+Tests run: 24, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.397 s <<< FAILURE! -- in com.model.ReliefRequestListTest
+com.model.ReliefRequestListTest.testMatchRequestsNoVolunteerAbilitiesNearestFirst -- Time elapsed: 0.033 s <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[ne]ar request> but was:<[f]ar request>
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:117)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:146)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefRequestListTest.testMatchRequestsNoVolunteerAbilitiesNearestFirst(ReliefRequestListTest.java:260)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ReliefRequestListTest.testAddReliefRequestNullAbilitiesList -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<1>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefRequestListTest.testAddReliefRequestNullAbilitiesList(ReliefRequestListTest.java:190)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ReliefRequestListTest.testGetUserSingleRequest -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<0>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefRequestListTest.testGetUserSingleRequest(ReliefRequestListTest.java:127)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ReliefRequestListTest.testAddReliefRequestNullDescription -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<1>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefRequestListTest.testAddReliefRequestNullDescription(ReliefRequestListTest.java:162)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ReliefRequestListTest.testGetUserTwoRequests -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: expected:<2> but was:<0>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefRequestListTest.testGetUserTwoRequests(ReliefRequestListTest.java:134)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ReliefRequestListTest.testAddReliefRequestNegativeVictimCount -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<1>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefRequestListTest.testAddReliefRequestNegativeVictimCount(ReliefRequestListTest.java:176)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ReliefRequestListTest.testAddReliefRequestEmptyDescription -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<1>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefRequestListTest.testAddReliefRequestEmptyDescription(ReliefRequestListTest.java:148)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ReliefRequestListTest.testAddReliefRequestNullLocation -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<1>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefRequestListTest.testAddReliefRequestNullLocation(ReliefRequestListTest.java:169)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+com.model.ReliefRequestListTest.testAddReliefRequestNullRequestor -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<1>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefRequestListTest.testAddReliefRequestNullRequestor(ReliefRequestListTest.java:183)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+

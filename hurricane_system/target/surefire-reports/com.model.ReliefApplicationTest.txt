@@ -1,0 +1,98 @@
+-------------------------------------------------------------------------------
+Test set: com.model.ReliefApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 50, Failures: 11, Errors: 1, Skipped: 0, Time elapsed: 0.073 s <<< FAILURE! -- in com.model.ReliefApplicationTest
+com.model.ReliefApplicationTest.testGetContactNullAccount -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.model.Account.getEmail()" because "account" is null
+	at com.relief@0.0.1-SNAPSHOT/com.model.Volunteer.getContact(Volunteer.java:89)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplication.getContact(ReliefApplication.java:346)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testGetContactNullAccount(ReliefApplicationTest.java:580)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testViewNearestSuitableShelterLoggedOut -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: Searching for a shelter while logged out should not throw: java.lang.NullPointerException: Cannot invoke "com.model.Account.getCurrentLocation()" because "this.currentAccount" is null
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testViewNearestSuitableShelterLoggedOut(ReliefApplicationTest.java:460)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testMarkCompleteByIdShelterManager -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError: expected:<COMPLETED> but was:<ACCEPTED>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:120)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:146)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testMarkCompleteByIdShelterManager(ReliefApplicationTest.java:386)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testUpdateTotalOccupancyBelowCurrentOccupancy -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: expected:<100> but was:<20>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testUpdateTotalOccupancyBelowCurrentOccupancy(ReliefApplicationTest.java:642)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testViewRequestsLoggedOut -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: Viewing requests while logged out should not throw: java.lang.NullPointerException: Cannot invoke "com.model.Account.getAccountType()" because "this.currentAccount" is null
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testViewRequestsLoggedOut(ReliefApplicationTest.java:481)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testUpdateLocationLoggedOut -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError: Updating the location while logged out should not throw: java.lang.NullPointerException: Cannot invoke "com.model.Account.setLocation(com.model.Location)" because "this.currentAccount" is null
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testUpdateLocationLoggedOut(ReliefApplicationTest.java:317)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testAcceptRequestCompletedRequest -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: expected:<COMPLETED> but was:<ACCEPTED>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:120)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:146)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testAcceptRequestCompletedRequest(ReliefApplicationTest.java:676)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testGetNearestRequestVolunteer -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError: expected same:<com.model.ReliefRequest@2a2bb0eb> was not:<null>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotSame(Assert.java:829)
+	at junit@4.13.2/org.junit.Assert.assertSame(Assert.java:772)
+	at junit@4.13.2/org.junit.Assert.assertSame(Assert.java:783)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testGetNearestRequestVolunteer(ReliefApplicationTest.java:564)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testViewUserReliefRequestOwnRequests -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError: expected:<2> but was:<0>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testViewUserReliefRequestOwnRequests(ReliefApplicationTest.java:494)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testUpdateOccupancyAboveCapacity -- Time elapsed: 0.003 s <<< FAILURE!
+java.lang.AssertionError: expected:<10> but was:<150>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testUpdateOccupancyAboveCapacity(ReliefApplicationTest.java:620)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testMarkCompleteByIdUnknownRequest -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError: Completing an unknown request should not throw: java.lang.NullPointerException: Cannot invoke "com.model.ReliefRequest.changeRequestStatus(com.model.Status)" because the return value of "com.model.ReliefRequestList.getReliefRequest(java.util.UUID)" is null
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testMarkCompleteByIdUnknownRequest(ReliefApplicationTest.java:396)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
+com.model.ReliefApplicationTest.testMakeRequestZeroVictims -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<1>
+	at junit@4.13.2/org.junit.Assert.fail(Assert.java:89)
+	at junit@4.13.2/org.junit.Assert.failNotEquals(Assert.java:835)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:647)
+	at junit@4.13.2/org.junit.Assert.assertEquals(Assert.java:633)
+	at com.relief@0.0.1-SNAPSHOT/com.model.ReliefApplicationTest.testMakeRequestZeroVictims(ReliefApplicationTest.java:279)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+

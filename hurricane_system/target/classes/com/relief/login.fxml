@@ -50,7 +50,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="create-request-button" fx:id="navCreateRequest" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToCreateReliefRequest" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Create Relief Request">
+                  <Button id="create-request-button" fx:id="navCreateRequest" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToCreateReliefRequest" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Create RR">
                      <graphic>
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -59,7 +59,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button id="nav-login-button" fx:id="navLogin" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Login">
+                  <Button id="current-button" fx:id="navLogin" alignment="BASELINE_LEFT" graphicTextGap="50.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="72.0" prefWidth="334.0" styleClass="nav-button" text="Login" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                            <image>

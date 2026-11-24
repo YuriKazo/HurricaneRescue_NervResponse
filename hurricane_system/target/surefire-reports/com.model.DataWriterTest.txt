@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.model.DataWriterTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.048 s <<< FAILURE! -- in com.model.DataWriterTest
+com.model.DataWriterTest.testSaveNullField -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.UUID.toString()" because the return value of "com.model.ReliefRequest.getRequestorID()" is null
+	at com.relief@0.0.1-SNAPSHOT/com.model.DataWriter.getRequestJSON(DataWriter.java:232)
+	at com.relief@0.0.1-SNAPSHOT/com.model.DataWriter.saveReliefRequests(DataWriter.java:211)
+	at com.relief@0.0.1-SNAPSHOT/com.model.DataWriterTest.testSaveNullField(DataWriterTest.java:91)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+
